@@ -131,7 +131,7 @@
             }
         ];
 
-        d3.csv("UK_RH_new.csv", function (error, csv) {  // XXX
+        d3.csv("series/Earnings Dispersion - Gross individual earnings.csv", function (error, csv) {  // XXX
             if (error) return console.log("there was an error loading the csv: " + error);
             console.log("there are " + csv.length + " elements in my csv set");
 
@@ -188,11 +188,107 @@
             // end read csv
         });
 
-
-        // –––––––––––––––––––––––––––––––––––––––––––––– //
-        // X - Axis
+        //    End of Chart RH – Chart1 */
         // –––––––––––––––––––––––––––––––––––––––––––––– //
 
+        // –––––––––––––––––––––––––––––––––––––––––––––– //
+        //	Bottom Chart – Chart LH
+        // –––––––––––––––––––––––––––––––––––––––––––––– //
+
+        var LH_series = [
+            {
+                key: "Gini coefficient - Equivalised disposable household income", // XXX
+                values: [],
+                color: overallinequalitycolor
+
+            },
+            {
+                key: "Gini coefficient - Income (tax units)",
+                values: [],
+                color: overallinequalitycolor
+            },
+            {
+                key: "Share below 60% median",
+                values: [],
+                color: overallinequalitycolor
+            },
+            {
+                key: "Share of top 1%",
+                values: [],
+                color: overallinequalitycolor
+            },
+        ];
+
+
+        var LH_tickMarks = [10, 20, 30, 40, 50, 60, 70] // XXX     10,20,30,40,50,60,70,80,90,100
+
+
+        d3.csv("series/UK_LH.csv", function (error, csv) { // XXX
+            if (error) return console.log("there was an error loading the csv: " + error);
+            console.log("there are " + csv.length + " elements in my csv set");
+
+            var columndata = ["Gini coefficient - Equivalised disposable household income", "Gini coefficient - Income (tax units)", "Share below 60% median", "Share of top 1%"]; // XXX
+
+
+            for (var i = 0; i < columndata.length; i++) {
+                LH_series[i].key = columndata[i];
+                LH_series[i].values = csv.map(function (d) {
+                    return [+d["year"] - 1969.5, parseFloat(d[columndata[i]])];
+                }).filter(function (d) {
+                    return d[1] || (d[1] === 0);
+                });
+            };
+
+
+            var colors = d3.scale.category20();
+
+            keyColor = function (d, i) { return colors(d.key) };
+
+            var chart;
+
+            nv.addGraph(function () {
+                chart = nv.models.lineChart()
+                    .x(function (d) { return d[0] * 31556900000 })
+                    .y(function (d) { return d[1] })
+                    .color(keyColor)
+                    .tooltipContent(function (key, x, y, e, graph) {
+                        return '<h3>' + key + '</h3>' +
+                            '<p>' + y + '% in ' + x + '</p>'
+                    })
+                    .showLegend(false)
+                    .showXAxis(false)
+
+                    .margin({ top: 25, right: 250, bottom: -5, left: 38 });
+
+
+                chart.xAxis
+                    .tickFormat(function (d) { return d3.time.format('%Y')(new Date(d)) });
+
+                chart.xDomain([((1900 - 1969.5) * 31556900000), ((2020 - 1969.5) * 31556900000)]);
+
+
+                chart.yAxis.tickValues(LH_tickMarks);
+
+                chart.yDomain([-1, 75]);  //XXX
+
+                d3.select('#chart2')
+                    .datum(LH_series)
+                    .transition().call(chart);
+
+
+                nv.utils.windowResize(chart.update);
+
+                chart.dispatch.on('stateChange', function (e) { nv.log('New State:', JSON.stringify(e)); });
+
+                return chart;
+
+            });
+
+
+            // end read csv
+            // –––––––––––––––––––––––––––––––––––––––––––––– //
+
+        });
 
 
         var xAchse = d3.select('#chartXaxis');
@@ -551,16 +647,6 @@
             .attr("shape-rendering", "geometricPrecision")
             .style("stroke-width", 1)
             .style("stroke", "black");
-
-        // Earnings Series
-
-        d3.select('#chart1')
-            .append("text")
-            .attr("class", "linelabel")
-            .style("fill", earningscolor)
-            .text("Earnings at top decile as % median ★") // XXX
-            .attr("x", 760)
-            .attr("y", 105);
 
     </script>
 
