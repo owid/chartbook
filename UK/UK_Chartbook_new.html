@@ -118,25 +118,25 @@
 
 
         // –––––––––––––––––––––––––––––––––––––––––––––– //
-        //	Top Chart – (RH Chart)
+        //	Top Chart – Earnings Dispersion
         // –––––––––––––––––––––––––––––––––––––––––––––– //
 
+        var series = "Earnings Dispersion - Gross individual earnings.csv" // make modular
 
-        var RH_series = [
-            {
-                key: "Top decile as % median",	// XXX
-                values: [],
-                color: earningscolor
+        d3.csv("series/" + series, function (error, csv) {  // XXX
+            if (error) return console.log("there was an error loading the earnings dispersion csv: " + error);
+            console.log("there are " + csv.length + " elements in my earnings dispersion dataset");
 
-            }
-        ];
+            var columndata = [Object.keys(csv[0])[1]];  // Returns the column header i.e. the measure
 
-        d3.csv("series/UK_RH.csv", function (error, csv) {  // XXX
-            if (error) return console.log("there was an error loading the csv: " + error);
-            console.log("there are " + csv.length + " elements in my csv set");
+            var RH_series = [
+                {
+                    key: columndata,	// XXX
+                    values: [],
+                    color: earningscolor
 
-
-            var columndata = ["Top decile as % median"];  // XXX
+                }
+            ];
 
             for (var i = 0; i < columndata.length; i++) {
                 RH_series[i].key = columndata[i];
@@ -188,11 +188,11 @@
             // end read csv
         });
 
-        //    End of Chart RH – Chart1 */
+        //    End of Top Chart – Chart1 */
         // –––––––––––––––––––––––––––––––––––––––––––––– //
 
         // –––––––––––––––––––––––––––––––––––––––––––––– //
-        //	Bottom Chart – Chart LH
+        //	Bottom Chart 
         // –––––––––––––––––––––––––––––––––––––––––––––– //
 
         var LH_series = [
@@ -663,13 +663,18 @@
 
         // Earnings Series
 
-        d3.select('#chart1')
-            .append("text")
-            .attr("class", "linelabel")
-            .style("fill", earningscolor)
-            .text("Top decile as % median - Gross individual earnings") // XXX
-            .attr("x", 760)
-            .attr("y", 105);
+        d3.csv("series/All_data.csv", function (data) {
+            d3.select('#chart1')
+                .append("text")
+                .attr("class", "linelabel")
+                .style("fill", earningscolor)
+                .text(data.find(object => {
+                    return (object["dimension"] === "Earnings Dispersion" && object["description"] != "")
+                })["legend"]) // XXX
+                .attr("x", 760)
+                .attr("y", 105);
+        })
+
 
         /* --------------- */
         //LH – Bottom Chart
