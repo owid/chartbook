@@ -121,9 +121,7 @@
         //	Top Chart – Earnings Dispersion
         // –––––––––––––––––––––––––––––––––––––––––––––– //
 
-        var series = "Earnings Dispersion - Gross individual earnings.csv" // make modular
-
-        d3.csv("series/" + series, function (error, csv) {  // XXX
+        d3.csv("series/Earnings Dispersion.csv", function (error, csv) {  // XXX
             if (error) return console.log("there was an error loading the earnings dispersion csv: " + error);
             console.log("there are " + csv.length + " elements in my earnings dispersion dataset");
 
