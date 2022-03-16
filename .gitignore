@@ -1,3 +1,11 @@
 venv/
 .DS_Store
+.Rproj.user
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*/.DS_Store
+raw_data.csv
 UK/token.json
+*/token.json
