@@ -23,10 +23,8 @@ list_1 <- lapply(COUNTRIES, function(COUNTRY){ #{COUNTRY="Australia"}
     #     country_df %>% filter(dimension %in% DIMENSION)
     # })
     country_dimension_lod <- country_df %>% split(., .[["dimension"]]) %>%
-        lapply(., function(df){ #{df=country_df %>% split(., .[["dimension"]]) %>% .[[1]]; DIMENSION="Earnings Dispersion"}
+        lapply(., function(df){ 
             if(any(df$dimension=="Earnings Dispersion")){
-                # country_df %>% select(one_of("dimension", "welfare_concept")) %>% unite(., one_of("dimension", "welfare_concept"), sep=" - ", na.rm=T,remove=T)
-                
                 newvaluecolname <- df %>% unite(., "newcol", one_of("dimension", "welfare_concept"), sep=" - ", na.rm=T, remove = T) %>% select(newcol) %>% distinct() %>% .[[1]] %>% .[[1]]
                 df <- df %>%
                     select(one_of("year", "value")) %>%
