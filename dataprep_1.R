@@ -17,8 +17,7 @@ list_1 <- lapply(COUNTRIES, function(COUNTRY){ #{COUNTRY="US"}
     dir.create(COUNTRY)
     file.copy("raw_df.csv", paste0(COUNTRY, "/", "raw_df.csv"), overwrite=T)
     country_df <- raw_df %>% 
-        filter(country %in% c(COUNTRY)) %>% 
-        filter(!is.na(description), description!="")
+        filter(country %in% c(COUNTRY)) #%>% filter(!is.na(description), description!="")
     DIMENSIONS <- sort(unique(country_df$dimension))
     # lapply(DIMENSIONS, function(DIMENSION){
     #     country_df %>% filter(dimension %in% DIMENSION)
@@ -26,7 +25,8 @@ list_1 <- lapply(COUNTRIES, function(COUNTRY){ #{COUNTRY="US"}
     country_dimension_lod <- country_df %>% split(., .[["dimension"]]) %>%
         lapply(., function(df){ #{df=country_df %>% split(., .[["dimension"]]) %>% .[[1]]; DIMENSION="Earnings Dispersion"}
             if(any(df$dimension=="Earnings Dispersion")){
-                df %<>% #filter(measure=="Top decile as % median") %>%
+                df %<>% 
+                    filter(!is.na(description), description!="") %>% #filter(measure=="Top decile as % median") %>%
                     select(one_of("year", "value"))
                 readr::write_csv(df, paste0(COUNTRY, "/top_chart.csv"))
             }
@@ -81,19 +81,28 @@ list_1 <- lapply(COUNTRIES, function(COUNTRY){ #{COUNTRY="US"}
         file.copy(format_files_to_copy, paste0(COUNTRY, "/", format_files_to_copy))
         newfilelines <- readLines(newfile)
         
-        country_linenums <- newfilelines %>% grep("UK|United Kingdom", .)
+        PATTERN="UK|United Kingdom"
+        country_linenums <- newfilelines %>% grep(PATTERN, .)
         for(i in country_linenums){
             # linetoeditcon <- readLines(newfile, -1)
-            newfilelines[i] <- gsub("UK|United Kingdom", COUNTRY, newfilelines[i])
+            newfilelines[i] <- gsub(PATTERN, COUNTRY, newfilelines[i])
             # writeLines(newfilelines,newfile)
         }
+        PATTERN="Earnings Dispersion"
+        for(i in grep(PATTERN, newfilelines)){
+            newfilelines[i] <- gsub(PATTERN, "top_chart", newfilelines[i])
+        }
+        PATTERN="series\\/"
+        for(i in grep(PATTERN, newfilelines)){
+            newfilelines[i] <- gsub(PATTERN, "", newfilelines[i])
+            # newfilelines[i] <- gsub(PATTERN, paste0(COUNTRY, "/"), newfilelines[i])
+        }
+        PATTERN="All_data"
+        for(i in grep(PATTERN, newfilelines)){
+            newfilelines[i] <- gsub(PATTERN, "raw_df", newfilelines[i])
+        }
         
-        for(i in grep("Earnings Dispersion", newfilelines)){
-            newfilelines[i] <- gsub("Earnings Dispersion", "top_chart", newfilelines[i])
-        }
-        for(i in grep("series\\/", newfilelines)){
-            newfilelines[i] <- gsub("series\\/", "", newfilelines[i])
-        }
+        # for(PATTERN in c("UK|United Kingdom", "Earnings Dispersion", "series\\/", "All_data")){}
         
         writeLines(newfilelines,newfile)
         

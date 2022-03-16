@@ -52,6 +52,11 @@ Running the dataprep code
 RScript dataprep_1.R
 ```
 
+Render HTML file in browser local port:
+```sh
+python -m http.server
+## or a specific directory:
+python -m http.server -d US
 
-
+```
 
