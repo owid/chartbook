@@ -193,36 +193,6 @@
         //	Bottom Chart 
         // –––––––––––––––––––––––––––––––––––––––––––––– //
 
-        var LH_series = [
-            {
-                key: "Gini coefficient - Equivalised disposable household income", // XXX
-                values: [],
-                color: overallinequalitycolor
-
-            },
-            {
-                key: "Gini coefficient - Income (tax units)",
-                values: [],
-                color: overallinequalitycolor
-            },
-            {
-                key: "Share below 60% median",
-                values: [],
-                color: povertycolor
-            },
-            {
-                key: "Wealth Inequality",
-                values: [],
-                color: wealthcolor
-            },
-            {
-                key: "Top Income Shares",
-                values: [],
-                color: topincomecolor
-            },
-        ];
-
-
         var LH_tickMarks = [10, 20, 30, 40, 50, 60, 70] // XXX     10,20,30,40,50,60,70,80,90,100
 
 
@@ -230,12 +200,25 @@
             if (error) return console.log("there was an error loading the csv: " + error);
             console.log("there are " + csv.length + " elements in my csv set");
 
-            var columndata = Object.keys(csv[0]); // XXX
 
-            for (var i = 0; i < columndata.length; i++) {
-                LH_series[i].key = columndata[i];
-                LH_series[i].values = csv.map(function (d) {
-                    return [+d["year"] - 1969.5, parseFloat(d[columndata[i]])];
+            var column_names = Object.keys(csv[0]); // XXX
+
+            var series = [];
+            for (var i = 0; i < column_names.length; i++) {
+                var column_name = column_names[i];
+                series[i] = {
+                    'key': column_name,
+                    'values': [],
+                    color: topincomecolor
+                };
+            }
+
+            console.log(series)
+
+            for (var i = 0; i < column_names.length; i++) {
+                series[i].key = column_names[i];
+                series[i].values = csv.map(function (d) {
+                    return [+d["year"] - 1969.5, parseFloat(d[column_names[i]])];
                 }).filter(function (d) {
                     return d[1] || (d[1] === 0);
                 });
