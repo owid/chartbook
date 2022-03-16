@@ -226,12 +226,11 @@
         var LH_tickMarks = [10, 20, 30, 40, 50, 60, 70] // XXX     10,20,30,40,50,60,70,80,90,100
 
 
-        d3.csv("series/UK_LH.csv", function (error, csv) { // XXX
+        d3.csv("bottom_chart.csv", function (error, csv) { // XXX
             if (error) return console.log("there was an error loading the csv: " + error);
             console.log("there are " + csv.length + " elements in my csv set");
 
-            var columndata = ["Gini coefficient - Equivalised disposable household income", "Gini coefficient - Income (tax units)", "Share below 60% median", "Wealth Inequality", "Top Income Shares"]; // XXX
-
+            var columndata = Object.keys(csv[0]); // XXX
 
             for (var i = 0; i < columndata.length; i++) {
                 LH_series[i].key = columndata[i];
@@ -409,7 +408,7 @@
         //Include Title
         AddToChart1
             .append("text")
-            .text("Economic Inequality in the United Kingdom")  // XXX
+            .text("Economic Inequality in change_country")  // XXX
             .attr("x", 500)
             .attr("y", 28)
             .style("fill", "black")  // Farbe geben
@@ -661,13 +660,13 @@
 
         // Earnings Series
 
-        d3.csv("series/All_data.csv", function (data) {
+        d3.csv("../raw_df.csv", function (data) {
             d3.select('#chart1')
                 .append("text")
                 .attr("class", "linelabel")
                 .style("fill", earningscolor)
                 .text(data.find(object => {
-                    return (object["dimension"] === "Earnings Dispersion" && object["description"] != "")
+                    return (object["country"] === "change_country" && object["dimension"] === "Earnings Dispersion" && object["description"] != "")
                 })["legend"]) // XXX
                 .attr("x", 760)
                 .attr("y", 105);
