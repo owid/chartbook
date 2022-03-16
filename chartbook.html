@@ -110,11 +110,14 @@
 
     <script>
 
-        var earningscolor = '#104E8B'; // blue
-        var overallinequalitycolor = '#008000'; // green
-        var povertycolor = '#e31a1c'; // red
-        var wealthcolor = '#FF9912'; // gold
-        var topincomecolor = '#6a3d9a'; // purple
+
+        var color_ref = {
+            'E': '#104E8B', // blue
+            'O': '#008000', // green
+            'P': '#e31a1c', // red
+            'W': '#FF9912', // gold
+            'T': '#6a3d9a', // purple
+        }
 
 
         // –––––––––––––––––––––––––––––––––––––––––––––– //
@@ -131,7 +134,7 @@
                 {
                     key: columndata,	// XXX
                     values: [],
-                    color: earningscolor
+                    color: color_ref['E']
 
                 }
             ];
@@ -209,7 +212,7 @@
                 series[i] = {
                     'key': column_name,
                     'values': [],
-                    color: topincomecolor
+                    color: color_ref[column_name.charAt(0)]
                 };
             }
 
