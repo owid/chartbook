@@ -7,5 +7,5 @@ venv/
 .Ruserdata
 */.DS_Store
 raw_data.csv
-UK/token.json
-*/token.json
+token.json
+credentials.json

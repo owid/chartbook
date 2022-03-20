@@ -3,9 +3,11 @@ PKG="tidyverse"; if(!PKG %in% installed.packages()){install.packages(PKG)}; do.c
 PKG="magrittr"; if(!PKG %in% installed.packages()){install.packages(PKG)}; do.call(library, list(PKG))
 PKG="janitor"; if(!PKG %in% installed.packages()){install.packages(PKG)}; do.call(library, list(PKG))
 
-try({if(!dir.exists("venv")){system("virtualenv venv")}})
-try({system("source venv/bin/activate && pip install -r requirements.txt")})
-system("python get_googlesheets_data.py")
+
+#### Script to pull data directly from gsheet 
+# try({if(!dir.exists("venv")){system("virtualenv venv")}})
+# try({system("source venv/bin/activate && pip install -r requirements.txt")})
+# system("python get_googlesheets_data.py")
 
 raw_df <- readr::read_csv("raw_df.csv") %>% janitor::clean_names()
 COUNTRIES <- sort(unique(raw_df$country))
@@ -45,43 +47,7 @@ list_1 <- lapply(COUNTRIES, function(COUNTRY){ #{COUNTRY="Australia"}
         df <- plyr::join_all(LH_lod)
         readr::write_csv(df, paste0(COUNTRY, "/", "bottom_chart.csv"))
         
-    # country_df %>% 
-    #     filter(legend %in% c("Gini coefficient - Equivalised disposable household income", "Gini coefficient - Income (tax units)", "Share below 60% median", "Wealth Inequality", "Top Income Shares"))
-    
-    # {readr::read_csv("/Users/rhoadss/srhoads/cam/chartbook/UK/series/UK_LH.csv") %>% slice(-(1:110)) %>% datapasta::df_paste()}
-    # if(TEMP<-T){
-    #     LH_temp_df <- tibble(
-    #     year = c(2010,2011,
-    #              2012,2013,2014,
-    #              2015,2016,2017,
-    #              2018,2019,2020,2021),
-    #     `Gini coefficient - Equivalised disposable household income` = c(33.71587,
-    #                                                                      34.00962,33.63875,
-    #                                                                      34.25986,33.94323,
-    #                                                                      34.68564,33.65,
-    #                                                                      34.20763,35.04541,
-    #                                                                      35.17274,NA,NA),
-    #     `Gini coefficient - Income (tax units)` = c(NA,NA,NA,
-    #                                                 NA,NA,NA,NA,NA,
-    #                                                 NA,NA,NA,NA),
-    #     `Share below 60% median` = c(15.92449047,15.75767364,
-    #                                  15.43336331,15.2656601,
-    #                                  15.9083579,
-    #                                  16.31999248,16.22156218,
-    #                                  17.16024766,NA,NA,
-    #                                  NA,NA),
-    #     `Wealth Inequality` = c(NA,NA,
-    #                             19.88,NA,NA,NA,NA,
-    #                             NA,NA,NA,NA,NA),
-    #     `Top Income Shares` = c(12.15,
-    #                             13.02,12.63,13.69,
-    #                             13.23,12.25,12.41,
-    #                             13.3,12.96,12.6,
-    #                             12.65,12.65)
-    # )
-    #     
-    #     readr::write_csv(LH_temp_df, paste0(COUNTRY, "/", COUNTRY, "_LH.csv"))
-    #     }
+
      if(modify_html<-T){
         mainfile <- "chartbook.html"
         newfile <- paste0(COUNTRY, "/", mainfile)
