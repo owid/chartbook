@@ -1,1 +1,10 @@
-country,year,value,series_code,dimension,measure,welfare_concept,short_reference,long_reference,reference_url,preferred_definition,description,source_codes_used,legend,Poverty - Per capita income,Top Income Shares - Pre-tax national income (equal-split adults),Wealth Inequality - Individual net wealth
+year,Overall Income Inequality - Per capita income,Poverty - Per capita income,Top Income Shares - Pre-tax national income (equal-split adults),Wealth Inequality - Individual net wealth
+1975,67,46.44554974,12.14,NA
+1991,67,NA,10.79,NA
+1993,67,40.6,10.56,48.62
+2000,67,41.3,15.44,49.51
+2005,72,NA,18.34,51.41
+2006,72,66.6,19.34,52.28
+2009,70,62.1,18.58,53.16
+2011,69,53.2,18.65,58.39
+2015,67,55.5,19.31,55.8
