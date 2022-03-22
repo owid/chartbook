@@ -14,7 +14,7 @@ COUNTRIES <- sort(unique(raw_df$country))
 
 # lod_1 <- list()
 # for(COUNTRY in COUNTRIES){
-list_1 <- lapply(COUNTRIES, function(COUNTRY){ #{COUNTRY="Australia"}
+list_1 <- lapply(COUNTRIES, function(COUNTRY){ #{COUNTRY="Argentina"}
     cat(paste0("\nProcessing data for", " ", COUNTRY))
     dir.create(COUNTRY)
     file.copy("raw_df.csv", paste0(COUNTRY, "/", "raw_df.csv"), overwrite=T)
@@ -44,64 +44,62 @@ list_1 <- lapply(COUNTRIES, function(COUNTRY){ #{COUNTRY="Australia"}
                 setNames(recode(names(.), "value"=newvaluecolname))},
             error=function(e){d})
         })
-        df <- plyr::join_all(LH_lod)
+        df <- plyr::join_all(LH_lod, type="full")
+        df <- df[order(year)]
         readr::write_csv(df, paste0(COUNTRY, "/", "bottom_chart.csv"))
         
-
-     if(modify_html<-T){
-        mainfile <- "chartbook.html"
-        newfile <- paste0(COUNTRY, "/", mainfile)
-        file.copy(mainfile, newfile, overwrite=T)
-        format_files_to_copy <- list.files(pattern="\\.(js|css)$", recursive=F, full.names=F)
-        file.copy(format_files_to_copy, paste0(COUNTRY, "/", format_files_to_copy))
-        newfilelines <- readLines(newfile)
+#Copy chartbook.html
+    #  if(modify_html<-T){
+    #     mainfile <- "chartbook.html"
+    #     newfile <- paste0(COUNTRY, "/", mainfile)
+    #     file.copy(mainfile, newfile, overwrite=T)
+    #     format_files_to_copy <- list.files(pattern="\\.(js|css)$", recursive=F, full.names=F)
+    #     file.copy(format_files_to_copy, paste0(COUNTRY, "/", format_files_to_copy))
+    #     newfilelines <- readLines(newfile)
         
-        PATTERN="change_country"
-        country_linenums <- newfilelines %>% grep(PATTERN, .)
-        for(i in country_linenums){
-            # linetoeditcon <- readLines(newfile, -1)
-            newfilelines[i] <- gsub(PATTERN, COUNTRY, newfilelines[i])
-            # writeLines(newfilelines,newfile)
-        }
-        PATTERN="Earnings Dispersion\\.csv"
-        for(i in grep(PATTERN, newfilelines)){
-            newfilelines[i] <- gsub(PATTERN, "top_chart.csv", newfilelines[i])
-        }
-        PATTERN="series\\/"
-        for(i in grep(PATTERN, newfilelines)){
-            newfilelines[i] <- gsub(PATTERN, "", newfilelines[i])
-            # newfilelines[i] <- gsub(PATTERN, paste0(COUNTRY, "/"), newfilelines[i])
-        }
-        PATTERN="All_data"
-        for(i in grep(PATTERN, newfilelines)){
-            newfilelines[i] <- gsub(PATTERN, "raw_df", newfilelines[i])
-        }
+    #     PATTERN="change_country"
+    #     country_linenums <- newfilelines %>% grep(PATTERN, .)
+    #     for(i in country_linenums){
+    #         # linetoeditcon <- readLines(newfile, -1)
+    #         newfilelines[i] <- gsub(PATTERN, COUNTRY, newfilelines[i])
+    #         # writeLines(newfilelines,newfile)
+    #     }
+    #     PATTERN="Earnings Dispersion\\.csv"
+    #     for(i in grep(PATTERN, newfilelines)){
+    #         newfilelines[i] <- gsub(PATTERN, "top_chart.csv", newfilelines[i])
+    #     }
+    #     PATTERN="series\\/"
+    #     for(i in grep(PATTERN, newfilelines)){
+    #         newfilelines[i] <- gsub(PATTERN, "", newfilelines[i])
+    #         # newfilelines[i] <- gsub(PATTERN, paste0(COUNTRY, "/"), newfilelines[i])
+    #     }
+    #     PATTERN="All_data"
+    #     for(i in grep(PATTERN, newfilelines)){
+    #         newfilelines[i] <- gsub(PATTERN, "raw_df", newfilelines[i])
+    #     }
         
-        # for(PATTERN in c("UK|United Kingdom", "Earnings Dispersion", "series\\/", "All_data")){}
+    #     # for(PATTERN in c("UK|United Kingdom", "Earnings Dispersion", "series\\/", "All_data")){}
         
-        writeLines(newfilelines,newfile)
+    #     writeLines(newfilelines,newfile)
         
-        # All_data.csv
-        # Earnings Dispersion.csv
-        # Overall Income Inequality - Equivalised disposable household income.csv
-        # Overall Income Inequality - Income (tax units).csv
-        # Poverty - Equivalised disposable household income.csv
-        # Top Income Shares - Pre-tax national income (equal-split adults).csv
-        # UK_LH.csv
-        # 
-        # # writeLines()
-        # latin = readLines("junk.txt",-1)
-        # latin[3]="per ardua ad astra"
-        # writeLines(latin,"junkout.txt")
-        # # iocon <- file(mainfile,"r+")
-        # # header <- readLines(iocon,n=1)
-        # # header <- gsub('DOC', 'SAM', header)
-        # # writeLines(header, con=iocon)
-    }
-    # lapply(unique(names(country_dimension_lod)), function(DIMENSION){
-    # })
-    # return(country_dimension_df)
-    # # country_df %>% filter_if(is.character, any_vars(grepl("Earning.*Disp", ., ignore.case=T)))
+    #     # All_data.csv
+    #     # Earnings Dispersion.csv
+    #     # Overall Income Inequality - Equivalised disposable household income.csv
+    #     # Overall Income Inequality - Income (tax units).csv
+    #     # Poverty - Equivalised disposable household income.csv
+    #     # Top Income Shares - Pre-tax national income (equal-split adults).csv
+    #     # UK_LH.csv
+    #     # 
+    #     # # writeLines()
+    #     # latin = readLines("junk.txt",-1)
+    #     # latin[3]="per ardua ad astra"
+    #     # writeLines(latin,"junkout.txt")
+    #     # # iocon <- file(mainfile,"r+")
+    #     # # header <- readLines(iocon,n=1)
+    #     # # header <- gsub('DOC', 'SAM', header)
+    #     # # writeLines(header, con=iocon)
+    # }
+    
     country_dimension_lod
 }) %>%
     setNames(COUNTRIES)
