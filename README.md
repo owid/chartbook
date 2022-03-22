@@ -1,5 +1,11 @@
 # Chartbook of Economic Inequality
 
+Install packages
+
+```
+pip install -r requirements.txt
+```
+
 Populate the chart datasets for each country
 
 ```sh
