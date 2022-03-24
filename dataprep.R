@@ -14,7 +14,7 @@ COUNTRIES <- sort(unique(raw_df$country))
 
 # lod_1 <- list()
 # for(COUNTRY in COUNTRIES){
-list_1 <- lapply(COUNTRIES, function(COUNTRY){ #{COUNTRY="Argentina"}
+list_1 <- lapply(COUNTRIES, function(COUNTRY){ #{COUNTRY="Australia"}
     cat(paste0("\nProcessing data for", " ", COUNTRY))
     dir.create(COUNTRY)
     file.copy("raw_df.csv", paste0(COUNTRY, "/", "raw_df.csv"), overwrite=T)
@@ -24,6 +24,7 @@ list_1 <- lapply(COUNTRIES, function(COUNTRY){ #{COUNTRY="Argentina"}
     # lapply(DIMENSIONS, function(DIMENSION){
     #     country_df %>% filter(dimension %in% DIMENSION)
     # })
+##if there are multiple series for one dimension, this block currently collapses them into one column and you have to manually separate them
     country_dimension_lod <- country_df %>% split(., .[["dimension"]]) %>%
         lapply(., function(df){ 
             if(any(df$dimension=="Earnings Dispersion")){
@@ -45,7 +46,7 @@ list_1 <- lapply(COUNTRIES, function(COUNTRY){ #{COUNTRY="Argentina"}
             error=function(e){d})
         })
         df <- plyr::join_all(LH_lod, type="full")
-        df <- df[order(year)]
+        df <- df[order(df$year),]
         readr::write_csv(df, paste0(COUNTRY, "/", "bottom_chart.csv"))
         
 #Copy chartbook.html
