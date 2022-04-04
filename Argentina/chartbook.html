@@ -139,7 +139,7 @@
                 series[i] = {
                     'key': column_name,
                     'values': [],
-                    color: color_ref[column_name.charAt(0)]
+                    color: color_ref[column_name.split(' - ').pop().charAt(0)]
                 };
             }
 
