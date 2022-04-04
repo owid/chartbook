@@ -28,7 +28,7 @@ cd COUNTRY
 Rscript dataprep.R
 ```
 
-To edit specific chart dimensions, open chartbook.html within the country's folder; lines marked with '// XXX' can be edited
+To edit the height and width of chart elements, open chartbook.html within the country's folder and search for lines demarcated with '// XXX' 
 
 Render HTML file in browser local port
 
