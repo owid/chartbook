@@ -21,9 +21,10 @@ Install necessary packages
 pip install -r requirements.txt
 ```
 
-OPTIONAL: Populate the chart datasets and produce HTML from template for each country (select country on line 17)
+Populate the chart datasets for each country
 
 ```sh
+cd COUNTRY
 Rscript dataprep.R
 ```
 
