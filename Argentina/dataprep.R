@@ -2,7 +2,7 @@ PKG="tidyverse"; if(!PKG %in% installed.packages()){install.packages(PKG)}; do.c
 PKG="magrittr"; if(!PKG %in% installed.packages()){install.packages(PKG)}; do.call(library, list(PKG))
 PKG="janitor"; if(!PKG %in% installed.packages()){install.packages(PKG)}; do.call(library, list(PKG))
 
-raw_df <- readr::read_csv("raw_df.csv") %>% janitor::clean_names()
+raw_df <- readr::read_csv("../raw_df.csv") %>% janitor::clean_names()
 
 COUNTRY <- gsub(paste0(dirname(getwd()),"/"),"",getwd())
 
