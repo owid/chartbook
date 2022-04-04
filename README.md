@@ -28,8 +28,9 @@ cd COUNTRY
 Rscript dataprep.R
 ```
 
-Render HTML file in browser local port
+To edit specific chart dimensions, open chartbook.html within the country's folder; lines marked with '// XXX' can be edited
 
+Render HTML file in browser local port
 
 ```sh
 python -m http.server
