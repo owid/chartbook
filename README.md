@@ -21,14 +21,16 @@ Install necessary packages
 pip install -r requirements.txt
 ```
 
-OPTIONAL: Populate the chart datasets and produce HTML from template for each country (select country on line 17)
+Populate the chart datasets for each country
 
 ```sh
+cd COUNTRY
 Rscript dataprep.R
 ```
 
-Render HTML file in browser local port
+To edit the height and width of chart elements, open chartbook.html within the country's folder and search for lines demarcated with '// XXX' 
 
+Render HTML file in browser local port
 
 ```sh
 python -m http.server
