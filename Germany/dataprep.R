@@ -21,8 +21,11 @@ country_dimension_lod <- country_df %>% split(., .[["series_code"]]) %>%
     df
   })
 
-
-LH_lod <- country_dimension_lod %>%
+i <- country_dimension_lod %>% lapply(., function(d){
+  length(d) == 2
+})
+skip <- names(which(unlist(i)))
+LH_lod <- country_dimension_lod[names(country_dimension_lod)!= skip] %>%
   lapply(., function(d){
     d <- filter(d, preferred_definition=="*")
     tryCatch({

@@ -4,6 +4,8 @@ PKG="janitor"; if(!PKG %in% installed.packages()){install.packages(PKG)}; do.cal
 
 raw_df <- readr::read_csv("../raw_df.csv") %>% janitor::clean_names()
 
+COUNTRY <- gsub(paste0(dirname(getwd()),"/"),"",getwd())
+
 country_df <- raw_df %>% 
     filter(country %in% c(COUNTRY)) %>% filter(!is.na(description), description!="")
 
@@ -14,7 +16,7 @@ country_dimension_lod <- country_df %>% split(., .[["series_code"]]) %>%
             df <- df %>%
                 select(one_of("year", "value")) %>%
                 setNames(recode(names(.), "value"=newvaluecolname))
-            readr::write_csv(df, paste0(COUNTRY, "/top_chart.csv"))
+            readr::write_csv(df, "top_chart.csv")
         }
         df
     })
