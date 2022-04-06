@@ -338,14 +338,15 @@
         AddToChart1
             .append("text")
             .text("Earnings Dispersion")
-            .attr("x", 160)
+            .attr("x", 95)
             .attr("y", 59)
             .style("fill", color_ref['E'])  // Farbe geben
             .attr("text-anchor", "beginning")
             .attr("font-size", "18")
             .attr("font-family", "Century Gothic")
+
         AddToChart1.append("svg:circle")
-            .attr("cx", 150)
+            .attr("cx", 85)
             .attr("cy", 52)
             .attr("r", 3)
             .style("fill", color_ref['E']);
@@ -354,14 +355,15 @@
         AddToChart1
             .append("text")
             .text("Overall Income Inequality")
-            .attr("x", 345)
+            .attr("x", 285)
             .attr("y", 59)
             .style("fill", color_ref['O'])  // Farbe geben
             .attr("text-anchor", "beginning")
             .attr("font-size", "18")
             .attr("font-family", "Century Gothic")
+
         AddToChart1.append("svg:circle")
-            .attr("cx", 335)
+            .attr("cx", 275)
             .attr("cy", 52)
             .attr("r", 3)
             .style("fill", color_ref['O']);
@@ -371,14 +373,14 @@
         AddToChart1
             .append("text")
             .text("Poverty")
-            .attr("x", 574)
+            .attr("x", 517)
             .attr("y", 59)
             .style("fill", color_ref['P'])  // Farbe geben
             .attr("text-anchor", "beginning")
             .attr("font-size", "18")
             .attr("font-family", "Century Gothic")
         AddToChart1.append("svg:circle")
-            .attr("cx", 564)
+            .attr("cx", 507)
             .attr("cy", 52)
             .attr("r", 3)
             .style("fill", color_ref['P']);
@@ -388,18 +390,34 @@
         AddToChart1
             .append("text")
             .text("Top Income Shares")
-            .attr("x", 670)
+            .attr("x", 618)
             .attr("y", 59)
             .style("fill", color_ref['T'])  // Farbe geben
             .attr("text-anchor", "beginning")
             .attr("font-size", "18")
             .attr("font-family", "Century Gothic")
         AddToChart1.append("svg:circle")
-            .attr("cx", 660)
+            .attr("cx", 608)
             .attr("cy", 52)
             .attr("r", 3)
             .style("fill", color_ref['T']);
 
+
+        //Wealth
+        AddToChart1
+            .append("text")
+            .text("Wealth Inequality")
+            .attr("x", 795)
+            .attr("y", 59)
+            .style("fill", color_ref['W'])  // Farbe geben
+            .attr("text-anchor", "beginning")
+            .attr("font-size", "18")
+            .attr("font-family", "Century Gothic")
+        AddToChart1.append("svg:circle")
+            .attr("cx", 785)
+            .attr("cy", 52)
+            .attr("r", 3)
+            .style("fill", color_ref['W']);
 
 
 
