@@ -165,11 +165,11 @@
 
                 chart.xDomain([((1900 - 1969.5) * 31556900000), ((2021 - 1969.5) * 31556900000)]);
 
-                var RH_tickMarks = [150, 160, 170, 180, 190, 200, 210] // XXX    100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300
+                var RH_tickMarks = [180, 190, 200, 210] // XXX    100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300
 
                 chart.yAxis.tickValues(RH_tickMarks);
 
-                chart.yDomain([150, 210]); //XXX
+                chart.yDomain([180, 210]); //XXX
 
                 d3.select('#chart1')
                     .datum(RH_series)
@@ -211,7 +211,7 @@
                 series[i] = {
                     'key': column_name,
                     'values': [],
-                    color: color_ref[column_name.charAt(0)]
+                    color: color_ref[column_name.split(' - ').pop().charAt(0)]
                 };
             }
 
@@ -654,7 +654,7 @@
                     return (object["country"] === "Spain" && object["dimension"] === "Earnings Dispersion" && object["description"] != "")
                 })["legend"]) // XXX
                 .attr("x", 760)
-                .attr("y", 105);
+                .attr("y", 103);
         })
 
 
@@ -667,9 +667,16 @@
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['O'])
-            .text("Gini coefficient – Income (tax units)")
-            .attr("x", 149)
-            .attr("y", 200);
+            .text("Gini coefficient – Equivalised disposable household")
+            .attr("x", 200)
+            .attr("y", 210);
+        d3.select('#chart2')
+            .append("text")
+            .attr("class", "linelabel")
+            .style("fill", color_ref['O'])
+            .text("income")
+            .attr("x", 200)
+            .attr("y", 220);
 
 
 
@@ -679,14 +686,14 @@
             .style("fill", color_ref['O'])
             .text("Gini coefficient – Equivalised disposable household")
             .attr("x", 760)
-            .attr("y", 202);
+            .attr("y", 215);
         d3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['O'])
-            .text("income ★")
+            .text("income")
             .attr("x", 760)
-            .attr("y", 212);
+            .attr("y", 225);
 
 
         // Top Income Series
@@ -713,14 +720,14 @@
             .style("fill", color_ref['P'])
             .text("Share below 60% median - Equivalised disposable")
             .attr("x", 760)
-            .attr("y", 283);
+            .attr("y", 265);
         d3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['P'])
             .text("household income")
             .attr("x", 760)
-            .attr("y", 293);
+            .attr("y", 275);
 
 
         // Wealth Series
@@ -728,16 +735,18 @@
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['W'])
-            .text("Share of top 1% - Individual net wealth (estate interpolated series)")
-            .attr("x", 760)
-            .attr("y", 261);
+            .text("Share of top 1% - Net wealth")
+            .attr("x", 375)
+            .attr("y", 280);
+
         d3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['W'])
-            .text("interpolated series)")
-            .attr("x", 760)
-            .attr("y", 271);
+            .text("Share of top 1% - Individual net estates")
+            .attr("x", 260)
+            .attr("y", 105);
+
 
 
 
