@@ -21,7 +21,7 @@ Install necessary packages
 pip install -r requirements.txt
 ```
 
-Populate the chart datasets for each country
+Populate the chart datasets for each country (script does not work for Singapore)
 
 ```sh
 cd COUNTRY
