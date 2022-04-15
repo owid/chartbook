@@ -211,7 +211,7 @@
                 series[i] = {
                     'key': column_name,
                     'values': [],
-                    color: color_ref[column_name.charAt(0)]
+                    color: color_ref[column_name.split(' - ').pop().charAt(0)]
                 };
             }
 
@@ -654,7 +654,7 @@
                     return (object["country"] === "UK" && object["dimension"] === "Earnings Dispersion" && object["description"] != "")
                 })["legend"]) // XXX
                 .attr("x", 760)
-                .attr("y", 105);
+                .attr("y", 114);
         })
 
 
@@ -668,8 +668,8 @@
             .attr("class", "linelabel")
             .style("fill", color_ref['O'])
             .text("Gini coefficient – Income (tax units)")
-            .attr("x", 149)
-            .attr("y", 200);
+            .attr("x", 93)
+            .attr("y", 172);
 
 
 
@@ -679,14 +679,14 @@
             .style("fill", color_ref['O'])
             .text("Gini coefficient – Equivalised disposable household")
             .attr("x", 760)
-            .attr("y", 202);
+            .attr("y", 200);
         d3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['O'])
-            .text("income ★")
+            .text("income")
             .attr("x", 760)
-            .attr("y", 212);
+            .attr("y", 210);
 
 
         // Top Income Series
