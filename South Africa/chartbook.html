@@ -165,11 +165,11 @@
 
                 chart.xDomain([((1900 - 1969.5) * 31556900000), ((2021 - 1969.5) * 31556900000)]);
 
-                var RH_tickMarks = [150, 160, 170, 180, 190, 200, 210] // XXX    100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300
+                var RH_tickMarks = [320, 345, 370, 395, 420, 445, 470, 495, 520] // XXX    100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300
 
                 chart.yAxis.tickValues(RH_tickMarks);
 
-                chart.yDomain([150, 210]); //XXX
+                chart.yDomain([320, 520]); //XXX
 
                 d3.select('#chart1')
                     .datum(RH_series)
@@ -211,7 +211,7 @@
                 series[i] = {
                     'key': column_name,
                     'values': [],
-                    color: color_ref[column_name.charAt(0)]
+                    color: color_ref[column_name.split(' - ').pop().charAt(0)]
                 };
             }
 
@@ -650,12 +650,18 @@
                 .append("text")
                 .attr("class", "linelabel")
                 .style("fill", color_ref['E'])
-                .text(data.find(object => {
-                    return (object["country"] === "South Africa" && object["dimension"] === "Earnings Dispersion" && object["description"] != "")
-                })["legend"]) // XXX
+                .text("Top decile as % median - Individual gross")
                 .attr("x", 760)
-                .attr("y", 105);
+                .attr("y", 90);
         })
+        d3.select('#chart1')
+            .append("text")
+            .attr("class", "linelabel")
+            .style("fill", color_ref['E'])
+            .text("(monthly) wages")
+            .attr("x", 760)
+            .attr("y", 100);
+
 
 
         /* --------------- */
@@ -667,26 +673,9 @@
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['O'])
-            .text("Gini coefficient – Income (tax units)")
-            .attr("x", 149)
-            .attr("y", 200);
-
-
-
-        d3.select('#chart2')
-            .append("text")
-            .attr("class", "linelabel")
-            .style("fill", color_ref['O'])
-            .text("Gini coefficient – Equivalised disposable household")
+            .text("Gini coefficient – Per capita income")
             .attr("x", 760)
-            .attr("y", 202);
-        d3.select('#chart2')
-            .append("text")
-            .attr("class", "linelabel")
-            .style("fill", color_ref['O'])
-            .text("income ★")
-            .attr("x", 760)
-            .attr("y", 212);
+            .attr("y", 65);
 
 
         // Top Income Series
@@ -696,14 +685,14 @@
             .style("fill", color_ref['T'])
             .text("Share of top 1% - Pre-tax national income (equal-split")
             .attr("x", 760)
-            .attr("y", 305);
+            .attr("y", 265);
         d3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['T'])
             .text("adults)")
             .attr("x", 760)
-            .attr("y", 315);
+            .attr("y", 275);
 
 
         // Poverty Series
@@ -711,16 +700,31 @@
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['P'])
-            .text("Share below 60% median - Equivalised disposable")
+            .text("Share below upper-bound poverty line")
             .attr("x", 760)
-            .attr("y", 283);
+            .attr("y", 85);
         d3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['P'])
-            .text("household income")
+            .text("- Per capita expenditure")
             .attr("x", 760)
-            .attr("y", 293);
+            .attr("y", 95);
+
+        d3.select('#chart2')
+            .append("text")
+            .attr("class", "linelabel")
+            .style("fill", color_ref['P'])
+            .text("Share below R3,000 (2000 currency")
+            .attr("x", 270)
+            .attr("y", 118);
+        d3.select('#chart2')
+            .append("text")
+            .attr("class", "linelabel")
+            .style("fill", color_ref['P'])
+            .text("value) - Per capita income")
+            .attr("x", 270)
+            .attr("y", 128);
 
 
         // Wealth Series
@@ -728,16 +732,9 @@
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['W'])
-            .text("Share of top 1% - Individual net wealth (estate interpolated series)")
+            .text("Share of top 1% - Individual net wealth")
             .attr("x", 760)
-            .attr("y", 261);
-        d3.select('#chart2')
-            .append("text")
-            .attr("class", "linelabel")
-            .style("fill", color_ref['W'])
-            .text("interpolated series)")
-            .attr("x", 760)
-            .attr("y", 271);
+            .attr("y", 117);
 
 
 
