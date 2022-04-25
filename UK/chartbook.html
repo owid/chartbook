@@ -195,7 +195,7 @@
         //	Bottom Chart 
         // –––––––––––––––––––––––––––––––––––––––––––––– //
 
-        var LH_tickMarks = [10, 20, 30, 40, 50, 60, 70] // XXX     10,20,30,40,50,60,70,80,90,100
+        var LH_tickMarks = [10, 20, 30, 40, 50, 60, 70, 80, 90] // XXX     10,20,30,40,50,60,70,80,90,100
 
 
         d3.csv("bottom_chart.csv", function (error, csv) { // XXX
@@ -256,7 +256,7 @@
 
                 chart.yAxis.tickValues(LH_tickMarks);
 
-                chart.yDomain([-1, 75]);  //XXX
+                chart.yDomain([-1, 90]);  //XXX
 
                 d3.select('#chart2')
                     .datum(series)
@@ -669,7 +669,7 @@
             .style("fill", color_ref['O'])
             .text("Gini coefficient – Income (tax units)")
             .attr("x", 93)
-            .attr("y", 172);
+            .attr("y", 204);
 
 
 
@@ -679,14 +679,14 @@
             .style("fill", color_ref['O'])
             .text("Gini coefficient – Equivalised disposable household")
             .attr("x", 760)
-            .attr("y", 200);
+            .attr("y", 225);
         d3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['O'])
             .text("income")
             .attr("x", 760)
-            .attr("y", 210);
+            .attr("y", 235);
 
 
         // Top Income Series
@@ -696,14 +696,14 @@
             .style("fill", color_ref['T'])
             .text("Share of top 1% - Pre-tax national income (equal-split")
             .attr("x", 760)
-            .attr("y", 305);
+            .attr("y", 320);
         d3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['T'])
             .text("adults)")
             .attr("x", 760)
-            .attr("y", 315);
+            .attr("y", 330);
 
 
         // Poverty Series
@@ -713,14 +713,14 @@
             .style("fill", color_ref['P'])
             .text("Share below 60% median - Equivalised disposable")
             .attr("x", 760)
-            .attr("y", 283);
+            .attr("y", 297);
         d3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['P'])
             .text("household income")
             .attr("x", 760)
-            .attr("y", 293);
+            .attr("y", 307);
 
 
         // Wealth Series
@@ -728,16 +728,16 @@
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['W'])
-            .text("Share of top 1% - Individual net wealth (estate interpolated series)")
+            .text("Share of top 1% - Individual net wealth (equal-split")
             .attr("x", 760)
-            .attr("y", 261);
+            .attr("y", 275);
         d3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['W'])
-            .text("interpolated series)")
+            .text(" adults)")
             .attr("x", 760)
-            .attr("y", 271);
+            .attr("y", 285);
 
 
 
