@@ -34,7 +34,7 @@ for (i in 1:nrow(base)){
 
 base$data_available <- a
 base$data_available <- gsub('FALSE', NA, base$data_available)
-print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile() + scale_fill_manual(values=c("#008000", NA)))
+print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile(data = subset(base, !is.na(data_available)))  + scale_fill_manual(values=c("#008000", NA)))
 ```
 
 ### Top Income Shares
@@ -58,7 +58,7 @@ for (i in 1:nrow(base)){
 
 base$data_available <- a
 base$data_available <- gsub('FALSE', NA, base$data_available)
-print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile() + scale_fill_manual(values=c("#6a3d9a", NA)))
+print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile(data = subset(base, !is.na(data_available)))  + scale_fill_manual(values=c("#6a3d9a", NA)))
 ```
 
 ### Poverty
@@ -82,7 +82,7 @@ for (i in 1:nrow(base)){
 
 base$data_available <- a
 base$data_available <- gsub('FALSE', NA, base$data_available)
-print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile() + scale_fill_manual(values=c("#e31a1c", NA)))
+print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile(data = subset(base, !is.na(data_available))) + scale_fill_manual(values=c("#e31a1c", NA)))
 ```
 
 ### Wealth Inequality
@@ -106,7 +106,7 @@ for (i in 1:nrow(base)){
 
 base$data_available <- a
 base$data_available <- gsub('FALSE', NA, base$data_available)
-print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile() + scale_fill_manual(values=c("#FF9912", NA)))
+print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile(data = subset(base, !is.na(data_available))) + scale_fill_manual(values=c("#FF9912", NA)))
 ```
 
 ### Earnings Dispersion
@@ -130,5 +130,5 @@ for (i in 1:nrow(base)){
 
 base$data_available <- a
 base$data_available <- gsub('FALSE', NA, base$data_available)
-print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile() + scale_fill_manual(values=c("#104E8B", NA)))
+print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile(data = subset(base, !is.na(data_available))) + scale_fill_manual(values=c("#104E8B", NA)))
 ```
