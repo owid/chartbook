@@ -1,0 +1,134 @@
+---
+title: "Data availability"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE, warning=FALSE,message=FALSE}
+library(data.table)
+library(ggplot2)
+
+```
+
+### Overall Income Inequality
+
+```{r overall_income_inequality, echo=FALSE}
+raw_df <- read.csv("raw_df.csv")
+countries <- unique(raw_df$country)
+
+base <- data.table(country=sort(rep(countries,length(seq(1900,2021)))),year=seq(1900,2021))
+
+overall_income_inequality <- raw_df[raw_df$dimension=="Overall Income Inequality" & substr(raw_df$series_code,1,1)=="F",]
+overall_income_inequality$check <- paste0(overall_income_inequality$country,overall_income_inequality$year)
+base$check = paste0(base$country,base$year)
+
+a<-c()
+
+for (i in 1:nrow(base)){
+  foo<-any(overall_income_inequality$check==base$check[i])
+  a<-c(a,foo)
+}
+
+base$data_available <- a
+base$data_available <- gsub('FALSE', NA, base$data_available)
+print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile() + scale_fill_manual(values=c("#008000", NA)))
+```
+
+### Top Income Shares
+
+```{r top_income_shares, echo=FALSE}
+raw_df <- read.csv("raw_df.csv")
+countries <- unique(raw_df$country)
+
+base <- data.table(country=sort(rep(countries,length(seq(1900,2021)))),year=seq(1900,2021))
+
+top_income_shares <- raw_df[raw_df$dimension=="Top Income Shares" & substr(raw_df$series_code,1,1)=="F",]
+top_income_shares$check <- paste0(top_income_shares$country,top_income_shares$year)
+base$check = paste0(base$country,base$year)
+
+a<-c()
+
+for (i in 1:nrow(base)){
+  foo<-any(top_income_shares$check==base$check[i])
+  a<-c(a,foo)
+}
+
+base$data_available <- a
+base$data_available <- gsub('FALSE', NA, base$data_available)
+print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile() + scale_fill_manual(values=c("#6a3d9a", NA)))
+```
+
+### Poverty
+
+```{r poverty, echo=FALSE}
+raw_df <- read.csv("raw_df.csv")
+countries <- unique(raw_df$country)
+
+base <- data.table(country=sort(rep(countries,length(seq(1900,2021)))),year=seq(1900,2021))
+
+poverty <- raw_df[raw_df$dimension=="Poverty" & substr(raw_df$series_code,1,1)=="F",]
+poverty$check <- paste0(poverty$country,poverty$year)
+base$check = paste0(base$country,base$year)
+
+a<-c()
+
+for (i in 1:nrow(base)){
+  foo<-any(poverty$check==base$check[i])
+  a<-c(a,foo)
+}
+
+base$data_available <- a
+base$data_available <- gsub('FALSE', NA, base$data_available)
+print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile() + scale_fill_manual(values=c("#e31a1c", NA)))
+```
+
+### Wealth Inequality
+
+```{r wealth_inequality, echo=FALSE}
+raw_df <- read.csv("raw_df.csv")
+countries <- unique(raw_df$country)
+
+base <- data.table(country=sort(rep(countries,length(seq(1900,2021)))),year=seq(1900,2021))
+
+wealth_inequality <- raw_df[raw_df$dimension=="Wealth Inequality" & substr(raw_df$series_code,1,1)=="F",]
+wealth_inequality$check <- paste0(wealth_inequality$country,wealth_inequality$year)
+base$check = paste0(base$country,base$year)
+
+a<-c()
+
+for (i in 1:nrow(base)){
+  foo<-any(wealth_inequality$check==base$check[i])
+  a<-c(a,foo)
+}
+
+base$data_available <- a
+base$data_available <- gsub('FALSE', NA, base$data_available)
+print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile() + scale_fill_manual(values=c("#FF9912", NA)))
+```
+
+### Earnings Dispersion
+
+```{r earnings_dispersion, echo=FALSE}
+raw_df <- read.csv("raw_df.csv")
+countries <- unique(raw_df$country)
+
+base <- data.table(country=sort(rep(countries,length(seq(1900,2021)))),year=seq(1900,2021))
+
+earnings_dispersion <- raw_df[raw_df$dimension=="Earnings Dispersion" & substr(raw_df$series_code,1,1)=="F",]
+earnings_dispersion$check <- paste0(earnings_dispersion$country,earnings_dispersion$year)
+base$check = paste0(base$country,base$year)
+
+a<-c()
+
+for (i in 1:nrow(base)){
+  foo<-any(earnings_dispersion$check==base$check[i])
+  a<-c(a,foo)
+}
+
+base$data_available <- a
+base$data_available <- gsub('FALSE', NA, base$data_available)
+print(ggplot(base,aes(x=year,y=country,fill=data_available)) + geom_tile() + scale_fill_manual(values=c("#104E8B", NA)))
+```
