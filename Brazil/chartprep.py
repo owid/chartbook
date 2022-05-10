@@ -19,6 +19,7 @@ final_series_list = list(
 )
 
 data_list = []
+div_list = []
 
 i = 0
 while i < len(final_series_list):
@@ -45,6 +46,7 @@ while i < len(final_series_list):
     values = final_series_df[["x", "y", "series"]]
     values = values.to_dict("records")
     data = [{"key": dimension, "type": "line", "values": values, "yAxis": 1}]
+    div = []
 
     # construct json for source series
     j = 0
@@ -75,7 +77,9 @@ while i < len(final_series_list):
         )
         j += 1
     data = "$scope.data" + str(i) + " = " + str(data)
+    div = "<nvd3 options='options' data='data" + str(i) + "'></nvd3>"
     data_list.append(data)
+    div_list.append(div)
     i += 1
 
 string = (
@@ -87,12 +91,17 @@ string = (
     .replace("'yAxis'", "yAxis")
 )
 
-print(string)
+div_string = str("\n").join(div_list)
+print(div_string)
 
 # edit app.js
 with open("../app.js", "r") as file:
     old_script = file.read()
-
 new_script = re.sub("(?<=insert data\n).*", string, old_script)
-
 open("charts.js", "w").write(new_script)
+
+# edit chart.html
+with open("../chart.html", "r") as file:
+    old_script = file.read()
+new_script = re.sub("(?<=<!-- insert data -->\n).*", div_string, old_script)
+open("chart.html", "w").write(new_script)
