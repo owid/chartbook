@@ -5,7 +5,7 @@ import pandas as pd
 Country = re.search(
     "chartbook\/(.*)", os.path.dirname(os.path.realpath(__file__))
 ).group(1)
-all_data = pd.read_csv("./raw_df.csv")
+all_data = pd.read_csv("../raw_df.csv")
 all_data["source_legend"] = (
     all_data["short_reference"] + " - " + all_data["welfare_concept"]
 )
