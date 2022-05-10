@@ -41,7 +41,7 @@ while i < len(final_series_list):
     final_series_df["series"] = 0
     final_series_df = final_series_df.rename(columns={"year": "x", "value": "y"})
     values = final_series_df[["x", "y", "series"]].to_dict("records")
-    data = [{"key": "Final series", "type": "line", "values": values, "yAxis": 1}]
+    data = [{"key": dimension, "type": "line", "values": values, "yAxis": 1}]
 
     # construct json for source series
     j = 0

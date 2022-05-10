@@ -12,20 +12,21 @@ app.controller('MainCtrl', function ($scope) {
                 left: 70
             },
             color: d3.scale.category10().range(),
-            //useInteractiveGuideline: true,
             duration: 500,
-            // xAxis: {
-            //     tickFormat: function (d) {
-            //         return d3.format(',f')(d);
-            //     }
-            // },
             yAxis1: {
                 tickFormat: function (d) {
                     return d3.format(',.1f')(d);
                 }
             },
             interpolate: false,
-            //useInteractiveGuideline: true,
+            legend: {
+                align: false,
+                height: 200,
+                margin: {
+                    top: 10,
+                    bottom: 25,
+                }
+            },
         }
     };
 

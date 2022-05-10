@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html ng-app="plunker">
 
+<style>
+    body {
+        overflow-y: scroll;
+        font: normal 12px Helvetica;
+    }
+</style>
+
 <head>
     <meta charset="utf-8" />
     <title>-nvD3 Multi Chart</title>
@@ -14,9 +21,14 @@
 </head>
 
 <body ng-controller="MainCtrl">
+    <h1 style="text-align:center">Brazil</h1>
+    <h2>Overall Income Inequality</h2>
     <nvd3 options="options" data="data0"></nvd3>
+    <h2>Top Income Shares</h2>
     <nvd3 options="options" data="data1"></nvd3>
+    <h2>Poverty</h2>
     <nvd3 options="options" data="data2"></nvd3>
+    <h2>Earnings Dispersion</h2>
     <nvd3 options="options" data="data3"></nvd3>
 
 
