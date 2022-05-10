@@ -2,6 +2,14 @@
 
 The data and metadata for each country are hosted on public Google Sheets documents, which can be accessed [here](https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/edit#gid=1578718062).
 
+```
+import pandas as pd
+
+url = "https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/gviz/tq?tqx=out:csv&sheet=All+data"
+all_data = pd.read_csv(url)
+all_data.to_csv('raw_df.csv')
+```
+
 Instructions on how to set up a local server to see the charts (we assume that you have Python installed on your machine)
 
 Clone the repository into current working directory

@@ -5,7 +5,7 @@ import pandas as pd
 Country = re.search(
     "chartbook\/(.*)", os.path.dirname(os.path.realpath(__file__))
 ).group(1)
-all_data = pd.read_csv("./raw_df.csv")
+all_data = pd.read_csv("../raw_df.csv")
 all_data["source_legend"] = (
     all_data["short_reference"] + " - " + all_data["welfare_concept"]
 )
@@ -40,8 +40,11 @@ while i < len(final_series_list):
     final_series_df = country_data.loc[country_data["series_code"] == final_series]
     final_series_df["series"] = 0
     final_series_df = final_series_df.rename(columns={"year": "x", "value": "y"})
-    values = final_series_df[["x", "y", "series"]].to_dict("records")
-    data = [{"key": "Final series", "type": "line", "values": values, "yAxis": 1}]
+    df_max = max(final_series_df["x"])
+    df_min = min(final_series_df["x"])
+    values = final_series_df[["x", "y", "series"]]
+    values = values.to_dict("records")
+    data = [{"key": dimension, "type": "line", "values": values, "yAxis": 1}]
 
     # construct json for source series
     j = 0
@@ -55,6 +58,12 @@ while i < len(final_series_list):
         source_series_df["series"] = j + 1
         source_series_df = source_series_df.rename(columns={"year": "x", "value": "y"})
         values = source_series_df[["x", "y", "series"]]
+        add = pd.DataFrame(
+            [[df_min, "null", 0], [df_max, "null", 0]], columns=["x", "y", "series"]
+        )
+        values = (
+            pd.concat([values, add]).sort_values(by=["x"]).drop_duplicates(subset=["x"])
+        )
         values = values.to_dict("records")
         data.append(
             {
@@ -71,6 +80,7 @@ while i < len(final_series_list):
 
 string = (
     str("; \n".join(data_list))
+    .replace("'null'", "null")
     .replace("'key'", "key")
     .replace("'type'", "type")
     .replace("'values'", "values")
