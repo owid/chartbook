@@ -18,6 +18,8 @@ final_series_list = list(
     ].series_code.unique()
 )
 
+data_list = []
+
 i = 0
 while i < len(final_series_list):
     final_series = final_series_list[i]
@@ -63,19 +65,24 @@ while i < len(final_series_list):
             }
         )
         j += 1
-    data = "$scope.data = " + str(data)
-
-    # edit app.js
-    with open("app.js", "r") as file:
-        old_script = file.read()
-
-    new_script = (
-        re.sub("(?<=insert data\n).*", str(data), old_script)
-        .replace("'key'", "key")
-        .replace("'type'", "type")
-        .replace("'values'", "values")
-        .replace("'yAxis'", "yAxis")
-    )
-
-    open(final_series + " - " + dimension + ".js", "w").write(new_script)
+    data = "$scope.data" + str(i) + " = " + str(data)
+    data_list.append(data)
     i += 1
+
+string = (
+    str("; \n".join(data_list))
+    .replace("'key'", "key")
+    .replace("'type'", "type")
+    .replace("'values'", "values")
+    .replace("'yAxis'", "yAxis")
+)
+
+print(string)
+
+# edit app.js
+with open("../app.js", "r") as file:
+    old_script = file.read()
+
+new_script = re.sub("(?<=insert data\n).*", string, old_script)
+
+open("charts.js", "w").write(new_script)
