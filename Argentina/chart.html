@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>-nvD3 Multi Chart</title>
+    <title>
+        Argentina
+    </title>
     <script>document.write('<base href="' + document.location + '" />');</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.2/nv.d3.min.css" />
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
@@ -14,10 +16,22 @@
 </head>
 
 <body ng-controller="MainCtrl">
+    <h1>
+        Argentina
+    </h1>
     <!-- insert data -->
-    <nvd3 options='options' data='data0'></nvd3>
-    <nvd3 options='options' data='data1'></nvd3>
-    <nvd3 options='options' data='data2'></nvd3>
+<h2>Overall Income Inequality</h2>
+<h3>Gini coefficient - Equivalised household income</h3>
+<p>Gini coefficient for equivalised household income from SEDLAC EPHC data (averages where multiple observations per year), linked backwards at 2003 to data for 28 main cities from 1998 to 2003, linked at 1998 to data for 15 main cities from 1992 to 1998, linked at 1992 to data for Greater Buenos Aires from 1974 to 1992, linked again at 1974 to data from CONADE-CEPAL/Gas del Estado studies, as presented in Altimir (1986).</p><h4>Visualization of source data</h4>
+<nvd3 options='options' data='data0'></nvd3>
+<h2>Top Income Shares</h2>
+<h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
+<p>Pre-tax national income share held by top percentile from WID.world. Data relates to individuals over age 20 assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
+<nvd3 options='options' data='data1'></nvd3>
+<h2>Poverty</h2>
+<h3>Share below 50% median - Household per capita income</h3>
+<p>Percentage of individuals below 50 per cent of median household per capita income from SEDLAC (2020) EPHC data (averages where multiple observations per year), for 31 main cities since the second half of 2006 and 28 main cities previously. We extend the series by linking backwards at 2003 to a previous vintage of SEDLAC (2016) which contains earlier observations. Within the 2016 release, we link backwards at 1998 to data for 15 main cities, and again at 1992 to data for Greater Buenos Aires.</p><h4>Visualization of source data</h4>
+<nvd3 options='options' data='data2'></nvd3>
 
 </body>
 

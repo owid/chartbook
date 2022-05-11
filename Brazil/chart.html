@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>-nvD3 Multi Chart</title>
+    <title>
+        Brazil
+    </title>
     <script>document.write('<base href="' + document.location + '" />');</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.2/nv.d3.min.css" />
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
@@ -14,12 +16,53 @@
 </head>
 
 <body ng-controller="MainCtrl">
+    <h1>
+        Brazil
+    </h1>
     <!-- insert data -->
-<nvd3 options='options' data='data0'></nvd3>
-<nvd3 options='options' data='data1'></nvd3>
-<nvd3 options='options' data='data2'></nvd3>
-<nvd3 options='options' data='data3'></nvd3>
-<nvd3 options='options' data='data4'></nvd3>
+    <h2>Overall Income Inequality</h2>
+    <h3>Gini coefficient - Equivalised household income</h3>
+    <p>Gini coefficient for household equivalised income from SEDLAC. The data are derived from the PNAD household
+        survey (replaced from 2016 with the 'Continuous PNAD' or PNADC). Over the period covered, the survey underwent
+        several methodological changes; these are indicated within SEDLAC as breaks in the series, but with only very
+        limited descriptions: the latest data, from 2016 onwards, is specified as including implicit rent, suggesting
+        that this was not included in earlier data, or not included consistently. The data from 2004 is specified as
+        including the 'Rural North', again suggesting that earlier figures exclude this region. We construct the final
+        series by linking the subseries across these breaks. No figures are available between 1990 and 1993 in the gap
+        between the first subseries ending and the second starting; here we link the series by assuming there was no
+        intervening change in inequality between 1990 and 1993. For a discussion of the data sources on which SEDLAC is
+        based and their limitations, see Gasparini, Cruces & Tornarolli (2011).</p>
+    <h4>Visualization of source data</h4>
+    <nvd3 options='options' data='data0'></nvd3>
+    <h2>Top Income Shares</h2>
+    <h3>Share of top 1% - Household income (excluding capital gains)</h3>
+    <p>Share of top 1 per cent in total income (households, excluding capital gains) for 1960 and 1970 from Langoni
+        (1978).</p>
+    <h4>Visualization of source data</h4>
+    <nvd3 options='options' data='data1'></nvd3>
+    <h2>Top Income Shares</h2>
+    <h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
+    <p>Pre-tax national income share held by top percentile from WID.world. Data relates to individuals over age 20,
+        assuming resources are split equally within couples.</p>
+    <h4>Visualization of source data</h4>
+    <nvd3 options='options' data='data2'></nvd3>
+    <h2>Poverty</h2>
+    <h3>Share below 50% median - Household per capita income</h3>
+    <p>Percentage of individuals below 50 per cent of median household per capita income from SEDLAC (2020) New PNAD
+        household survey data. The data from 2004 are specified as including the 'Rural North', suggesting that earlier
+        figures exclude this region; in 2012, the 'Continuous PNAD' or 'New PNADC' series was introduced: we link
+        backwards between the series on these dates. Earlier figures from before 1992 were not included in SEDLAC
+        (2020); we extend the series back to 1981 by linking to data taken from SEDLAC (2018) for this period. No
+        figures are available between 1990 and 1992 in the gap between the first subseries ending and the second
+        starting; here we link the series by assuming there was no intervening change in inequality between 1990 and
+        1992.</p>
+    <h4>Visualization of source data</h4>
+    <nvd3 options='options' data='data3'></nvd3>
+    <h2>Earnings Dispersion</h2>
+    <h3>Gini coefficient - Individual earnings (Metropolitan regions)</h3>
+    <p>Gini coefficient for labour earnings in six main metropolitan regions, persons aged 15-60, from Neri (2010).</p>
+    <h4>Visualization of source data</h4>
+    <nvd3 options='options' data='data4'></nvd3>
 
 </body>
 

@@ -30,6 +30,24 @@ while i < len(final_series_list):
         .item()
     )
 
+    measure = (
+        country_data.loc[(all_data["series_code"] == final_series)]
+        .measure.unique()
+        .item()
+    )
+
+    welfare_concept = (
+        country_data.loc[(all_data["series_code"] == final_series)]
+        .welfare_concept.unique()
+        .item()
+    )
+
+    description = (
+        country_data.loc[(all_data["series_code"] == final_series)]
+        .description.unique()
+        .item()
+    )
+
     sources_used = (
         country_data.loc[(all_data["series_code"] == final_series)]
         .source_codes_used.unique()
@@ -45,7 +63,7 @@ while i < len(final_series_list):
     df_min = min(final_series_df["x"])
     values = final_series_df[["x", "y", "series"]]
     values = values.to_dict("records")
-    data = [{"key": dimension, "type": "line", "values": values, "yAxis": 1}]
+    data = [{"key": "Chartbook series", "type": "line", "values": values, "yAxis": 1}]
     div = []
 
     # construct json for source series
@@ -77,8 +95,21 @@ while i < len(final_series_list):
         )
         j += 1
     data = "$scope.data" + str(i) + " = " + str(data)
-    div = "<nvd3 options='options' data='data" + str(i) + "'></nvd3>"
     data_list.append(data)
+    div = (
+        "<h2>"
+        + dimension
+        + "</h2>\n<h3>"
+        + measure
+        + " - "
+        + welfare_concept
+        + "</h3>\n<p>"
+        + description
+        + "</p><h4>Visualization of source data</h4>\n"
+        + "<nvd3 options='options' data='data"
+        + str(i)
+        + "'></nvd3>"
+    )
     div_list.append(div)
     i += 1
 
@@ -103,5 +134,6 @@ open("charts.js", "w").write(new_script)
 # edit chart.html
 with open("../chart.html", "r") as file:
     old_script = file.read()
-new_script = re.sub("(?<=<!-- insert data -->\n).*", div_string, old_script)
+new_script = re.sub("(<!-- insert country -->\n).*", Country, old_script)
+new_script = re.sub("(?<=<!-- insert data -->\n).*", div_string, new_script)
 open("chart.html", "w").write(new_script)
