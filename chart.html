@@ -14,22 +14,14 @@
 </head>
 
 <body>
-    <!-- Final series chart -->
-    <script src="c3.v3.js"></script>
-    <script src="mv.c3.js"></script>
-
-    <div> <svg id="chart1"></svg> </div>
-    <div> <svg id="chart2"></svg> </div>
-    <div> <svg id="chartXaxis"></svg> </div>
-
-    <div> <svg id="CreditsContainer"></svg> </div>
-
-    <script src="final_series_chart.js"></script>
-
     <style>
         body {
             overflow-y: scroll;
             font: normal 12px Helvetica;
+        }
+
+        #source_charts {
+            width: 1000px;
         }
 
         .mv-axis text {
@@ -119,13 +111,25 @@
         }
     </style>
 
+    <!-- Final series chart -->
+    <script src="c3.v3.js"></script>
+    <script src="mv.c3.js"></script>
+
+    <div> <svg id="chart1"></svg> </div>
+    <div> <svg id="chart2"></svg> </div>
+    <div> <svg id="chartXaxis"></svg> </div>
+
+    <div> <svg id="CreditsContainer"></svg> </div>
+
+    <script src="final_series_chart.js"></script>
+
     <!-- Source series chart -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.2/nv.d3.min.js"></script>
     <script src="https://rawgit.com/krispo/angular-nvd3/v1.0.6/dist/angular-nvd3.js"></script>
     <script src="source_series_charts.js"></script>
-    <div ng-controller="MainCtrl">
+    <div ng-controller="MainCtrl" id="source_charts">
         <h1>
             <!-- insert country -->
             country

@@ -21,6 +21,14 @@ final_series_list = list(
 data_list = []
 div_list = []
 
+colour_dict = {
+    "Earnings Dispersion": "#104E8B",
+    "Overall Income Inequality": "#008000",
+    "Poverty": "#e31a1c",
+    "Wealth Inequality": "#FF9912",
+    "Top Income Shares": "#6a3d9a",
+}
+
 i = 0
 while i < len(final_series_list):
     final_series = final_series_list[i]
@@ -97,7 +105,9 @@ while i < len(final_series_list):
     data = "$scope.data" + str(i) + " = " + str(data)
     data_list.append(data)
     div = (
-        "<h2>"
+        "<h2 style='color:"
+        + colour_dict[str(dimension)]
+        + ";'>"
         + dimension
         + "</h2>\n<h3>"
         + measure
