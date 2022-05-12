@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-<link href="nv.d3.css" rel="stylesheet" type="text/css">
+<link href="mv.c3.css" rel="stylesheet" type="text/css">
 
 <style>
     body {
@@ -9,7 +9,7 @@
         font: normal 12px Helvetica;
     }
 
-    .nv-axis text {
+    .mv-axis text {
         font-size: 12px;
         font-style: italic;
     }
@@ -80,13 +80,13 @@
     }
 
 
-    #chart1 .nv-lineChart circle.nv-point,
-    #chart2 .nv-lineChart circle.nv-point {
+    #chart1 .mv-lineChart circle.mv-point,
+    #chart2 .mv-lineChart circle.mv-point {
         fill-opacity: 0.9;
     }
 
-    #chart1 .nv-lineChart path.nv-line,
-    #chart2 .nv-lineChart path.nv-line {
+    #chart1 .mv-lineChart path.mv-line,
+    #chart2 .mv-lineChart path.mv-line {
         stroke-opacity: 0.6;
         stroke-width: 0.5px;
     }
@@ -105,8 +105,8 @@
     <div> <svg id="CreditsContainer"></svg> </div>
 
 
-    <script src="d3.v3.js"></script>
-    <script src="nv.d3.js"></script>
+    <script src="c3.v3.js"></script>
+    <script src="mv.c3.js"></script>
 
     <script>
 
@@ -126,7 +126,7 @@
         var LH_tickMarks = [10, 20, 30, 40, 50, 60, 70, 80] // XXX     10,20,30,40,50,60,70,80,90,100
 
 
-        d3.csv("bottom_chart.csv", function (error, csv) { // XXX
+        c3.csv("bottom_chart.csv", function (error, csv) { // XXX
             if (error) return console.log("there was an error loading the csv: " + error);
             console.log("there are " + csv.length + " elements in my csv set");
 
@@ -155,14 +155,14 @@
             };
 
 
-            var colors = d3.scale.category20();
+            var colors = c3.scale.category20();
 
             keyColor = function (d, i) { return colors(d.key) };
 
             var chart;
 
-            nv.addGraph(function () {
-                chart = nv.models.lineChart()
+            mv.addGraph(function () {
+                chart = mv.models.lineChart()
                     .x(function (d) { return d[0] * 31556900000 })
                     .y(function (d) { return d[1] })
                     .color(keyColor)
@@ -177,7 +177,7 @@
 
 
                 chart.xAxis
-                    .tickFormat(function (d) { return d3.time.format('%Y')(new Date(d)) });
+                    .tickFormat(function (d) { return c3.time.format('%Y')(new Date(d)) });
 
                 chart.xDomain([((1900 - 1969.5) * 31556900000), ((2021 - 1969.5) * 31556900000)]);
 
@@ -186,14 +186,14 @@
 
                 chart.yDomain([-1, 80]);  //XXX
 
-                d3.select('#chart2')
+                c3.select('#chart2')
                     .datum(series)
                     .transition().call(chart);
 
 
-                nv.utils.windowResize(chart.update);
+                mv.utils.windowResize(chart.update);
 
-                chart.dispatch.on('stateChange', function (e) { nv.log('New State:', JSON.stringify(e)); });
+                chart.dispatch.on('stateChange', function (e) { mv.log('New State:', JSON.stringify(e)); });
 
                 return chart;
 
@@ -206,7 +206,7 @@
         });
 
 
-        var xAchse = d3.select('#chartXaxis');
+        var xAchse = c3.select('#chartXaxis');
 
 
 
@@ -308,7 +308,7 @@
 
 
 
-        var AddToChart1 = d3.select('#chart1');
+        var AddToChart1 = c3.select('#chart1');
 
 
 
@@ -403,7 +403,7 @@
 
 
 
-        var AddToChart2 = d3.select('#chart2');
+        var AddToChart2 = c3.select('#chart2');
 
 
 
@@ -526,14 +526,14 @@
         /* --------------- */
 
         // Earnings Dispersion
-        d3.select('#chart2')
+        c3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['E'])
             .text("Earnings Dispersion - Individual earnings")
             .attr("x", 760)
             .attr("y", 71);
-        d3.select('#chart2')
+        c3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['E'])
@@ -543,7 +543,7 @@
 
 
         // Overall income inequality
-        d3.select('#chart2')
+        c3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['O'])
@@ -553,14 +553,14 @@
 
 
         // Top Income Series
-        d3.select('#chart2')
+        c3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['T'])
             .text("Share of top 1% - Pre-tax national income (equal-split")
             .attr("x", 760)
             .attr("y", 245);
-        d3.select('#chart2')
+        c3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['T'])
@@ -568,14 +568,14 @@
             .attr("x", 760)
             .attr("y", 255);
 
-        d3.select('#chart2')
+        c3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['T'])
             .text("Share of top 1% - Household income")
             .attr("x", 473)
             .attr("y", 299);
-        d3.select('#chart2')
+        c3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['T'])
@@ -584,7 +584,7 @@
             .attr("y", 309);
 
         // Poverty Series
-        d3.select('#chart2')
+        c3.select('#chart2')
             .append("text")
             .attr("class", "linelabel")
             .style("fill", color_ref['P'])
