@@ -136,10 +136,10 @@ div_string = str("\n").join(div_list)
 print(div_string)
 
 # edit app.js
-with open("../app.js", "r") as file:
+with open("../source_series_charts.js", "r") as file:
     old_script = file.read()
 new_script = re.sub("(?<=insert data\n).*", string, old_script)
-open("charts.js", "w").write(new_script)
+open("source_series_charts.js", "w").write(new_script)
 
 # edit chart.html
 with open("../chart.html", "r") as file:
