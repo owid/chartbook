@@ -21,6 +21,7 @@ country_dimension_lod <- country_df %>% split(., .[["series_code"]]) %>%
         df
     })
 
+# checks which series are earnings dispersion (top chart)
 i <- country_dimension_lod %>% lapply(., function(d){
     length(d) == 2
 })
