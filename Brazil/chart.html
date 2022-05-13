@@ -13,18 +13,6 @@
 </head>
 
 <body>
-    <!-- Final series chart -->
-    <script src="c3.v3.js"></script>
-    <script src="mv.c3.js"></script>
-
-    <div> <svg id="chart1"></svg> </div>
-    <div> <svg id="chart2"></svg> </div>
-    <div> <svg id="chartXaxis"></svg> </div>
-
-    <div> <svg id="CreditsContainer"></svg> </div>
-
-    <script src="final_series_chart.js"></script>
-
     <style>
         body {
             overflow-y: scroll;
@@ -86,7 +74,7 @@
         }
 
         #chart1 {
-            height: 72px;
+            height: 200px;
             width: 1000px;
         }
 
@@ -121,6 +109,18 @@
             opacity: 1;
         }
     </style>
+
+    <!-- Final series chart -->
+    <script src="c3.v3.js"></script>
+    <script src="mv.c3.js"></script>
+
+    <div> <svg id="chart1"></svg> </div>
+    <div> <svg id="chart2"></svg> </div>
+    <div> <svg id="chartXaxis"></svg> </div>
+
+    <div> <svg id="CreditsContainer"></svg> </div>
+
+    <script src="final_series_chart.js"></script>
 
     <!-- Source series chart -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>

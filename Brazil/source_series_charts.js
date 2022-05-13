@@ -4,8 +4,7 @@ app.controller('MainCtrl', function ($scope) {
     $scope.options = {
         chart: {
             type: 'multiChart',
-            height: 432,
-            width: 1000,
+            height: 450,
             margin: {
                 top: 30,
                 right: 60,
