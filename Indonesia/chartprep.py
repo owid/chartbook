@@ -87,7 +87,8 @@ while i < len(final_series_list):
         source_series_df = source_series_df.rename(columns={"year": "x", "value": "y"})
         values = source_series_df[["x", "y", "series"]]
         add = pd.DataFrame(
-            [[df_min, "null", 0], [df_max, "null", 0]], columns=["x", "y", "series"]
+            [[df_min, "null", j + 1], [df_max, "null", j + 1]],
+            columns=["x", "y", "series"],
         )
         values = (
             pd.concat([values, add]).sort_values(by=["x"]).drop_duplicates(subset=["x"])
