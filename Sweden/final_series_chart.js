@@ -85,7 +85,7 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
 //	Bottom Chart 
 // –––––––––––––––––––––––––––––––––––––––––––––– //
 
-var LH_tickMarks = [10, 20, 30, 40] // XXX     10,20,30,40,50,60,70,80,90,100
+var LH_tickMarks = [10, 20, 30, 40, 50] // XXX     10,20,30,40,50,60,70,80,90,100
 
 
 c3.csv("bottom_chart.csv", function (error, csv) { // XXX
@@ -146,7 +146,7 @@ c3.csv("bottom_chart.csv", function (error, csv) { // XXX
 
         chart.yAxis.tickValues(LH_tickMarks);
 
-        chart.yDomain([-1, 45]);  //XXX
+        chart.yDomain([-1, 55]);  //XXX
 
         c3.select('#chart2')
             .datum(series)
