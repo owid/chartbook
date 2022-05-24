@@ -2,6 +2,8 @@
 
 The data and metadata for each country are hosted on public Google Sheets documents, which can be accessed [here](https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/edit#gid=1578718062).
 
+To sync the chart data with the data in the spread sheet:
+
 ```
 import pandas as pd
 
@@ -31,7 +33,7 @@ Install necessary packages
 pip install -r requirements.txt
 ```
 
-Populate the chart datasets for each country (script does not work for Singapore)
+Populate the chart datasets for each country
 
 ```sh
 cd COUNTRY
@@ -47,6 +49,12 @@ python -m http.server
 ```
 
 Open your browser and enter http://localhost:8000/
+
+Update references (stored [here](https://github.com/owid/chartbook/blob/main/References.csv))
+
+```sh
+python read_references.py
+```
 
 ### Index
 |Country|Google sheet URL|
@@ -74,8 +82,8 @@ Open your browser and enter http://localhost:8000/
 |Spain|https://docs.google.com/spreadsheets/d/1xXFMMP4glUrPevj4-rW04mqKQj8ebPAiP2tKNx8l6QA/edit?usp=sharing|
 |Sweden|https://docs.google.com/spreadsheets/d/1Ylee87yl-XL1PMeK9LMgLK5NkIxe5cmb7PdC53AoMWM/edit?usp=sharing|
 |Switzerland|https://docs.google.com/spreadsheets/d/1NXeIVqzbCAUGE6KpGLURIDVKUxXK8qBWOWfuo9Wn1Os/edit?usp=sharing|
-|UK	https://docs.google.com/spreadsheets/d/1qa1LD_R9F3hdnVcbo-MB6mAMoBOG-IcnSypQXzCeMj0/edit?usp=sharing|
-|US	https://docs.google.com/spreadsheets/d/1ONdnOFLa-SxtMe3uxtv1J3hZY16Li9mBf9Oi2gE4YwI/edit?usp=sharing|
+|UK|https://docs.google.com/spreadsheets/d/1qa1LD_R9F3hdnVcbo-MB6mAMoBOG-IcnSypQXzCeMj0/edit?usp=sharing|
+|US|https://docs.google.com/spreadsheets/d/1ONdnOFLa-SxtMe3uxtv1J3hZY16Li9mBf9Oi2gE4YwI/edit?usp=sharing|
 
 ### Data availability
 ### Overall Income Inequality
