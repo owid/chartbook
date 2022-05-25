@@ -59,11 +59,11 @@ for i in references:
         x += 1
 
     html_string = re.sub("<a href = 'nan'>", "", html_string)
-    html_string = "</div>\n" + html_string + "</body>"
+    html_string = "></div>\n<h2>References</h2>\n" + html_string + "</body>"
 
     with open(str(i[0]) + "/chart.html", "r") as file:
         old_script = file.read()
-    new_script = re.sub("<\/nvd3>\n.*<\/div>((.|\n)*)<\/body>", html_string, old_script)
+    new_script = re.sub("><\/div>((.|\n)*)<\/body>", html_string, old_script)
     open(str(i[0]) + "/chart.html", "w").write(new_script)
 
 
