@@ -1,16 +1,42 @@
-var color_ref = {
-    'E': '#104E8B', // blue
-    'O': '#008000', // green
-    'P': '#e31a1c', // red
-    'W': '#FF9912', // gold
-    'T': '#6a3d9a', // purple
-}
+var earningscolor = '#104E8B'; // blue
+var overallinequalitycolor = '#008000'; // green
+var povertycolor = '#e31a1c'; // red
+var wealthcolor = '#FF9912'; // gold
+var topincomecolor = '#6a3d9a'; // purple
 
 // –––––––––––––––––––––––––––––––––––––––––––––– //
 //	Bottom Chart 
 // –––––––––––––––––––––––––––––––––––––––––––––– //
 
+var series = [
+    {
+        key: "Gini coefficient - Equivalised household income", // XXX
+        values: [],
+        color: overallinequalitycolor
+
+    },
+
+    {
+        key: "Share of top 1% - Pre-tax national income (equal-split adults)",
+        values: [],
+        color: topincomecolor
+    },
+
+    {
+        key: "Share of top 1% - Pre-tax fiscal income (individuals) (excluding captial gains)",
+        values: [],
+        color: topincomecolor
+    },
+
+    {
+        key: "Share below 50% median - Household per capita income",
+        values: [],
+        color: povertycolor
+    }
+];
+
 var LH_tickMarks = [10, 20, 30, 40, 50, 60] // XXX     10,20,30,40,50,60,70,80,90,100
+console.log(series)
 
 
 c3.csv("bottom_chart.csv", function (error, csv) { // XXX
@@ -18,19 +44,8 @@ c3.csv("bottom_chart.csv", function (error, csv) { // XXX
     console.log("there are " + csv.length + " elements in my csv set");
 
 
-    var column_names = Object.keys(csv[0]); // XXX
-
-    var series = [];
-    for (var i = 0; i < column_names.length; i++) {
-        var column_name = column_names[i];
-        series[i] = {
-            'key': column_name,
-            'values': [],
-            color: color_ref[column_name.split(' - ').pop().charAt(0)]
-        };
-    }
-
-    console.log(series)
+    var column_names = ['Gini coefficient - Equivalised household income', 'Share of top 1% - Pre-tax national income (equal-split adults)', 'Share of top 1% - Pre-tax fiscal income (individuals) (excluding captial gains)', 'Share below 50% median - Household per capita income']; // XXX
+    console.log(column_names)
 
     for (var i = 0; i < column_names.length; i++) {
         series[i].key = column_names[i];
@@ -229,7 +244,7 @@ AddToChart1
     .text("Overall Income Inequality")
     .attr("x", 255)
     .attr("y", 59)
-    .style("fill", color_ref['O'])  // Farbe geben
+    .style("fill", overallinequalitycolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
     .attr("font-family", "Century Gothic")
@@ -237,7 +252,7 @@ AddToChart1.append("svg:circle")
     .attr("cx", 245)
     .attr("cy", 52)
     .attr("r", 3)
-    .style("fill", color_ref['O']);
+    .style("fill", overallinequalitycolor);
 
 
 //Poverty
@@ -246,7 +261,7 @@ AddToChart1
     .text("Poverty")
     .attr("x", 497)
     .attr("y", 59)
-    .style("fill", color_ref['P'])  // Farbe geben
+    .style("fill", povertycolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
     .attr("font-family", "Century Gothic")
@@ -254,7 +269,7 @@ AddToChart1.append("svg:circle")
     .attr("cx", 487)
     .attr("cy", 52)
     .attr("r", 3)
-    .style("fill", color_ref['P']);
+    .style("fill", povertycolor);
 
 
 //Top Incomes
@@ -263,7 +278,7 @@ AddToChart1
     .text("Top Income Shares")
     .attr("x", 618)
     .attr("y", 59)
-    .style("fill", color_ref['T'])  // Farbe geben
+    .style("fill", topincomecolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
     .attr("font-family", "Century Gothic")
@@ -271,7 +286,7 @@ AddToChart1.append("svg:circle")
     .attr("cx", 608)
     .attr("cy", 52)
     .attr("r", 3)
-    .style("fill", color_ref['T']);
+    .style("fill", topincomecolor);
 
 
 
@@ -400,10 +415,8 @@ c3.csv("../raw_df.csv", function (data) {
     c3.select('#chart2')
         .append("text")
         .attr("class", "linelabel")
-        .style("fill", color_ref['O'])
-        .text(data.find(object => {
-            return (object["country"] === "Argentina" && object["dimension"] === "Earnings Dispersion" && object["description"] != "")
-        })["legend"]) // XXX
+        .style("fill", overallinequalitycolor)
+        .text("Gini coefficient - Equivalised household income") // XXX
         .attr("x", 755)
         .attr("y", 144);
 })
@@ -413,16 +426,33 @@ c3.csv("../raw_df.csv", function (data) {
     c3.select('#chart2')
         .append("text")
         .attr("class", "linelabel")
-        .style("fill", color_ref['T'])
+        .style("fill", topincomecolor)
         .text("Top Income Shares - Pre-tax national income") // XXX
         .attr("x", 755)
         .attr("y", 270);
     c3.select('#chart2').append('text')
         .attr("class", "linelabel")
-        .style("fill", color_ref['T'])
-        .text("(equal-split adults)")
+        .style("fill", topincomecolor)
+        .text("(equal-split adults) ★")
         .attr("x", 755)
         .attr("y", 280);
+})
+
+// Top Income Shares
+c3.csv("../raw_df.csv", function (data) {
+    c3.select('#chart2')
+        .append("text")
+        .attr("class", "linelabel")
+        .style("fill", topincomecolor)
+        .text("Top Income Shares - Pre-tax national income") // XXX
+        .attr("x", 525)
+        .attr("y", 263);
+    c3.select('#chart2').append('text')
+        .attr("class", "linelabel")
+        .style("fill", topincomecolor)
+        .text("(equal-split adults) ★")
+        .attr("x", 525)
+        .attr("y", 273);
 })
 
 
@@ -431,13 +461,13 @@ c3.csv("../raw_df.csv", function (data) {
     c3.select('#chart2')
         .append("text")
         .attr("class", "linelabel")
-        .style("fill", color_ref['P'])
+        .style("fill", povertycolor)
         .text("Share below 50% median - Household per capita") // XXX
         .attr("x", 755)
         .attr("y", 241);
     c3.select('#chart2').append('text')
         .attr("class", "linelabel")
-        .style("fill", color_ref['P'])
+        .style("fill", povertycolor)
         .text("income")
         .attr("x", 755)
         .attr("y", 251);
