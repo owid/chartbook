@@ -8,6 +8,7 @@ var topincomecolor = '#6a3d9a'; // purple
 //	Bottom Chart 
 // –––––––––––––––––––––––––––––––––––––––––––––– //
 
+// Edit names and colours of the final series
 var series = [
     {
         key: "Gini coefficient - Equivalised household income", // XXX
@@ -17,36 +18,38 @@ var series = [
     },
 
     {
-        key: "Share of top 1% - Pre-tax national income (equal-split adults)",
+        key: "Share of top 1% - Pre-tax national income (equal-split adults)", // XXX
         values: [],
         color: topincomecolor
     },
 
     {
-        key: "Share of top 1% - Pre-tax fiscal income (individuals) (excluding captial gains)",
+        key: "Share of top 1% - Pre-tax fiscal income (individuals) (excluding captial gains)", // XXX
         values: [],
         color: topincomecolor
     },
 
     {
-        key: "Share below 50% median - Household per capita income",
+        key: "Share below 50% median - Household per capita income", // XXX
         values: [],
         color: povertycolor
     }
 ];
 
+// Choose domain of y axis
 var LH_tickMarks = [10, 20, 30, 40, 50, 60] // XXX     10,20,30,40,50,60,70,80,90,100
 console.log(series)
 
-
-c3.csv("bottom_chart.csv", function (error, csv) { // XXX
+// Creates object based on bottom_chart.csv
+c3.csv("bottom_chart.csv", function (error, csv) {
     if (error) return console.log("there was an error loading the csv: " + error);
     console.log("there are " + csv.length + " elements in my csv set");
 
-
-    var column_names = ['Gini coefficient - Equivalised household income', 'Share of top 1% - Pre-tax national income (equal-split adults)', 'Share of top 1% - Pre-tax fiscal income (individuals) (excluding captial gains)', 'Share below 50% median - Household per capita income']; // XXX
+    // Creates array of column names 
+    var column_names = series.map(item => { return item.key });; // XXX
     console.log(column_names)
 
+    // Modifies years to fit chart
     for (var i = 0; i < column_names.length; i++) {
         series[i].key = column_names[i];
         series[i].values = csv.map(function (d) {

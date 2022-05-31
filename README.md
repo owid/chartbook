@@ -25,7 +25,7 @@ Install necessary packages
 pip install -r requirements.txt
 ```
 
-Sync the data in the repo data with the data currently in the spreadsheet:
+Sync the data in the repo with the data currently in the spreadsheet:
 
 ```
 import pandas as pd
@@ -42,7 +42,7 @@ cd COUNTRY
 Rscript dataprep.R
 ```
 
-Populate the source chart datasets and edit chart.html for each country (writes source series data into //insert data in source_series_charts.js, and the final series description into <!-- insert data --> in chart.html)
+Populate the source chart datasets and edit chart.html for each country (writes source series data into source_series_charts.js, and the final series description into in chart.html)
 
 ```sh
 cd COUNTRY
