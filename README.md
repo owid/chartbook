@@ -2,17 +2,9 @@
 
 The data and metadata for each country are hosted on public Google Sheets documents, which can be accessed [here](https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/edit#gid=1578718062).
 
-To sync the chart data with the data in the spread sheet:
 
-```
-import pandas as pd
 
-url = "https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/gviz/tq?tqx=out:csv&sheet=All+data"
-all_data = pd.read_csv(url)
-all_data.to_csv('raw_df.csv')
-```
-
-Instructions on how to set up a local server to see the charts (we assume that you have Python installed on your machine)
+### Instructions on how to create charts and webpages
 
 Clone the repository into current working directory
 
@@ -33,11 +25,28 @@ Install necessary packages
 pip install -r requirements.txt
 ```
 
-Populate the chart datasets for each country
+Sync the data in the repo data with the data currently in the spreadsheet:
+
+```
+import pandas as pd
+
+url = "https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/gviz/tq?tqx=out:csv&sheet=All+data"
+all_data = pd.read_csv(url)
+all_data.to_csv('raw_df.csv')
+```
+
+Populate the final chart datasets for each country (writes final series data to bottom_chart.csv, and top_chart.csv where relevant)
 
 ```sh
 cd COUNTRY
 Rscript dataprep.R
+```
+
+Populate the source chart datasets and edit chart.html for each country (writes source series data into //insert data in source_series_charts.js, and the final series description into <!-- insert data --> in chart.html)
+
+```sh
+cd COUNTRY
+python chartprep.py
 ```
 
 To edit the height and width of chart elements, open chartbook.html within the country's folder and search for lines demarcated with '// XXX' 

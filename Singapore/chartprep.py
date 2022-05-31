@@ -2,15 +2,19 @@ import re
 import os
 import pandas as pd
 
+# Assigns current working directory to country
 Country = re.search(
     "chartbook\/(.*)", os.path.dirname(os.path.realpath(__file__))
 ).group(1)
+
+# Loads data
 all_data = pd.read_csv("../raw_df.csv")
 all_data["source_legend"] = (
     all_data["short_reference"] + " - " + all_data["welfare_concept"]
 )
 country_data = all_data.loc[(all_data["country"] == Country)]
 
+# Creates list of final series
 final_series_list = list(
     country_data[
         (country_data["series_code"].str[0].isin(["F"]))
@@ -29,6 +33,7 @@ colour_dict = {
     "Top Income Shares": "#6a3d9a",
 }
 
+# Assigns values to each final series
 i = 0
 while i < len(final_series_list):
     final_series = final_series_list[i]
@@ -63,7 +68,7 @@ while i < len(final_series_list):
         .split(",")
     )
 
-    # construct json for final series
+    # Constructs json for final series
     final_series_df = country_data.loc[country_data["series_code"] == final_series]
     final_series_df["series"] = 0
     final_series_df = final_series_df.rename(columns={"year": "x", "value": "y"})
@@ -74,7 +79,7 @@ while i < len(final_series_list):
     data = [{"key": "Chartbook series", "type": "line", "values": values, "yAxis": 1}]
     div = []
 
-    # construct json for source series
+    # Constructs json for source series for each final series
     j = 0
     while j < len(sources_used):
         source_series_df = country_data.loc[
@@ -102,6 +107,8 @@ while i < len(final_series_list):
             }
         )
         j += 1
+
+    # Creates string of correctly formatted jsons
     data = "$scope.data" + str(i) + " = " + str(data)
     data_list.append(data)
     div = (
@@ -123,6 +130,7 @@ while i < len(final_series_list):
     div_list.append(div)
     i += 1
 
+
 string = (
     str("; \n".join(data_list))
     .replace("'null'", "null")
@@ -135,13 +143,13 @@ string = (
 div_string = str("\n").join(div_list)
 print(div_string)
 
-# edit app.js
+# Writes data strings to source_series_charts.js
 with open("../source_series_charts.js", "r") as file:
     old_script = file.read()
 new_script = re.sub("(?<=insert data\n).*", string, old_script)
 open("source_series_charts.js", "w").write(new_script)
 
-# edit chart.html
+# Writes description strings to chart.html
 with open("../chart.html", "r") as file:
     old_script = file.read()
 new_script = re.sub("(<!-- insert country -->\n).*", Country, old_script)

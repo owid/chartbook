@@ -14,14 +14,18 @@ if (!PKG %in% installed.packages()) {
 }
 do.call(library, list(PKG))
 
+# Loads data
 raw_df <- readr::read_csv("../raw_df.csv") %>% janitor::clean_names()
 
+# Assigns current working directory to country
 COUNTRY <- gsub(paste0(dirname(getwd()), "/"), "", getwd())
 
+# Creates df of final series for current country
 country_df <- raw_df %>%
   filter(country %in% c(COUNTRY)) %>%
   filter(!is.na(description), description != "")
 
+# Saves Earnings Dispersion series to top_chart.csv if it exists
 country_dimension_lod <- country_df %>%
   split(., .[["series_code"]]) %>%
   lapply(., function(df) {
@@ -40,10 +44,10 @@ country_dimension_lod <- country_df %>%
     df
   })
 
-
+# Saves remaining final series to bottom_chart.csv
 LH_lod <- country_dimension_lod %>%
   lapply(., function(d) {
-    d <- filter(d, preferred_definition == "*")
+    # d <- filter(d, preferred_definition == "*")
     tryCatch(
       {
         newvaluecolname <- d %>%
