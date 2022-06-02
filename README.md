@@ -35,7 +35,8 @@ all_data = pd.read_csv(url)
 all_data.to_csv('raw_df.csv')
 ```
 
-Populate the final chart datasets for each country (writes final series data to bottom_chart.csv, and top_chart.csv where relevant)
+Populate the final chart datasets for each country 
+- Writes final series data to bottom_chart.csv, and top_chart.csv where relevant
 
 ```sh
 cd COUNTRY
