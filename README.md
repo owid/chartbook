@@ -42,11 +42,51 @@ cd COUNTRY
 Rscript dataprep.R
 ```
 
-Populate the source chart datasets and edit chart.html for each country (writes source series data into source_series_charts.js, and the final series description into in chart.html)
+Populate the source chart datasets and edit chart.html for each country. 
+ - Writes source series data into source_series_charts.js by copying the text of ../source_series_chart.js and inserting the data (string) after 'insert data'
+ - Writes the final series description into in chart.html by copying the text of ../chart_no_ED.html - or ../chart_ED.html and inserting the final series description (div_string) after 'insert data'
 
 ```sh
 cd COUNTRY
 python chartprep.py
+```
+
+The data in source_series_charts.js should be formatted as such:
+
+```sh
+$scope.data[i] = [
+        { 
+            key: 'Chartbook series', type: 'line', values: 
+                [
+                    {'x': year, 'y': value, 'series': 0},
+                    {'x': year, 'y': value, 'series': 0},
+                    {'x': year, 'y': value, 'series': 0},
+                    ...
+                ], 
+            yAxis: 1 
+        }, 
+        { 
+            key: 'short reference - welfare concept', type: 'scatter', values: 
+                [
+                    {'x': year, 'y': value, 'series': 1}, 
+                    {'x': year, 'y': value, 'series': 1},
+                    {'x': year, 'y': value, 'series': 1},
+                    ...
+                ], 
+            yAxis: 1
+        },
+        { 
+            key: 'short reference - welfare concept', type: 'scatter', values: 
+                [
+                    {'x': year, 'y': value, 'series': j+1},
+                    {'x': year, 'y': value, 'series': j+1},
+                    {'x': year, 'y': value, 'series': j+1},
+                    ...
+                ],
+            yAxis: 1
+        }
+        ...
+    ];
 ```
 
 To edit the height and width of chart elements, open chartbook.html within the country's folder and search for lines demarcated with '// XXX' 

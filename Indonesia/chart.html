@@ -74,7 +74,7 @@
         }
 
         #chart1 {
-            height: 200px;
+            height: 72px;
             width: 1000px;
         }
 
@@ -133,30 +133,44 @@
             Indonesia
         </h1>
         <!-- insert data -->
-<h2 style='color:#008000;'>Overall Income Inequality</h2>
-<h3>Gini coefficient - Equivalised household expenditure</h3>
-<p>Gini coefficient for equivalised (per capita) household expenditure from Statistics Indonesia (BPS) - averages taken when multiple observations per year: linked with no multiplier at 2002 to series from Krongkaew & Ragayah (2006): linked with no multiplier at 1996 to series from Asra (2000): linked back between 1970 and 1969 to data from Fields (1989), as reported by WIID; this data refers to consumption and excludes West Irian, East Timor and Maluku.</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data0'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
-<p>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data1'></nvd3>
-<h2 style='color:#e31a1c;'>Poverty</h2>
-<h3>Share below absolute poverty line - Equivalised household expenditure</h3>
-<p>Percentage of individuals in households with equivalised (per capita) expenditure below the official absolute poverty line for total population (rural and urban). A single source series is used, taken from Statistics Indonesia (BPS). The poverty line was revised upwards in 1998; see Asra (2000) for more details.</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data2'></nvd3>
-<h2 style='color:#e31a1c;'>Poverty</h2>
-<h3>Share below absolute (revised)  poverty line - Equivalised household expenditure</h3>
-<p>Percentage of individuals in households with equivalised (per capita) expenditure below the official absolute poverty line for total population (rural and urban), from Statistics Indonesia (BPS). We link with no multiplier across series in 2018 and 2020. The poverty line was revised upwards in 1998; see Asra (2000) for more details.</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data3'></div>
-<h2>References</h2>
-<li><a href = 'https://www.adb.org/sites/default/files/publication/28140/asra02.pdf'>Asra, Abuzar. “Poverty and Inequality in Indonesia: Estimates, Decomposition and Key Issues.” Journal of the Asia Pacific Economy, vol. 5, no. 1, 2000, pp. 91–111., https://doi.org/10.1080/135478600360403. </a></li>
-<li><a href = 'https://www.tandfonline.com/doi/abs/10.1080/00074918812331335589'>Asra, Abuzar. “Inequality Trends in Indonesia, 1969–1981: A Re-Examination.” Bulletin of Indonesian Economic Studies, vol. 25, no. 2, 1989, pp. 100–110., https://doi.org/10.1080/00074918812331335589. </a></li>
-<li><a href = 'http://wordpress.wid.world/document/2021-dina-regional-update-for-asia-world-inequality-lab-technical-note-2021-6/'>Booth, Anne. “Counting the Poor in Indonesia.” Bulletin of Indonesian Economic Studies, vol. 29, no. 1, 1993, pp. 53–83., https://doi.org/10.1080/00074919312331336341.</a></li>
-<li><a href = 'https://www.networkideas.org/feathm/oct2006/PDF/Medhi_Krongkaew_Ragayah_Haji.pdf'>Krongkaew, Medhi and Ragayah Haji Mat Zin. “Income distribution and sustainable economic development in East Asia: A comparative analysis.” IDEAs Working Paper 2, 2006.</a></li>
-<li><a href = 'https://wid.world/document/leigh-andrew-and-van-der-eng-pierre-2010-top-incomes-in-indonesia-1920-2004-in-atkinson-a-b-and-piketty-t-editors-top-incomes-a-global-perspective-oxford-university-press-ch/'>Leigh, Andrew and Pierre van der Eng. "Top incomes in Indonesia, 1920-2004.” Top Incomes: A Global Perspective, Oxford University Press, Oxford, 2010, pp. 171–219.</a></li>
-<li><a href = 'https://www.tandfonline.com/doi/abs/10.1080/00074911003642252'>Miranti, Riyana. “Poverty in Indonesia 1984–2002: The Impact of Growth and Changes in Inequality.” Bulletin of Indonesian Economic Studies, vol. 46, no. 1, 2010, pp. 79–97., https://doi.org/10.1080/00074911003642252.</a></li>
-<li><a href = 'https://www.tandfonline.com/doi/abs/10.1080/00074917912331333501?needAccess=true'>Sundrum, R. M. “Income Distribution, 1970–76.” Bulletin of Indonesian Economic Studies, vol. 15, no. 1, 1979, pp. 137–141., https://doi.org/10.1080/00074917912331333501. </a></li>
+        <h2 style='color:#008000;'>Overall Income Inequality</h2>
+        <h3>Gini coefficient - Equivalised household expenditure</h3>
+        <p>Gini coefficient for equivalised (per capita) household expenditure from Statistics Indonesia (BPS) -
+            averages taken when multiple observations per year: linked with no multiplier at 2002 to series from
+            Krongkaew & Ragayah (2006): linked with no multiplier at 1996 to series from Asra (2000): linked back
+            between 1970 and 1969 to data from Fields (1989), as reported by WIID; this data refers to consumption and
+            excludes West Irian, East Timor and Maluku.</p>
+        <h4>Visualization of source data</h4>
+        <nvd3 options='options' data='data0'></nvd3>
+        <h2 style='color:#6a3d9a;'>Top Income Shares</h2>
+        <h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
+        <p>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world.
+            Data relates to individuals over age 20, assuming resources are split equally within couples.</p>
+        <h4>Visualization of source data</h4>
+        <nvd3 options='options' data='data1'></nvd3>
+        <h2 style='color:#6a3d9a;'>Top Income Shares</h2>
+        <h3>Share of top 1% - Pre-tax fiscal income (tax units) (excluding capital gains)</h3>
+        <p>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world.
+            Data relates to tax units as defined by national fiscal administrations to measure personal income taxes.
+        </p>
+        <h4>Visualization of source data</h4>
+        <nvd3 options='options' data='data2'></nvd3>
+        <h2 style='color:#e31a1c;'>Poverty</h2>
+        <h3>Share below absolute poverty line - Equivalised household expenditure</h3>
+        <p>Percentage of individuals in households with equivalised (per capita) expenditure below the official absolute
+            poverty line for total population (rural and urban). A single source series is used, taken from Statistics
+            Indonesia (BPS). The poverty line was revised upwards in 1998; see Asra (2000) for more details.</p>
+        <h4>Visualization of source data</h4>
+        <nvd3 options='options' data='data3'></nvd3>
+        <h2 style='color:#e31a1c;'>Poverty</h2>
+        <h3>Share below absolute (revised) poverty line - Equivalised household expenditure</h3>
+        <p>Percentage of individuals in households with equivalised (per capita) expenditure below the official absolute
+            poverty line for total population (rural and urban), from Statistics Indonesia (BPS). We link with no
+            multiplier across series in 2018 and 2020. The poverty line was revised upwards in 1998; see Asra (2000) for
+            more details.</p>
+        <h4>Visualization of source data</h4>
+        <nvd3 options='options' data='data4'></nvd3>
+    </div>
 </body>
 
 </html>

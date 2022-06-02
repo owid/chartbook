@@ -133,49 +133,39 @@
             Norway
         </h1>
         <!-- insert data -->
-        <h2 style='color:#008000;'>Overall Income Inequality</h2>
-        <h3>Gini coefficient - Equivalisd disposable household income (total population)</h3>
-        <p>Gini coefficient of equivalised (EU scale) disposable household income for the total population. A single
-            source series is used, taken from Statistics Norway, Income and wealth statistics for households, via
-            StatBank.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data0'></nvd3>
-        <h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-        <h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
-        <p>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world.
-            Data relates to individuals over age 20, assuming resources are split equally within couples.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data1'></nvd3>
-        <h2 style='color:#e31a1c;'>Poverty</h2>
-        <h3>Share below 60% median - Equivalised disposable household income</h3>
-        <p>Share of population with equivalised (EU scale) disposable household cash income below 60% of the median. A
-            single source series is used, taken from Statistics Norway, Income and wealth statistics for households, via
-            StatBank.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data2'></nvd3>
-        <h2 style='color:#104E8B;'>Earnings Dispersion</h2>
-        <h3>Top decile as % median - Gross individual earnings</h3>
-        <p>Gross individual earnings at top decile as percentage of median from OECD; linked at 2002 to the earlier
-            series from Statistics Norway's Income Distribution Surveys, as presented in Atkinson (2008), based on
-            income tax records and household interviews.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data3'></nvd3>
-        <h2 style='color:#FF9912;'>Wealth Inequality</h2>
-        <h3>Share of top 1% - Individual net wealth</h3>
-        <p>Individual net wealth share held by wealthiest 1% from Iacono & Palagi (2021); linked back at 2011 to earlier
-            series from Roine and Waldenström (2015). Figures are based on wealth tax returns from Statistics Norway in
-            1912 and 1930, wealth sums tabulations 1948-93, and tabulated wealth distributions from Statistics Norway
-            since 1993. More details on the construction of this data is available in Aaberge and Atkinson (2010).</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data4'></div>
-<h2>References</h2>
-<li><a href = 'https://wid.world/document/aaberge-rolf-and-atkinson-anthony-b-2010-top-incomes-in-norway-in-atkinson-a-b-and-piketty-t-editors-top-incomes-a-global-perspective-oxford-university-press-chapter-9/'>Aaberge, Rolf and Anthony B. Atkinson. "Top incomes in Norway." Top Incomes: A Global Perspective, Oxford University Press, Oxford, 2010, pp. 448–481.</a></li>
-<li><a href = 'https://www.iser.essex.ac.uk/files/euromod/research-workshop-2014/The_Ins_and_Outs_of_Top_Income_Mobility.pdf'>Aaberge, Rolf, et al. “The ins and outs of top income mobility.” Statistics Norway, 2013.</a></li>
-<li><a href = 'https://www.ssb.no/forside/_attachment/279993?_ts=1578a22d890'>Aaberge, Rolf, et al. "The long-run distribution of income in Norway." Statistics Norway, 2016.</a></li>
-<li><a href = 'https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1475-4991.2008.00268.x'>Atkinson, Anthony B. “Norway.” The Changing Distribution of Earnings in OECD Countries, Oxford University Press, Oxford, 2008.</a></li>
-<li>Bojer, Hilde. "Personlig inntektsfordeling i Norge 1970-1984." Tidsskrift for Sammfunnsforskning, vol. 28, 1987, pp. 247-258.</a></li>
-<li>Ohlsson, Henry, et al. "Long-run changes in the concentration of wealth: An overview of recent findings." Personal wealth from a global perspective, edited by James B. Davies, Oxford University Press, Oxford, 2008.</a></li>
-<li><a href = 'https://www.sciencedirect.com/science/article/pii/B9780444594280000084#t0045'>Roine, Jesper and Daniel Waldenström. “Long run trends in the distribution of income and wealth.” Handbook of Income Distribution, volume 2, edited by Anthony B. Atkinson and François Bourguignon, Elsevier, Amsterdam, 2015.</a></li>
+<h2 style='color:#008000;'>Overall Income Inequality</h2>
+<h3>Gini coefficient - Unequivalised gross family income</h3>
+<p>Gini coefficient of unequivalised gross family income. A single source series is used, taken from Table A 5 in Aaberge, Atkinson and Modalsli (2016), which is derived from the average of the upper and lower bound measures presented in Table A 1. This paper uses tax records from municipal and central government tax assessments until 1966, then switches source in 1967 to micro-data from Statistics Norway.</p><h4>Visualization of source data</h4>
+<nvd3 options='options' data='data0'></nvd3>
+<h2 style='color:#008000;'>Overall Income Inequality</h2>
+<h3>Gini coefficient - Equivalisd disposable household income (total population)</h3>
+<p>Gini coefficient of equivalised (EU scale) disposable household income for the total population. A single source series is used, taken from Statistics Norway, Income and wealth statistics for households, via StatBank.</p><h4>Visualization of source data</h4>
+<nvd3 options='options' data='data1'></nvd3>
+<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
+<h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
+<p>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
+<nvd3 options='options' data='data2'></nvd3>
+<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
+<h3>Share of top 1% - Post-tax national income (equal-split adults)</h3>
+<p>Post-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
+<nvd3 options='options' data='data3'></nvd3>
+<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
+<h3>Share of top 1% - Pre-tax fiscal income (equal-split adults) (excluding capital gains)</h3>
+<p>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 16. In practice, although taxation is joint, separate filing has become increasingly prevalent; from 1998 Statistics Norway ceased to treat married couples with joint taxation as one personal taxpayer</p><h4>Visualization of source data</h4>
+<nvd3 options='options' data='data4'></nvd3>
+<h2 style='color:#e31a1c;'>Poverty</h2>
+<h3>Share below 60% median - Equivalised disposable household income</h3>
+<p>Share of population with equivalised (EU scale) disposable household cash income below 60% of the median. A single source series is used, taken from Statistics Norway, Income and wealth statistics for households, via StatBank.</p><h4>Visualization of source data</h4>
+<nvd3 options='options' data='data5'></nvd3>
+<h2 style='color:#104E8B;'>Earnings Dispersion</h2>
+<h3>Top decile as % median - Gross individual earnings</h3>
+<p>Gross individual earnings at top decile as percentage of median from OECD; linked at 2002 to the earlier series from Statistics Norway's Income Distribution Surveys, as presented in Atkinson (2008), based on income tax records and household interviews.</p><h4>Visualization of source data</h4>
+<nvd3 options='options' data='data6'></nvd3>
+<h2 style='color:#FF9912;'>Wealth Inequality</h2>
+<h3>Share of top 1% - Individual net wealth</h3>
+<p>Individual net wealth share held by wealthiest 1% from Iacono & Palagi (2021); linked back at 2011 to earlier series from Roine and Waldenström (2015). Figures are based on wealth tax returns from Statistics Norway in 1912 and 1930, wealth sums tabulations 1948-93, and tabulated wealth distributions from Statistics Norway since 1993. More details on the construction of this data is available in Aaberge and Atkinson (2010).</p><h4>Visualization of source data</h4>
+<nvd3 options='options' data='data7'></nvd3>
+    </div>
 </body>
 
 </html>
