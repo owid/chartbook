@@ -133,22 +133,38 @@
             Argentina
         </h1>
         <!-- insert data -->
-<h2 style='color:#008000;'>Overall Income Inequality</h2>
-<h3>Gini coefficient - Equivalised household income</h3>
-<p>Gini coefficient for equivalised household income from SEDLAC (2020), based on data for 31 cities from the EPH household survey. This was replaced in 2003 by the 'Continuous EPH' (EPHC), which is conducted over the whole year, rather than two rounds in May and October (averages where multiple observations per year); the source indicates a break in the series in 2015 with methodological changes; linked backwards at 2003 to data for 28 cities from 1998 to 2003, linked back at 1998 to data for 15 cities from 1992 to 1998, linked back at 1992 to data for Greater Buenos Aires from 1974 to 1992, linked back again at 1974 to data from CONADE-CEPAL/Gas del Estado studies, as presented in Altimir (1986).</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data0'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
-<p>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20 assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data1'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax fiscal income (individuals) (excluding captial gains)</h3>
-<p>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20.</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data2'></nvd3>
-<h2 style='color:#e31a1c;'>Poverty</h2>
-<h3>Share below 50% median - Household per capita income</h3>
-<p>Percentage of individuals below 50 per cent of median household per capita income from SEDLAC (2020) EPHC data (averages where multiple observations per year), for 31 cities since 2006 and 28 cities previously. We extend the series by linking backwards at 2003 to a previous vintage of SEDLAC (2016) which contains earlier observations. Within the 2016 release, we link backwards at 1998 to data for 15 cities, and again at 1992 to data for Greater Buenos Aires.</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data3'></nvd3>
+        <h2 style='color:#008000;'>Overall Income Inequality</h2>
+        <h3>Gini coefficient - Equivalised household income</h3>
+        <p>Gini coefficient for equivalised household income from SEDLAC (2020), based on data from the EPH household
+            survey and, from 2003 onwards, the 'Continuous EPH' (EPHC). We take the average where multiple observations
+            are given per year. The source indicates methodological changes and differences in the range of cities
+            included in the survey. We link backwards over each of these breaks: at 2003, 1998, and 1992 (to data for
+            Greater Buenos Aires alone). We then link backwards again to data from CONADE-CEPAL/Gas del Estado studies,
+            as presented in Altimir (1986).</p>
+        <h4>Visualization of source data</h4>
+        <nvd3 options='options' data='data0'></nvd3>
+        <h2 style='color:#6a3d9a;'>Top Income Shares</h2>
+        <h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
+        <p>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world.
+            Data relates to individuals over age 20 assuming resources are split equally within couples.</p>
+        <h4>Visualization of source data</h4>
+        <nvd3 options='options' data='data1'></nvd3>
+        <h2 style='color:#6a3d9a;'>Top Income Shares</h2>
+        <h3>Share of top 1% - Pre-tax fiscal income (individuals) (excluding captial gains)</h3>
+        <p>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world.
+            Data relates to individuals over age 20.</p>
+        <h4>Visualization of source data</h4>
+        <nvd3 options='options' data='data2'></nvd3>
+        <h2 style='color:#e31a1c;'>Poverty</h2>
+        <h3>Share below 50% median - Household per capita income</h3>
+        <p>Percentage of individuals below 50 per cent of median household per capita income from SEDLAC (2020) EPHC
+            data from 2003. We take the average where multiple observations are given per year. We extend the series by
+            linking backwards at 2003 to a previous vintage of SEDLAC (2016) in which earlier observations from the
+            previous EPH survey are available. Within the 2016 release, the source indicates differences in the range of
+            cities included in the survey. We link backwards over each of these breaks: at 1998, and 1992 (to data for
+            Greater Buenos Aires alone).</p>
+        <h4>Visualization of source data</h4>
+        <nvd3 options='options' data='data3'></nvd3>
     </div>
 </body>
 
