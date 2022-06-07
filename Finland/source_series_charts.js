@@ -75,7 +75,7 @@ app.controller('MainCtrl', function ($scope) {
                 { 'x': 2020.0, 'y': 25.8, 'series': 0 }], yAxis: 1
         },
         {
-            key: 'StatFin - Equivalised disposable household cash income (excluding capital gains)', type: 'scatter', values: [
+            key: 'StatFin - Equivalised disposable household cash income', type: 'scatter', values: [
                 { 'x': 1966.0, 'y': 31.1, 'series': 1 },
                 { 'x': 1971.0, 'y': 27.0, 'series': 1 },
                 { 'x': 1976.0, 'y': 21.5, 'series': 1 },
