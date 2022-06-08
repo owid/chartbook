@@ -42,6 +42,8 @@ app.controller('MainCtrl', function ($scope) {
                 { 'x': 1981.0, 'y': 33.0, 'series': 0 },
                 { 'x': 1984.0, 'y': 33.0, 'series': 0 },
                 { 'x': 1987.0, 'y': 32.0, 'series': 0 },
+                { 'x': 1990.0, 'y': 32.0, 'series': 0 },
+                { 'x': 1993.0, 'y': 34.0, 'series': 0 },
                 { 'x': 1996.0, 'y': 36.6, 'series': 0 },
                 { 'x': 1999.0, 'y': 37.3, 'series': 0 },
                 { 'x': 2001.0, 'y': 31.0, 'series': 0 },
@@ -63,7 +65,7 @@ app.controller('MainCtrl', function ($scope) {
                 { 'x': 2020.0, 'y': 38.1, 'series': 0 }], yAxis: 1
         },
         {
-            key: 'WIID3.4 (2017) - Equivalised household consumption (all Indonesia excluding West Irian, East Timor and Maluku)', type: 'scatter', values: [
+            key: 'WIID3.4 - Household per capita consumption (all Indonesia excluding West Irian, East Timor and Maluku)', type: 'scatter', values: [
                 { 'x': 1964.0, 'y': 33.3, 'series': 1 },
                 { 'x': 1967.0, 'y': 32.7, 'series': 1 },
                 { 'x': 1970.0, 'y': 30.7, 'series': 1 },
@@ -75,7 +77,7 @@ app.controller('MainCtrl', function ($scope) {
                 { 'x': 2020.0, 'y': null, 'series': 1 }], yAxis: 1
         },
         {
-            key: 'Asra (2000) - Equivalised household expenditure', type: 'scatter', values: [
+            key: 'Asra (2000) - Household per capita expenditure', type: 'scatter', values: [
                 { 'x': 1964.0, 'y': null, 'series': 2 },
                 { 'x': 1969.0, 'y': 35.0, 'series': 2 },
                 { 'x': 1976.0, 'y': 34.0, 'series': 2 },
@@ -90,7 +92,7 @@ app.controller('MainCtrl', function ($scope) {
                 { 'x': 2020.0, 'y': null, 'series': 2 }], yAxis: 1
         },
         {
-            key: 'Krongkaew & Ragayah (2006) Table 2 - Equivalised household expenditure', type: 'scatter', values: [
+            key: 'Krongkaew & Ragayah (2006) Table 2 - Household per capita expenditure', type: 'scatter', values: [
                 { 'x': 1964.0, 'y': null, 'series': 3 },
                 { 'x': 1976.0, 'y': 34.0, 'series': 3 },
                 { 'x': 1980.0, 'y': 34.0, 'series': 3 },
@@ -104,7 +106,7 @@ app.controller('MainCtrl', function ($scope) {
                 { 'x': 2020.0, 'y': null, 'series': 3 }], yAxis: 1
         },
         {
-            key: 'BPS - Equivalised household expenditure', type: 'scatter', values: [
+            key: 'BPS - Household per capita expenditure', type: 'scatter', values: [
                 { 'x': 1964.0, 'y': null, 'series': 4 },
                 { 'x': 2002.0, 'y': 34.1, 'series': 4 },
                 { 'x': 2005.0, 'y': 35.5, 'series': 4 },
@@ -322,7 +324,7 @@ app.controller('MainCtrl', function ($scope) {
                 { 'x': 1996.0, 'y': 11.3, 'series': 0 }], yAxis: 1
         },
         {
-            key: 'BPS - Equivalised household expenditure', type: 'scatter', values: [
+            key: 'BPS - Household per capita expenditure', type: 'scatter', values: [
                 { 'x': 1970.0, 'y': 60.0, 'series': 1 },
                 { 'x': 1976.0, 'y': 40.1, 'series': 1 },
                 { 'x': 1978.0, 'y': 33.3, 'series': 1 },
@@ -362,7 +364,7 @@ app.controller('MainCtrl', function ($scope) {
                 { 'x': 2020.0, 'y': 9.985, 'series': 0 }], yAxis: 1
         },
         {
-            key: 'BPS - Equivalised household expenditure', type: 'scatter', values: [
+            key: 'BPS - Household per capita expenditure', type: 'scatter', values: [
                 { 'x': 1998.0, 'y': 24.2, 'series': 1 },
                 { 'x': 1999.0, 'y': 23.43, 'series': 1 },
                 { 'x': 2000.0, 'y': 19.14, 'series': 1 },
@@ -386,14 +388,14 @@ app.controller('MainCtrl', function ($scope) {
                 { 'x': 2020.0, 'y': null, 'series': 1 }], yAxis: 1
         },
         {
-            key: 'BPS - Equivalised household expenditure', type: 'scatter', values: [
+            key: 'BPS - Household per capita expenditure', type: 'scatter', values: [
                 { 'x': 1998.0, 'y': null, 'series': 2 },
                 { 'x': 2018.0, 'y': 9.74, 'series': 2 },
                 { 'x': 2019.0, 'y': 9.315, 'series': 2 },
                 { 'x': 2020.0, 'y': null, 'series': 2 }], yAxis: 1
         },
         {
-            key: 'BPS - Equivalised household expenditure', type: 'scatter', values: [
+            key: 'BPS - Household per capita expenditure', type: 'scatter', values: [
                 { 'x': 1998.0, 'y': null, 'series': 3 },
                 { 'x': 2020.0, 'y': 9.985, 'series': 3 }], yAxis: 1
         }]
