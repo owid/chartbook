@@ -25,7 +25,7 @@
 
         .mv-axis text {
             font-size: 12px;
-            font-style: italic;
+            /* font-style: italic; */
         }
 
 
@@ -38,7 +38,7 @@
         .yaxislabel {
             font-size: 12px;
             font-family: "Verdana", "Helvetica", Arial, "Lucida Grande";
-            font-style: italic;
+            /* font-style: italic; */
 
         }
 
@@ -76,6 +76,7 @@
         #chart1 {
             height: 200px;
             width: 1000px;
+            font: normal 12px Helvetica;
         }
 
         #chart2 {
@@ -133,61 +134,21 @@
             France
         </h1>
         <!-- insert data -->
-        <h2 style='color:#008000;'>Overall Income Inequality</h2>
-        <h3>Gini coefficient - Equivalised disposable household income</h3>
-        <p>Gini coefficient of equivalised disposable household income from Insee. Over the period covered, there have
-            been multiple methodological changes that may affect comparability. The Insee Première (2021 edition) series
-            links across breaks in 2010 and 2012. We then link back in 1996 to an earlier series presented in the Insee
-            Chiffres-clés (2021 edition), and again in 1975 to a series presented in Insee Syntheses (1999 edition). We
-            then link back to figures for gross income (excluding certain categories of income) from Concialdi (1997) in
-            1970, and again in 1962 to gross income figures from WIID referring to household taxable income, drawn from
-            UN-ECE-1967.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data0'></nvd3>
-        <h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-        <h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
-        <p>Pre-tax national income share held by the top 1%. A single source series is used, taken from WID.world. Data
-            relates to individuals over age 20, assuming resources are split equally within couples.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data1'></nvd3>
-        <h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-        <h3>Share of top 1% - Post-tax national income (equal-split adults)</h3>
-        <p>Post-tax national income share held by top percentile. A single source series is used, taken from WID.world.
-            Data relates to individuals over age 20, assuming resources are split equally within couples.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data2'></nvd3>
-        <h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-        <h3>Share of top 1% - Pre-tax fiscal income (equal-split adults) (excluding capital gains)</h3>
-        <p>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world.
-            Data relates to individuals over age 20, assuming resources are split equally within couples.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data3'></nvd3>
-        <h2 style='color:#e31a1c;'>Poverty</h2>
-        <h3>Share below 60% median - Equivalised disposable household income</h3>
-        <p>Percentage of individuals living in households with equivalised (EU scale) disposable income below 60 per
-            cent of the median from Insee Première (2021 edition); linked back at 1996 to an earlier series present in
-            Insee Chiffres-clés (2021 edition). The source notes that data up to and including 1990 are comparable to
-            each other but not directly comparable with those after due to methodological changes.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data4'></nvd3>
-        <h2 style='color:#104E8B;'>Earnings Dispersion</h2>
-        <h3>Top decile as % median - Annual net salary for full-time jobs</h3>
-        <p>Annual net salary at top decile as percentage of median. A single source series is used, taken from Insee
-            (2017). The data relates to individuals working full-time in the private sector. The sources notes that the
-            data refers to Metropolitan France until 1999 and all of France (including Overseas departments and
-            territories) from 2000.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data5'></nvd3>
-        <h2 style='color:#FF9912;'>Wealth Inequality</h2>
-        <h3>Share of top 1% - Individual net wealth</h3>
-        <p>
-            Share of individual net wealth held by the top 1%. A single source series is used, taken from WID.world.
-            According to the WID's description of the dataset in the sources and information tab, "the population is
-            comprised of individuals over age 20. The base unit is the individual (rather than the household) but
-            resources are split equally within couples". More details on the construction of this data is available in
-            Garbinti, Goupille-Lebret & Piketty (2020), and Blanchet & Martínez-Toledano (2021).</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data6'></nvd3>
+<h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Equivalised disposable household income</h2><p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient of equivalised disposable household income from Insee. Over the period covered, there have been multiple methodological changes that may affect comparability. The Insee Première (2021 edition) series links across breaks in 2010 and 2012. We then link back in 1996 to an earlier series presented in the Insee Chiffres-clés (2021 edition), and again in 1975 to a series presented in Insee Syntheses (1999 edition). We then link back to figures for gross income (excluding certain categories of income) from Concialdi (1997) in 1970, and again in 1962 to gross income figures from WIID referring to household taxable income, drawn from UN-ECE-1967.</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data0'></nvd3>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax national income (equal-split adults)</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax national income share held by the top 1%. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data1'></nvd3>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Post-tax national income (equal-split adults)</h2><p><b>What is the source data that the Chartbook relies on? </b>Post-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data2'></nvd3>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax fiscal income (equal-split adults) (excluding capital gains)</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data3'></nvd3>
+<h2><span style='color:#e31a1c'>Poverty: </span>Share below 60% median - Equivalised disposable household income</h2><p><b>What is the source data that the Chartbook relies on? </b>Percentage of individuals living in households with equivalised (EU scale) disposable income below 60 per cent of the median from Insee Première (2021 edition); linked back at 1996 to an earlier series present in Insee Chiffres-clés (2021 edition). The source notes that data up to and including 1990 are comparable to each other but not directly comparable with those after due to methodological changes.</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data4'></nvd3>
+<h2><span style='color:#104E8B'>Earnings Dispersion: </span>Top decile as % median - Annual net salary for full-time jobs</h2><p><b>What is the source data that the Chartbook relies on? </b>Annual net salary at top decile as percentage of median. A single source series is used, taken from Insee (2017). The data relates to individuals working full-time in the private sector. The sources notes that the data refers to Metropolitan France until 1999 and all of France (including Overseas departments and territories) from 2000.</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data5'></nvd3>
+<h2><span style='color:#FF9912'>Wealth Inequality: </span>Share of top 1% - Individual net wealth</h2><p><b>What is the source data that the Chartbook relies on? </b>
+Share of individual net wealth held by the top 1%. A single source series is used, taken from WID.world. According to the WID's description of the dataset in the sources and information tab, "the population is comprised of individuals over age 20. The base unit is the individual (rather than the household) but resources are split equally within couples". More details on the construction of this data is available in Garbinti, Goupille-Lebret & Piketty (2020), and Blanchet & Martínez-Toledano (2021).</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data6'></nvd3>
     </div>
 </body>
 

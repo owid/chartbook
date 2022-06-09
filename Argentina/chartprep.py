@@ -125,17 +125,17 @@ while i < len(final_series_list):
     data_list.append(data)
     # create div of final series description as it should appear in chart.html
     div = (
-        "<h2 style='color:"
+        "<h2><span style='color:"
         + colour_dict[str(dimension)]
-        + ";'>"
+        + "'>"
         + dimension
-        + "</h2>\n<h3>"
+        + ": </span>"
         + measure
         + " - "
         + welfare_concept
-        + "</h3>\n<p>"
+        + "</h2><p><b>What is the source data that the Chartbook relies on? </b>"
         + description
-        + "</p><h4>Visualization of source data</h4>\n"
+        + "</p><h4>How does the Chartbook series compare with the source data?</h4>\n"
         + "<nvd3 options='options' data='data"
         + str(i)
         + "'></nvd3>"

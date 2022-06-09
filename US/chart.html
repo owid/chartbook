@@ -25,7 +25,7 @@
 
         .mv-axis text {
             font-size: 12px;
-            font-style: italic;
+            /* font-style: italic; */
         }
 
 
@@ -38,7 +38,7 @@
         .yaxislabel {
             font-size: 12px;
             font-family: "Verdana", "Helvetica", Arial, "Lucida Grande";
-            font-style: italic;
+            /* font-style: italic; */
 
         }
 
@@ -76,6 +76,7 @@
         #chart1 {
             height: 200px;
             width: 1000px;
+            font: normal 12px Helvetica;
         }
 
         #chart2 {
@@ -133,47 +134,27 @@
             US
         </h1>
         <!-- insert data -->
-<h2 style='color:#008000;'>Overall Income Inequality</h2>
-<h3>Gini coefficient - Equivalised gross household income</h3>
-<p>Gini coefficient for gross equivalised household income from the U.S. Census Bureau. Data from 1967 to 2016 is from the 2016 vintage; we assume that half of the recorded change betwen 1992 and 1993 was due to the methodological change, and therefore added 1.15 percentage points to the original values from 1992 back to 1967; we link back in 2013 to account for the new survey design. We link back at 2017 to data from the 2018 vintage to account for changes in the data processing system. More recent data comes from the 2020 vintage, but no link is applied as no methodological changes are indicated.
+<h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Equivalised gross household income</h2><p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient for gross equivalised household income from the U.S. Census Bureau. Data from 1967 to 2016 is from the 2016 vintage; we assume that half of the recorded change betwen 1992 and 1993 was due to the methodological change, and therefore added 1.15 percentage points to the original values from 1992 back to 1967; we link back in 2013 to account for the new survey design. We link back at 2017 to data from the 2018 vintage to account for changes in the data processing system. More recent data comes from the 2020 vintage, but no link is applied as no methodological changes are indicated.
 
-We link back at 1967 to data related to money income before tax for consumer units (families plus unrelated individuals) from Budd (1970); linked back at 1944 to the BEA synthetic series for gross family incomes, based on calculations from the tabulations in Brandolini (2002); linked back again at 1929 to NBER/Brookings synthetic estimates for gross income of income recipients, based on the tabulations in Mitchell et al (1921) for 1918 and Leven, Moulton and Warburton (1934) for 1929.</p><h4>Visualization of source data</h4>
+We link back at 1967 to data related to money income before tax for consumer units (families plus unrelated individuals) from Budd (1970); linked back at 1944 to the BEA synthetic series for gross family incomes, based on calculations from the tabulations in Brandolini (2002); linked back again at 1929 to NBER/Brookings synthetic estimates for gross income of income recipients, based on the tabulations in Mitchell et al (1921) for 1918 and Leven, Moulton and Warburton (1934) for 1929.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data0'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
-<p>Pre-tax national income share held by the top 1%. A single source series is used, taken from WID.world. This data relates to individuals, assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax national income (equal-split adults)</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax national income share held by the top 1%. A single source series is used, taken from WID.world. This data relates to individuals, assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data1'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Post-tax national income (equal-split adults)</h3>
-<p>Post-tax national income share held by the top 1%. A single source series is used, taken from WID.world. This data relates to individuals, assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Post-tax national income (equal-split adults)</h2><p><b>What is the source data that the Chartbook relies on? </b>Post-tax national income share held by the top 1%. A single source series is used, taken from WID.world. This data relates to individuals, assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data2'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax fiscal income (equal-split adults)</h3>
-<p>Pre-tax fiscal income share held by held by the top 1%. A single source series is used, taken from WID.world. This data relates to individuals, assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax fiscal income (equal-split adults)</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax fiscal income share held by held by the top 1%. A single source series is used, taken from WID.world. This data relates to individuals, assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data3'></nvd3>
-<h2 style='color:#e31a1c;'>Poverty</h2>
-<h3>Share below official poverty line - Equivalised gross household income</h3>
-<p>Percentage of individuals in households with equivalised gross household income below the official poverty line from the U.S. Census Bureau (2020), linked back at 2013 and 2017 due to methodological changes; linked with no multiplier at 1959 to series from Fisher (1986).</p><h4>Visualization of source data</h4>
+<h2><span style='color:#e31a1c'>Poverty: </span>Share below official poverty line - Equivalised gross household income</h2><p><b>What is the source data that the Chartbook relies on? </b>Percentage of individuals in households with equivalised gross household income below the official poverty line from the U.S. Census Bureau (2020), linked back at 2013 and 2017 due to methodological changes; linked with no multiplier at 1959 to series from Fisher (1986).</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data4'></nvd3>
-<h2 style='color:#e31a1c;'>Poverty</h2>
-<h3>Share below 50% median - Equivalised disposable household income</h3>
-<p>Percentage of individuals in households with equivalised gross household income below 50% of the median from the OECD; a new income definition was adopted in 2013 but no multiplier was applied between series as there was no corresponding shift in values; linked with no multiplier at 2008 to series from Meyer and Sullivan (2010).</p><h4>Visualization of source data</h4>
+<h2><span style='color:#e31a1c'>Poverty: </span>Share below 50% median - Equivalised disposable household income</h2><p><b>What is the source data that the Chartbook relies on? </b>Percentage of individuals in households with equivalised gross household income below 50% of the median from the OECD; a new income definition was adopted in 2013 but no multiplier was applied between series as there was no corresponding shift in values; linked with no multiplier at 2008 to series from Meyer and Sullivan (2010).</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data5'></nvd3>
-<h2 style='color:#104E8B;'>Earnings Dispersion</h2>
-<h3>Top decile as % median - Gross individual earnings</h3>
-<p>Gross individual earnings at top decile as percentage of median the Economic Policy Institute's State of Working America Data Library: linked back at 1973 to series from Karoly (1992): linked back at 1967 to series presented in Atkinson (2008), based on Current Population Reports: linked back at 1949 to series from Goldin and Margo (1992).</p><h4>Visualization of source data</h4>
+<h2><span style='color:#104E8B'>Earnings Dispersion: </span>Top decile as % median - Gross individual earnings</h2><p><b>What is the source data that the Chartbook relies on? </b>Gross individual earnings at top decile as percentage of median the Economic Policy Institute's State of Working America Data Library: linked back at 1973 to series from Karoly (1992): linked back at 1967 to series presented in Atkinson (2008), based on Current Population Reports: linked back at 1949 to series from Goldin and Margo (1992).</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data6'></nvd3>
-<h2 style='color:#FF9912;'>Wealth Inequality</h2>
-<h3>Share of top 1% - Individual net wealth</h3>
-<p>Net wealth share held by the top 1%. A single source series is used, taken from WID.world. This data relates to individuals, assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#FF9912'>Wealth Inequality: </span>Share of top 1% - Individual net wealth</h2><p><b>What is the source data that the Chartbook relies on? </b>Net wealth share held by the top 1%. A single source series is used, taken from WID.world. This data relates to individuals, assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data7'></nvd3>
-<h2 style='color:#FF9912;'>Wealth Inequality</h2>
-<h3>Share of top 1% - Equivalised household net wealth</h3>
-<p>Net wealth share held by the top 1% from Batty et al (2019); linked back at 2016 to series from Zuccman (2019); Zuccman's estimate is 5 percentage points larger than Batty et al's in 2016. This data relates to equivalised households.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#FF9912'>Wealth Inequality: </span>Share of top 1% - Equivalised household net wealth</h2><p><b>What is the source data that the Chartbook relies on? </b>Net wealth share held by the top 1% from Batty et al (2019); linked back at 2016 to series from Zuccman (2019); Zuccman's estimate is 5 percentage points larger than Batty et al's in 2016. This data relates to equivalised households.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data8'></nvd3>
-<h2 style='color:#FF9912;'>Wealth Inequality</h2>
-<h3>Share of top 1% - Household net wealth</h3>
-<p>Net wealth share held by top 1%. A single source series is used, taken from from Khun, Schularick & Steins (2017). This data relates to households.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#FF9912'>Wealth Inequality: </span>Share of top 1% - Household net wealth</h2><p><b>What is the source data that the Chartbook relies on? </b>Net wealth share held by top 1%. A single source series is used, taken from from Khun, Schularick & Steins (2017). This data relates to households.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data9'></nvd3>
     </div>
 </body>

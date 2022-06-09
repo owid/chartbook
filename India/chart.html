@@ -25,7 +25,7 @@
 
         .mv-axis text {
             font-size: 12px;
-            font-style: italic;
+            /* font-style: italic; */
         }
 
 
@@ -38,7 +38,7 @@
         .yaxislabel {
             font-size: 12px;
             font-family: "Verdana", "Helvetica", Arial, "Lucida Grande";
-            font-style: italic;
+            /* font-style: italic; */
 
         }
 
@@ -76,6 +76,7 @@
         #chart1 {
             height: 72px;
             width: 1000px;
+            font: normal 12px Helvetica;
         }
 
         #chart2 {
@@ -133,65 +134,24 @@
             India
         </h1>
         <!-- insert data -->
-        <h2 style='color:#008000;'>Overall Income Inequality</h2>
-        <h3>Gini coefficient - Per capita household consumption</h3>
-        <p>Gini coefficient for per capita household consumption from PovcalNet of the World Bank, based on National
-            Sample Surveys; linked back in 1983 to data from the World Bank as reported by WIID.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data0'></nvd3>
-        <h2 style='color:#008000;'>Overall Income Inequality</h2>
-        <h3>Gini coefficient - Equivalised disposable household income</h3>
-        <p>Gini coefficient for equivalised disposable household income. A single source series is used, taken from LIS
-            (2021). More detail on the construction of this data is available in Vanneman and Dubey (2013).</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data1'></nvd3>
-        <h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-        <h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
-        <p>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world.
-            Data relates to individuals over age 20, assuming resources are split equally within couples.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data2'></nvd3>
-        <h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-        <h3>Share of top 1% - Pre-tax fiscal income (equal-split adults) (excluding capital gains)</h3>
-        <p>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world.
-            Data relates to individuals over age 20, assuming resources are split equally within couples.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data3'></nvd3>
-        <h2 style='color:#e31a1c;'>Poverty</h2>
-        <h3>Share below absolute poverty line (Lakdawala methodology) - Per capita household consumption</h3>
-        <p>Share below absolute poverty line, based on Expert Group Lakdawala Methodology. The three poverty series we
-            include relate to changes in methodology over time that were implemented in order to better capture changes
-            in the composition and price of the consumption basket of the poor as well as the changing norms and
-            expectations about living conditions. More detail on the differences between these methologies is available
-            in Government of India, Planning Commission (2013) and More and Singh (2014).</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data4'></nvd3>
-        <h2 style='color:#e31a1c;'>Poverty</h2>
-        <h3>Share below absolute poverty line (Tendulkar methodology) - Per capita household consumption</h3>
-        <p>Share below absolute poverty line, based on Expert Group Tendulkar Methodology.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data5'></nvd3>
-        <h2 style='color:#e31a1c;'>Poverty</h2>
-        <h3>Share below absolute poverty line (Rangarajan methodology) - Per capita household consumption</h3>
-        <p>Share below absolute poverty line, based on Expert Group Rangarajan Methodology.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data6'></nvd3>
-        <h2 style='color:#104E8B;'>Earnings Dispersion</h2>
-        <h3>Gini coefficient - Daily individual earnings of regular workers</h3>
-        <p>Gini coefficient for daily earnings based on National Sample Surveys. A single source series is used, taken
-            from Majumdar (2010). The data relates to regular workers, who get contractual employment over a period of
-            time, and excludes casual workers, who are employed on a day-to-day basis.</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data7'></nvd3>
-        <h2 style='color:#FF9912;'>Wealth Inequality</h2>
-        <h3>Share of top 1% - Individual net wealth</h3>
-        <p>Share of individual net wealth held by the top 1%. A single source series is used, taken from WID.world.
-            According to the WID's description of the dataset in the sources and information tab, "the population is
-            comprised of individuals over age 20. The base unit is the individual (rather than the household) but
-            resources are split equally within couples". More details on the construction of this data is available in
-            Bharti (2018).</p>
-        <h4>Visualization of source data</h4>
-        <nvd3 options='options' data='data8'></nvd3>
+<h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Per capita household consumption</h2><p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient for per capita household consumption from PovcalNet of the World Bank, based on National Sample Surveys; linked back in 1983 to data from the World Bank as reported by WIID.</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data0'></nvd3>
+<h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Equivalised disposable household income</h2><p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient for equivalised disposable household income. A single source series is used, taken from LIS (2021). More detail on the construction of this data is available in Vanneman and Dubey (2013).</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data1'></nvd3>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax national income (equal-split adults)</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data2'></nvd3>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax fiscal income (equal-split adults) (excluding capital gains)</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data3'></nvd3>
+<h2><span style='color:#e31a1c'>Poverty: </span>Share below absolute poverty line (Lakdawala methodology) - Per capita household consumption</h2><p><b>What is the source data that the Chartbook relies on? </b>Share below absolute poverty line, based on Expert Group Lakdawala Methodology. The three poverty series we include relate to changes in methodology over time that were implemented in order to better capture changes in the composition and price of the consumption basket of the poor as well as the changing norms and expectations about living conditions. More detail on the differences between these methologies is available in Government of India, Planning Commission (2013) and More and Singh (2014).</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data4'></nvd3>
+<h2><span style='color:#e31a1c'>Poverty: </span>Share below absolute poverty line (Tendulkar methodology) - Per capita household consumption</h2><p><b>What is the source data that the Chartbook relies on? </b>Share below absolute poverty line, based on Expert Group Tendulkar Methodology.</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data5'></nvd3>
+<h2><span style='color:#e31a1c'>Poverty: </span>Share below absolute poverty line (Rangarajan methodology) - Per capita household consumption</h2><p><b>What is the source data that the Chartbook relies on? </b>Share below absolute poverty line, based on Expert Group Rangarajan Methodology.</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data6'></nvd3>
+<h2><span style='color:#104E8B'>Earnings Dispersion: </span>Gini coefficient - Daily individual earnings of regular workers</h2><p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient for daily earnings based on National Sample Surveys. A single source series is used, taken from Majumdar (2010). The data relates to regular workers, who get contractual employment over a period of time, and excludes casual workers, who are employed on a day-to-day basis.</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data7'></nvd3>
+<h2><span style='color:#FF9912'>Wealth Inequality: </span>Share of top 1% - Individual net wealth</h2><p><b>What is the source data that the Chartbook relies on? </b>Share of individual net wealth held by the top 1%. A single source series is used, taken from WID.world. According to the WID's description of the dataset in the sources and information tab, "the population is comprised of individuals over age 20. The base unit is the individual (rather than the household) but resources are split equally within couples". More details on the construction of this data is available in Bharti (2018).</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data8'></nvd3>
     </div>
 </body>
 

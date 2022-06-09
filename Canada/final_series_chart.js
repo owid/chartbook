@@ -312,7 +312,7 @@ AddToChart1
     .style("fill", "black")  // Farbe geben
     .attr("text-anchor", "middle")
     .attr("font-size", "32")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 
 
 // –––––––––––––––––––––––––––––––––––––––––––––------– //
@@ -328,7 +328,7 @@ AddToChart1
     .style("fill", earningscolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 
 AddToChart1.append("svg:circle")
     .attr("cx", 85)
@@ -345,7 +345,7 @@ AddToChart1
     .style("fill", overallinequalitycolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 
 AddToChart1.append("svg:circle")
     .attr("cx", 275)
@@ -363,7 +363,7 @@ AddToChart1
     .style("fill", povertycolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 AddToChart1.append("svg:circle")
     .attr("cx", 507)
     .attr("cy", 52)
@@ -380,7 +380,7 @@ AddToChart1
     .style("fill", topincomecolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 AddToChart1.append("svg:circle")
     .attr("cx", 608)
     .attr("cy", 52)
@@ -397,7 +397,7 @@ AddToChart1
     .style("fill", wealthcolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 AddToChart1.append("svg:circle")
     .attr("cx", 785)
     .attr("cy", 52)
@@ -702,3 +702,92 @@ c3.select('#chart2')
 
 
 
+
+
+
+/* ---------------------------------------------------- */
+// Credits
+/* ---------------------------------------------------- */
+
+
+var creditsCanvas = c3.select("#CreditsContainer")
+var xorigin = 8;
+var yorigin = 1;
+
+/*1. Zeile*/
+// creditsCanvas
+//     .append("text")
+//     .text("A. B. Atkinson, J. Hasell, S. Morelli and M. Roser (2017) – 'The Chartbook of Economic Inequality' at")
+//     .attr("x", xorigin + 0)
+//     .attr("y", yorigin + 10)
+//     .attr("id", 'erstesTextstuckZweiteZeile').attr('class', 'creditsText');
+
+// var erstesTextstuckZweiteZeileLange = document.getElementById('erstesTextstuckZweiteZeile').getComputedTextLength();
+
+// creditsCanvas.append("svg:a")
+//     .attr("xlink:href", "http://www.chartbookofeconomicinequality.com")
+//     .attr("target", "_blank")
+//     .append("svg:text")
+//     .attr("x", xorigin + erstesTextstuckZweiteZeileLange + 3)
+//     .attr("y", yorigin + 10)
+//     .attr('class', 'creditsLink')
+//     .text("www.ChartbookOfEconomicInequality.com");
+
+
+/*2. Zeile left*/
+creditsCanvas.append("svg:a")
+    .attr("xlink:href", "http://www.chartbookofeconomicinequality.com/economic-inequality/measures-of-economic-inequality/")
+    .attr("target", "_blank")
+    .append("svg:text")
+    .text("Click here")
+    .attr("x", xorigin + 0)
+    .attr("y", yorigin + 26)
+    .attr("id", 'erstesTextstuckMeasureLink').attr('class', 'creditsLink');
+var erstesTextstuckMeasureLinkLange = document.getElementById('erstesTextstuckMeasureLink').getComputedTextLength();
+
+creditsCanvas.append("text")
+    .attr("x", xorigin + erstesTextstuckMeasureLinkLange + 3)
+    .attr("y", yorigin + 26)
+    .attr('class', 'creditsText').attr("id", 'zweitesTextstuckMeasureLink')
+    .text("for an explanation of the measures of economic inequality.");
+var zweitesTextstuckMeasureLinkLange = document.getElementById('zweitesTextstuckMeasureLink').getComputedTextLength();
+
+
+
+/*2. Zeile – right*/
+creditsCanvas
+    .append("text")
+    .text("This visualisation is licensed under a")
+    .attr("x", xorigin + 610)
+    .attr("y", yorigin + 26)
+    .attr("id", 'erstesTextstuck').attr('class', 'creditsText');
+var erstesTextstuckLange = document.getElementById('erstesTextstuck').getComputedTextLength();
+
+creditsCanvas.append("svg:a")
+    .attr("xlink:href", "http://creativecommons.org/licenses/by-sa/4.0/deed.en_US")
+    .attr("target", "_blank")
+    .append("svg:text")
+    .attr("x", xorigin + 610 + erstesTextstuckLange + 3)
+    .attr("y", yorigin + 26)
+    .attr('class', 'creditsLink').attr("id", 'zweitesTextstuck')
+    .text("Creative Commons BY-SA license");
+var zweitesTextstuckLange = document.getElementById('zweitesTextstuck').getComputedTextLength();
+
+/*3. Zeile – left*/
+creditsCanvas
+    .append("text")
+    .text("View the")
+    .attr("x", xorigin + 0)
+    .attr("y", yorigin + 40)
+    .attr("id", 'erstesTextstuckZweiteZeile').attr('class', 'creditsText');
+
+var erstesTextstuckZweiteZeileLange = document.getElementById('erstesTextstuckZweiteZeile').getComputedTextLength();
+
+creditsCanvas.append("svg:a")
+    .attr("xlink:href", "https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/edit#gid=1578718062")
+    .attr("target", "_blank")
+    .append("svg:text")
+    .attr("x", xorigin + erstesTextstuckZweiteZeileLange + 3)
+    .attr("y", yorigin + 40)
+    .attr('class', 'creditsLink')
+    .text("database");
