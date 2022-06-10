@@ -701,7 +701,7 @@ app.controller('MainCtrl', function ($scope) {
                 { 'x': 2011, 'y': 19.9, 'series': 0 }], yAxis: 1
         },
         {
-            key: 'Roine & Waldenström (2015) - Individual net wealth', type: 'scatter', values: [
+            key: 'Roine & Waldenström (2015) - Household net wealth', type: 'scatter', values: [
                 { 'x': 1905, 'y': 55.0, 'series': 1 },
                 { 'x': 1914, 'y': 56.5, 'series': 1 },
                 { 'x': 1919, 'y': 50.0, 'series': 1 },
