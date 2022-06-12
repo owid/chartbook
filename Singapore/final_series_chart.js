@@ -13,10 +13,15 @@ var top_series = [
         key: "Top quartile as % median - Gross monthly income from work (employed population)",
         values: [],
         color: earningscolor
+    },
+    {
+        key: "Top decile as % median - Household per capita earnings",
+        values: [],
+        color: earningscolor
     }
 ]
 
-var RH_tickMarks = [150, 160, 170, 180] // XXX    100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300
+var RH_tickMarks = [140, 190, 230, 270, 310, 340, 380, 410] // XXX    100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300
 
 c3.csv("top_chart.csv", function (error, csv) {  // XXX
     if (error) return console.log("there was an error loading the earnings dispersion csv: " + error);
@@ -53,7 +58,7 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
 
         chart.yAxis.tickValues(RH_tickMarks);
 
-        chart.yDomain([150, 180]); //XXX
+        chart.yDomain([140, 410]); //XXX
 
         c3.select('#chart1')
             .datum(top_series)
@@ -81,17 +86,17 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
 
 var series = [
     {
-        key: "Gini coefficient - Individual income from work (employed population)",
+        key: "Gini coefficient - Individual income (employed population)",
         values: [],
         color: overallinequalitycolor,
     },
     {
-        key: "Gini coefficient - Equivalised monthly household income from work",
+        key: "Gini coefficient - Household per capita monthly earnings",
         values: [],
         color: overallinequalitycolor,
     },
     {
-        key: "Gini coefficient - Unequivalised disposable household income from work after transfers (employed population)",
+        key: "Gini coefficient - Household per capita disposable earnings (employed population)",
         values: [],
         color: overallinequalitycolor,
     },
@@ -112,7 +117,7 @@ var series = [
     },
 ]
 
-var LH_tickMarks = [10, 20, 30, 40, 50, 60, 70] // XXX     10,20,30,40,50,60,70,80,90,100
+var LH_tickMarks = [10, 20, 30, 40, 50, 60] // XXX     10,20,30,40,50,60,70,80,90,100
 
 
 c3.csv("bottom_chart.csv", function (error, csv) { // XXX
@@ -159,7 +164,7 @@ c3.csv("bottom_chart.csv", function (error, csv) { // XXX
 
         chart.yAxis.tickValues(LH_tickMarks);
 
-        chart.yDomain([-1, 70]);  //XXX
+        chart.yDomain([-1, 60]);  //XXX
 
         c3.select('#chart2')
             .datum(series)
