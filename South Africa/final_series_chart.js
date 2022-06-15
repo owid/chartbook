@@ -85,32 +85,26 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
 
 var series = [
     {
-        key: "Gini coefficient - Per capita income",
         values: [],
         color: overallinequalitycolor,
     },
     {
-        key: "Share of top 1% - Pre-tax fiscal income (tax units, individuals)",
         values: [],
         color: topincomecolor,
     },
     {
-        key: "Share of top 1% - Pre-tax national income (equal-split adults)",
         values: [],
         color: topincomecolor,
     },
     {
-        key: "Share below R3,000 (2000 currency value) - Per capita income",
         values: [],
         color: povertycolor,
     },
     {
-        key: "Share below upper-bound poverty line - Per capita expenditure",
         values: [],
         color: povertycolor,
     },
     {
-        key: "Share of top 1% - Individual net wealth",
         values: [],
         color: wealthcolor,
     },
@@ -122,7 +116,10 @@ c3.csv("bottom_chart.csv", function (error, csv) { // XXX
     if (error) return console.log("there was an error loading the csv: " + error);
     console.log("there are " + csv.length + " elements in my csv set");
 
-    var column_names = series.map(item => { return item.key }); // XXX
+    // Creates array of column names 
+    var column_names = [Object.keys(csv[0])][0]; // XXX
+    column_names.shift()
+
     console.log(column_names)
 
     for (var i = 0; i < column_names.length; i++) {
@@ -552,15 +549,13 @@ AddToChart2.append("svg:line")
 
 // Earnings Series
 
-c3.csv("../raw_df.csv", function (data) {
-    c3.select('#chart1')
-        .append("text")
-        .attr("class", "linelabel")
-        .style("fill", earningscolor)
-        .text("Top decile as % median - Individual gross")
-        .attr("x", 760)
-        .attr("y", 90);
-})
+c3.select('#chart1')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", earningscolor)
+    .text("Top decile as % median - Individual gross")
+    .attr("x", 760)
+    .attr("y", 90);
 c3.select('#chart1')
     .append("text")
     .attr("class", "linelabel")
