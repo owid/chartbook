@@ -10,11 +10,11 @@ var topincomecolor = '#6a3d9a'; // purple
 
 var top_series = [
     {
-        key: "Top decile as % median - Individual gross (monthly) wages", // XXX
         values: [],
         color: earningscolor
     }
 ]
+
 
 var RH_tickMarks = [320, 345, 370, 395, 420, 445, 470, 495, 520] // XXX    100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300
 
@@ -22,7 +22,11 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
     if (error) return console.log("there was an error loading the earnings dispersion csv: " + error);
     console.log("there are " + csv.length + " elements in my earnings dispersion dataset");
 
-    var column_names = top_series.map(item => { return item.key });  // Returns the column header i.e. the measure
+    // Creates array of column names 
+    var column_names = [Object.keys(csv[0])][0]; // XXX
+    column_names.shift()
+
+    console.log(column_names)
 
     for (var i = 0; i < column_names.length; i++) {
         top_series[i].key = column_names[i];
@@ -49,7 +53,7 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
 
         chart.xAxis.tickFormat(function (d) { return c3.time.format('%Y')(new Date(d)) });
 
-        chart.xDomain([((1900 - 1969.5) * 31556900000), ((2020 - 1969.5) * 31556900000)]);
+        chart.xDomain([((1900 - 1969.5) * 31556900000), ((2021 - 1969.5) * 31556900000)]);
 
         chart.yAxis.tickValues(RH_tickMarks);
 
@@ -153,7 +157,7 @@ c3.csv("bottom_chart.csv", function (error, csv) { // XXX
         chart.xAxis
             .tickFormat(function (d) { return c3.time.format('%Y')(new Date(d)) });
 
-        chart.xDomain([((1900 - 1969.5) * 31556900000), ((2020 - 1969.5) * 31556900000)]);
+        chart.xDomain([((1900 - 1969.5) * 31556900000), ((2021 - 1969.5) * 31556900000)]);
 
 
         chart.yAxis.tickValues(LH_tickMarks);
@@ -561,7 +565,7 @@ c3.select('#chart1')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", earningscolor)
-    .text("(monthly) wages")
+    .text("monthly wages")
     .attr("x", 760)
     .attr("y", 100);
 
@@ -578,7 +582,7 @@ c3.select('#chart2')
     .style("fill", overallinequalitycolor)
     .text("Gini coefficient – Per capita income")
     .attr("x", 760)
-    .attr("y", 65);
+    .attr("y", 47);
 
 
 // Top Income Series
@@ -588,31 +592,45 @@ c3.select('#chart2')
     .style("fill", topincomecolor)
     .text("Share of top 1% - Pre-tax national income (equal-split")
     .attr("x", 760)
-    .attr("y", 265);
+    .attr("y", 250);
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", topincomecolor)
-    .text("adults)")
+    .text("adults) ★")
+    .attr("x", 760)
+    .attr("y", 260);
+
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", topincomecolor)
+    .text("Share of top 1% - Pre-tax fiscal income")
     .attr("x", 760)
     .attr("y", 275);
-
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", topincomecolor)
+    .text(" (tax units, individuals) ★")
+    .attr("x", 760)
+    .attr("y", 285);
 
 // Poverty Series
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", povertycolor)
-    .text("Share below upper-bound poverty line")
-    .attr("x", 760)
-    .attr("y", 85);
+    .text("Share below upper-bound poverty")
+    .attr("x", 505)
+    .attr("y", 60);
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", povertycolor)
-    .text("- Per capita expenditure")
-    .attr("x", 760)
-    .attr("y", 95);
+    .text("line - Per capita expenditure")
+    .attr("x", 505)
+    .attr("y", 70);
 
 c3.select('#chart2')
     .append("text")
@@ -620,14 +638,14 @@ c3.select('#chart2')
     .style("fill", povertycolor)
     .text("Share below R3,000 (2000 currency")
     .attr("x", 270)
-    .attr("y", 118);
+    .attr("y", 105);
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", povertycolor)
     .text("value) - Per capita income")
     .attr("x", 270)
-    .attr("y", 128);
+    .attr("y", 115);
 
 
 // Wealth Series
@@ -637,7 +655,7 @@ c3.select('#chart2')
     .style("fill", wealthcolor)
     .text("Share of top 1% - Individual net wealth")
     .attr("x", 760)
-    .attr("y", 117);
+    .attr("y", 100);
 
 
 
