@@ -9,26 +9,23 @@ var topincomecolor = '#6a3d9a'; // purple
 //	Bottom Chart 
 // –––––––––––––––––––––––––––––––––––––––––––––– //
 
+// Define dimension colors, following the order of the columns in bottom_chart.csv
 var series = [
     {
-        key: "Gini coefficient - Disposable household income",
         values: [],
-        color: overallinequalitycolor
+        color: overallinequalitycolor // XXX
     },
     {
-        key: "Share of top 1% - Pre-tax national income (equal-split adults)",
         values: [],
-        color: topincomecolor
+        color: topincomecolor // XXX
     },
     {
-        key: "Share of top 1% - Pre-tax fiscal income (tax units) (excluding capital gains)",
         values: [],
-        color: topincomecolor
+        color: topincomecolor // XXX
     },
     {
-        key: "Share below 50% median - Equivalised household income",
         values: [],
-        color: povertycolor
+        color: povertycolor // XXX
     },
 ]
 
@@ -37,10 +34,12 @@ var LH_tickMarks = [10, 20, 30, 40, 50, 60] // XXX     10,20,30,40,50,60,70,80,9
 
 c3.csv("bottom_chart.csv", function (error, csv) {
     if (error) return console.log("there was an error loading the csv: " + error);
-    console.log("there are " + csv.length + " elements in my csv set");
+    console.log("There are " + [Object.keys(csv[0])][0].length + " series in the CSV");
 
     // Creates array of column names 
-    var column_names = series.map(item => { return item.key });; // XXX
+    var column_names = [Object.keys(csv[0])][0]; // XXX
+    column_names.shift()
+
     console.log(column_names)
 
     // Modifies years to fit chart
