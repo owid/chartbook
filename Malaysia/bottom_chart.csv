@@ -19,7 +19,7 @@ year,Gini coefficient - Househould income,Share of top 1% - Pre-tax national inc
 1971,NA,NA,15.14,NA,NA
 1972,NA,NA,18.51,NA,NA
 1973,NA,NA,17.49,NA,NA
-1974,53,NA,15.3,11.4,NA
+1974,53.0,NA,15.3,11.4,NA
 1975,NA,NA,16.3,NA,NA
 1976,55.7,NA,NA,10.8,37.7
 1979,50.5,NA,NA,11.9,37.4
@@ -42,7 +42,7 @@ year,Gini coefficient - Househould income,Share of top 1% - Pre-tax national inc
 1996,NA,18.84,NA,NA,NA
 1997,45.9,18.84,12.35,13.2,6.1
 1998,NA,18.84,NA,NA,NA
-1999,44.3,18.84,NA,14,7.5
+1999,44.3,18.84,NA,14.0,7.5
 2000,NA,18.84,NA,NA,NA
 2001,NA,18.84,NA,NA,NA
 2002,46.1,18.84,12.36,13.5,5.1
@@ -62,5 +62,5 @@ year,Gini coefficient - Househould income,Share of top 1% - Pre-tax national inc
 2016,39.9,14.87,NA,NA,0.4
 2017,NA,14.87,NA,NA,NA
 2018,NA,14.87,NA,NA,NA
-2019,40.7,14.87,NA,16,0.2
+2019,40.7,14.87,NA,16.0,0.2
 2020,NA,14.87,NA,NA,NA
