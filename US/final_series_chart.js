@@ -10,19 +10,22 @@ var topincomecolor = '#6a3d9a'; // purple
 
 var top_series = [
     {
-        key: "Top decile as % median - Gross individual earnings", // XXX
         values: [],
         color: earningscolor
     }
 ]
 
-var RH_tickMarks = [150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260] // XXX    100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300
+var RH_tickMarks = [145, 165, 185, 205, 225, 245, 265] // XXX    100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300
 
 c3.csv("top_chart.csv", function (error, csv) {  // XXX
     if (error) return console.log("there was an error loading the earnings dispersion csv: " + error);
     console.log("there are " + csv.length + " elements in my earnings dispersion dataset");
 
-    var column_names = top_series.map(item => { return item.key });  // Returns the column header i.e. the measure
+    // Creates array of column names 
+    var column_names = [Object.keys(csv[0])][0]; // XXX
+    column_names.shift()
+
+    console.log(column_names)
 
     for (var i = 0; i < column_names.length; i++) {
         top_series[i].key = column_names[i];
@@ -49,7 +52,7 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
 
         chart.xAxis.tickFormat(function (d) { return c3.time.format('%Y')(new Date(d)) });
 
-        chart.xDomain([((1900 - 1969.5) * 31556900000), ((2020 - 1969.5) * 31556900000)]);
+        chart.xDomain([((1900 - 1969.5) * 31556900000), ((2021 - 1969.5) * 31556900000)]);
 
         chart.yAxis.tickValues(RH_tickMarks);
 
@@ -81,42 +84,38 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
 
 var series = [
     {
-        key: "Gini coefficient - Equivalised gross household income",
         values: [],
         color: overallinequalitycolor,
     },
     {
-        key: "Share of top 1% - Pre-tax national income (equal-split adults)",
         values: [],
         color: topincomecolor,
     },
     {
-        key: "Share of top 1% - Post-tax national income (equal-split adults)",
         values: [],
         color: topincomecolor,
     },
     {
-        key: "Share of top 1% - Pre-tax fiscal income (equal-split adults)",
         values: [],
         color: topincomecolor,
     },
     {
-        key: "Share below official poverty line - Equivalised gross household income",
         values: [],
         color: povertycolor,
     },
     {
-        key: "Share below 50% median - Equivalised disposable household income",
         values: [],
         color: povertycolor,
     },
     {
-        key: "Share of top 1% - Individual net wealth",
         values: [],
         color: wealthcolor,
     },
     {
-        key: "Share of top 1% - Equivalised household net wealth",
+        values: [],
+        color: wealthcolor,
+    },
+    {
         values: [],
         color: wealthcolor,
     },
@@ -128,7 +127,10 @@ c3.csv("bottom_chart.csv", function (error, csv) { // XXX
     if (error) return console.log("there was an error loading the csv: " + error);
     console.log("there are " + csv.length + " elements in my csv set");
 
-    var column_names = series.map(item => { return item.key }); // XXX
+    // Creates array of column names 
+    var column_names = [Object.keys(csv[0])][0]; // XXX
+    column_names.shift()
+
     console.log(column_names)
 
     for (var i = 0; i < column_names.length; i++) {
@@ -163,12 +165,12 @@ c3.csv("bottom_chart.csv", function (error, csv) { // XXX
         chart.xAxis
             .tickFormat(function (d) { return c3.time.format('%Y')(new Date(d)) });
 
-        chart.xDomain([((1900 - 1969.5) * 31556900000), ((2020 - 1969.5) * 31556900000)]);
+        chart.xDomain([((1900 - 1969.5) * 31556900000), ((2021 - 1969.5) * 31556900000)]);
 
 
         chart.yAxis.tickValues(LH_tickMarks);
 
-        chart.yDomain([-1, 50]);  //XXX
+        chart.yDomain([-1, 55]);  //XXX
 
         c3.select('#chart2')
             .datum(series)
@@ -557,18 +559,13 @@ AddToChart2.append("svg:line")
 
 
 // Earnings Series
-
-c3.csv("../raw_df.csv", function (data) {
-    c3.select('#chart1')
-        .append("text")
-        .attr("class", "linelabel")
-        .style("fill", earningscolor)
-        .text(data.find(object => {
-            return (object["country"] === "US" && object["dimension"] === "Earnings Dispersion" && object["description"] != "")
-        })["legend"]) // XXX
-        .attr("x", 760)
-        .attr("y", 105);
-})
+c3.select('#chart1')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", earningscolor)
+    .text("Top decile as % median - Gross individual earnings ★")
+    .attr("x", 760)
+    .attr("y", 90);
 
 
 /* --------------- */
@@ -580,16 +577,16 @@ c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", overallinequalitycolor)
-    .text("Gini coefficient – Equivalised disposable household")
+    .text("Gini coefficient – Equivalised gross household")
     .attr("x", 760)
-    .attr("y", 35);
+    .attr("y", 60);
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", overallinequalitycolor)
     .text("income")
     .attr("x", 760)
-    .attr("y", 45);
+    .attr("y", 70);
 
 
 // Top Income Series
@@ -597,16 +594,46 @@ c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", topincomecolor)
-    .text("Share of top 1% - Pre-tax national income (equal-split")
-    .attr("x", 760)
-    .attr("y", 225);
+    .text("Share of top 1% - Pre-tax national")
+    .attr("x", 112)
+    .attr("y", 202);
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", topincomecolor)
-    .text("adults)")
-    .attr("x", 760)
-    .attr("y", 235);
+    .text("income (equal-split adults) ★")
+    .attr("x", 112)
+    .attr("y", 212);
+
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", topincomecolor)
+    .text("Share of top 1% - Post-tax national")
+    .attr("x", 112)
+    .attr("y", 295);
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", topincomecolor)
+    .text("income (equal-split adults) ★")
+    .attr("x", 112)
+    .attr("y", 305);
+
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", topincomecolor)
+    .text("Share of top 1% - Pre-tax fiscal income")
+    .attr("x", 712)
+    .attr("y", 208);
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", topincomecolor)
+    .text("(equal-split adults) ★")
+    .attr("x", 712)
+    .attr("y", 218);
 
 
 // Poverty Series
@@ -621,22 +648,56 @@ c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", povertycolor)
-    .text("household income")
+    .text("household income ★")
     .attr("x", 760)
     .attr("y", 260);
 
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", povertycolor)
+    .text("Share below official poverty line - Equivalised")
+    .attr("x", 760)
+    .attr("y", 290);
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", povertycolor)
+    .text("gross household income")
+    .attr("x", 760)
+    .attr("y", 300);
 
 // Wealth Series
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", wealthcolor)
-    .text("Share of top 1% - Equivalised household net wealth")
+    .text("Share of top 1% - Equivalised household net")
     .attr("x", 760)
-    .attr("y", 158);
+    .attr("y", 175);
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", wealthcolor)
+    .text("wealth ★")
+    .attr("x", 760)
+    .attr("y", 185);
 
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", wealthcolor)
+    .text("Share of top 1% - Individual net wealth")
+    .attr("x", 760)
+    .attr("y", 149);
 
-
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", wealthcolor)
+    .text("Share of top 1% - Household net wealth ★")
+    .attr("x", 560)
+    .attr("y", 130);
 
 
 
