@@ -10,12 +10,10 @@ var topincomecolor = '#6a3d9a'; // purple
 
 var top_series = [
     {
-        key: "Top quartile as % median - Gross monthly income from work (employed population)",
         values: [],
         color: earningscolor
     },
     {
-        key: "Top decile as % median - Household per capita earnings",
         values: [],
         color: earningscolor
     }
@@ -27,7 +25,11 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
     if (error) return console.log("there was an error loading the earnings dispersion csv: " + error);
     console.log("there are " + csv.length + " elements in my earnings dispersion dataset");
 
-    var column_names = top_series.map(item => { return item.key });  // Returns the column header i.e. the measure
+    // Creates array of column names 
+    var column_names = [Object.keys(csv[0])][0]; // XXX
+    column_names.shift()
+
+    console.log(column_names)
 
     for (var i = 0; i < column_names.length; i++) {
         top_series[i].key = column_names[i];
@@ -86,32 +88,26 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
 
 var series = [
     {
-        key: "Gini coefficient - Individual income (employed population)",
         values: [],
         color: overallinequalitycolor,
     },
     {
-        key: "Gini coefficient - Household per capita monthly earnings",
         values: [],
         color: overallinequalitycolor,
     },
     {
-        key: "Gini coefficient - Household per capita disposable earnings (employed population)",
         values: [],
         color: overallinequalitycolor,
     },
     {
-        key: "Share of top 1% - Pre-tax fiscal income (individuals) (excluding capital gains)",
         values: [],
         color: topincomecolor,
     },
     {
-        key: "Share of top 1% - Pre-tax national income (equal-split adults)",
         values: [],
         color: topincomecolor,
     },
     {
-        key: "Bottom quintile as % median - Gross monthly income from work (employed population)",
         values: [],
         color: earningscolor,
     },
@@ -124,7 +120,10 @@ c3.csv("bottom_chart.csv", function (error, csv) { // XXX
     if (error) return console.log("there was an error loading the csv: " + error);
     console.log("there are " + csv.length + " elements in my csv set");
 
-    var column_names = series.map(item => { return item.key }); // XXX
+    // Creates array of column names 
+    var column_names = [Object.keys(csv[0])][0]; // XXX
+    column_names.shift()
+
     console.log(column_names)
 
     for (var i = 0; i < column_names.length; i++) {
@@ -521,22 +520,29 @@ AddToChart2.append("svg:line")
 
 // Earnings Series
 
-c3.csv("../raw_df.csv", function (data) {
-    c3.select('#chart1')
-        .append("text")
-        .attr("class", "linelabel")
-        .style("fill", earningscolor)
-        .text("Top quartile as % median – Gross (monthly) income")
-        .attr("x", 760)
-        .attr("y", 115);
-    c3.select('#chart1')
-        .append("text")
-        .attr("class", "linelabel")
-        .style("fill", earningscolor)
-        .text("from work (employed population)")
-        .attr("x", 760)
-        .attr("y", 125);
-})
+c3.select('#chart1')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", earningscolor)
+    .text("Top decile as % median - Household per capita earnings")
+    .attr("x", 760)
+    .attr("y", 115);
+
+c3.select('#chart1')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", earningscolor)
+    .text("Top quartile as % median – Gross monthly earnings")
+    .attr("x", 760)
+    .attr("y", 180);
+c3.select('#chart1')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", earningscolor)
+    .text("(employed population)")
+    .attr("x", 760)
+    .attr("y", 190);
+
 
 
 /* --------------- */
@@ -545,62 +551,61 @@ c3.csv("../raw_df.csv", function (data) {
 
 // Earnings Series
 
-c3.csv("../raw_df.csv", function (data) {
-    c3.select('#chart2')
-        .append("text")
-        .attr("class", "linelabel")
-        .style("fill", earningscolor)
-        .text("Bottom quintile as % median – Gross (monthly) income")
-        .attr("x", 760)
-        .attr("y", 97);
-    c3.select('#chart2')
-        .append("text")
-        .attr("class", "linelabel")
-        .style("fill", earningscolor)
-        .text("from work (employed population)")
-        .attr("x", 760)
-        .attr("y", 107);
-})
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", earningscolor)
+    .text("Bottom quintile as % median – Gross monthly")
+    .attr("x", 760)
+    .attr("y", 75);
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", earningscolor)
+    .text("individual earnings (employed population)")
+    .attr("x", 760)
+    .attr("y", 85);
+
 
 // Overall Inequality Series
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", overallinequalitycolor)
-    .text("Gini – Unequivalised (monthly) household income from work")
-    .attr("x", 632)
-    .attr("y", 125);
+    .text("Gini coefficient – Household per capita monthly earnings")
+    .attr("x", 640)
+    .attr("y", 105);
 
 
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", overallinequalitycolor)
-    .text("Gini - Unequivalised disposable household income")
+    .text("Gini coefficient - Household per capita")
     .attr("x", 760)
-    .attr("y", 170);
+    .attr("y", 150);
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", overallinequalitycolor)
-    .text("from work after transfers (employed population)")
+    .text("disposable earnings (employed population)")
     .attr("x", 760)
-    .attr("y", 180);
+    .attr("y", 160);
 
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", overallinequalitycolor)
-    .text("Gini - Individual income from")
-    .attr("x", 280)
-    .attr("y", 100);
+    .text("Gini coefficient - Individual income")
+    .attr("x", 255)
+    .attr("y", 80);
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", overallinequalitycolor)
-    .text("work (employed population)")
-    .attr("x", 280)
-    .attr("y", 110);
+    .text("(employed population)")
+    .attr("x", 255)
+    .attr("y", 90);
 
 // Top Income Series
 c3.select('#chart2')
@@ -609,15 +614,29 @@ c3.select('#chart2')
     .style("fill", topincomecolor)
     .text("Share of top 1% - Pre-tax national income (equal-split")
     .attr("x", 760)
-    .attr("y", 283);
+    .attr("y", 270);
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", topincomecolor)
-    .text("adults)")
+    .text("adults) ★")
     .attr("x", 760)
-    .attr("y", 293);
+    .attr("y", 280);
 
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", topincomecolor)
+    .text("Share of top 1% - Pre-tax fiscal income (individuals)")
+    .attr("x", 760)
+    .attr("y", 290);
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", topincomecolor)
+    .text("(excluding capital gains) ★")
+    .attr("x", 760)
+    .attr("y", 300);
 
 
 
