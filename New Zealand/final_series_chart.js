@@ -26,6 +26,7 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
     column_names.shift()
 
     console.log(column_names)
+
     for (var i = 0; i < column_names.length; i++) {
         top_series[i].key = column_names[i];
         top_series[i].values = csv.map(function (d) {
