@@ -556,7 +556,6 @@ AddToChart2.append("svg:line")
 
 
 // Earnings Series
-
 c3.select('#chart1')
     .append("text")
     .attr("class", "linelabel")
