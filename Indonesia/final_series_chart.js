@@ -11,31 +11,25 @@ var topincomecolor = '#6a3d9a'; // purple
 // Edit names and colours of the final series
 var series = [
     {
-        key: "Gini coefficient - Household per capita expenditure", // XXX
         values: [],
         color: overallinequalitycolor
 
     },
     {
-        key: "Share of top 1% - Pre-tax national income (equal-split adults)", // XXX
         values: [],
         color: topincomecolor
 
     },
     {
-        key: "Share of top 1% - Pre-tax fiscal income (tax units) (excluding capital gains)", // XXX
         values: [],
         color: topincomecolor
     },
-
     {
-        key: "Share below absolute poverty line - Household per capita expenditure", // XXX
         values: [],
         color: povertycolor
     },
 
     {
-        key: "Share below absolute (revised)  poverty line - Household per capita expenditure", // XXX
         values: [],
         color: povertycolor
     },
@@ -50,7 +44,9 @@ c3.csv("bottom_chart.csv", function (error, csv) {
     console.log("there are " + csv.length + " elements in my csv set");
 
     // Creates array of column names 
-    var column_names = series.map(item => { return item.key });; // XXX
+    var column_names = [Object.keys(csv[0])][0]; // XXX
+    column_names.shift()
+
     console.log(column_names)
 
     // Modifies years to fit chart
@@ -138,81 +134,81 @@ xAchse.append("svg:line")
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1900 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1900 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1900");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1910 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1910 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1910");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1920 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1920 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1920");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1930 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1930 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1930");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1940 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1940 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1940");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1950 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1950 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1950");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1960 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1960 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1960");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1970 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1970 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1970");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1980 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1980 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1980");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1990 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1990 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1990");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (2000 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (2000 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("2000");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (2010 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (2010 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("2010");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * ((2021 - 1900))) - 2)
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * ((2020 - 1900))) - 2)
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
-    .text("2021");
+    .text("2020");
 
 
 
@@ -506,23 +502,23 @@ var xorigin = 8;
 var yorigin = 1;
 
 /*1. Zeile*/
-// creditsCanvas
-//     .append("text")
-//     .text("A. B. Atkinson, J. Hasell, S. Morelli and M. Roser (2017) – 'The Chartbook of Economic Inequality' at")
-//     .attr("x", xorigin + 0)
-//     .attr("y", yorigin + 10)
-//     .attr("id", 'erstesTextstuckZweiteZeile').attr('class', 'creditsText');
+creditsCanvas
+    .append("text")
+    .text("A. B. Atkinson, J. Hasell, S. Morelli, M. Roser and C. Appel (2022) – 'The Chartbook of Economic Inequality' at")
+    .attr("x", xorigin + 0)
+    .attr("y", yorigin + 10)
+    .attr("id", 'erstesTextstuckZweiteZeile').attr('class', 'creditsText');
 
-// var erstesTextstuckZweiteZeileLange = document.getElementById('erstesTextstuckZweiteZeile').getComputedTextLength();
+var erstesTextstuckZweiteZeileLange = document.getElementById('erstesTextstuckZweiteZeile').getComputedTextLength();
 
-// creditsCanvas.append("svg:a")
-//     .attr("xlink:href", "http://www.chartbookofeconomicinequality.com")
-//     .attr("target", "_blank")
-//     .append("svg:text")
-//     .attr("x", xorigin + erstesTextstuckZweiteZeileLange + 3)
-//     .attr("y", yorigin + 10)
-//     .attr('class', 'creditsLink')
-//     .text("www.ChartbookOfEconomicInequality.com");
+creditsCanvas.append("svg:a")
+    .attr("xlink:href", "http://www.chartbookofeconomicinequality.com")
+    .attr("target", "_blank")
+    .append("svg:text")
+    .attr("x", xorigin + erstesTextstuckZweiteZeileLange + 3)
+    .attr("y", yorigin + 10)
+    .attr('class', 'creditsLink')
+    .text("www.ChartbookOfEconomicInequality.com");
 
 
 /*2. Zeile left*/
@@ -540,9 +536,7 @@ creditsCanvas.append("text")
     .attr("x", xorigin + erstesTextstuckMeasureLinkLange + 3)
     .attr("y", yorigin + 26)
     .attr('class', 'creditsText').attr("id", 'zweitesTextstuckMeasureLink')
-    .text("for an explanation of the measures of economic inequality.");
-var zweitesTextstuckMeasureLinkLange = document.getElementById('zweitesTextstuckMeasureLink').getComputedTextLength();
-
+    .text("for an explanation of the measures of economic inequality");
 
 
 /*2. Zeile – right*/
@@ -570,15 +564,15 @@ creditsCanvas
     .text("View the")
     .attr("x", xorigin + 0)
     .attr("y", yorigin + 40)
-    .attr("id", 'erstesTextstuckZweiteZeile').attr('class', 'creditsText');
+    .attr("id", 'erstesTextstuckDritteZeile').attr('class', 'creditsText');
 
-var erstesTextstuckZweiteZeileLange = document.getElementById('erstesTextstuckZweiteZeile').getComputedTextLength();
+var erstesTextstuckDritteZeileLange = document.getElementById('erstesTextstuckDritteZeile').getComputedTextLength();
 
 creditsCanvas.append("svg:a")
-    .attr("xlink:href", "https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/edit#gid=1578718062")
+    .attr("xlink:href", "https://github.com/owid/chartbook")
     .attr("target", "_blank")
     .append("svg:text")
-    .attr("x", xorigin + erstesTextstuckZweiteZeileLange + 3)
+    .attr("x", xorigin + erstesTextstuckDritteZeileLange + 3)
     .attr("y", yorigin + 40)
     .attr('class', 'creditsLink')
-    .text("database");
+    .text("repository");
