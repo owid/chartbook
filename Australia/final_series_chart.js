@@ -8,9 +8,10 @@ var topincomecolor = '#6a3d9a'; // purple
 //	Top Chart – Earnings Dispersion
 // –––––––––––––––––––––––––––––––––––––––––––––– //
 
+// XXX
+// Define dimension colors, following the order of the columns in bottom_chart.csv
 var top_series = [
     {
-        key: "Top decile as % median - Gross weekly individual earnings", // XXX
         values: [],
         color: earningscolor
     }
@@ -23,7 +24,10 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
     if (error) return console.log("there was an error loading the earnings dispersion csv: " + error);
     console.log("there are " + csv.length + " elements in my earnings dispersion dataset");
 
-    var column_names = top_series.map(item => { return item.key });  // Returns the column header i.e. the measure
+    // Creates array of column names 
+    var column_names = [Object.keys(csv[0])][0]; // XXX
+    column_names.shift()
+
     console.log(column_names)
 
     for (var i = 0; i < column_names.length; i++) {
@@ -81,39 +85,34 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
 //	Bottom Chart 
 // –––––––––––––––––––––––––––––––––––––––––––––– //
 
+// XXX
+// Define dimension colors, following the order of the columns in bottom_chart.csv
 var series = [
     {
-        key: "Gini coefficient - Gross individual income",
         values: [],
         color: overallinequalitycolor
     },
     {
-        key: "Gini coefficient - Gross household income",
         values: [],
         color: overallinequalitycolor
     },
     {
-        key: "Gini coefficient - Equivalised disposable household income",
         values: [],
         color: overallinequalitycolor
     },
     {
-        key: "Share of top 1% - Pre-tax fiscal income (individuals)",
         values: [],
         color: topincomecolor
     },
     {
-        key: "Share of top 1% - Pre-tax national income (equal-split adults)",
         values: [],
         color: topincomecolor
     },
     {
-        key: "Share below 60% median - Equivalised disposable household income",
         values: [],
         color: povertycolor
     },
     {
-        key: "Share of top 1% - Household net wealth",
         values: [],
         color: wealthcolor
     },
@@ -126,7 +125,10 @@ c3.csv("bottom_chart.csv", function (error, csv) { // XXX
     if (error) return console.log("there was an error loading the csv: " + error);
     console.log("there are " + csv.length + " elements in my csv set");
 
-    var column_names = series.map(item => { return item.key }); // XXX
+    // Creates array of column names 
+    var column_names = [Object.keys(csv[0])][0]; // XXX
+    column_names.shift()
+
     console.log(column_names)
 
     for (var i = 0; i < column_names.length; i++) {
@@ -208,7 +210,8 @@ xAchse.append("svg:line")
     .attr("x2", 750)
     .attr("y2", 0.5)
     .style("stroke-width", 1)
-    .style("stroke", "lightgray")
+    .style("opacity", 1)
+    .style("stroke", "black")
     .attr("shape-rendering", "crispedges");
 
 xAchse.append("text")
@@ -521,7 +524,7 @@ AddToChart1.append("svg:line")
     .attr("y2", 66)
     .attr("shape-rendering", "crispedges")
     .style("stroke-width", 1)
-// .style("stroke", "black");
+    .style("stroke", "black");
 
 //Y-Axis Unterer Chart
 AddToChart2.append("svg:line")
@@ -531,14 +534,14 @@ AddToChart2.append("svg:line")
     .attr("y2", 360)
     .attr("shape-rendering", "crispedges")
     .style("stroke-width", 1)
-// .style("stroke", "black");
+    .style("stroke", "black");
 
 // Break in Y-Axis between top and bottom graph
 AddToChart2.append("svg:line")
     .transition()
-    .attr("x1", 21)
+    .attr("x1", 31)
     .attr("y1", 5)
-    .attr("x2", 33)
+    .attr("x2", 43)
     .attr("y2", 9)
     .attr("shape-rendering", "geometricPrecision")
     .style("stroke-width", 1)
@@ -673,7 +676,6 @@ c3.select('#chart2')
     .attr("x", 680)
     .attr("y", 255);
 
-
 /* ---------------------------------------------------- */
 // Credits
 /* ---------------------------------------------------- */
@@ -684,23 +686,23 @@ var xorigin = 8;
 var yorigin = 1;
 
 /*1. Zeile*/
-// creditsCanvas
-//     .append("text")
-//     .text("A. B. Atkinson, J. Hasell, S. Morelli and M. Roser (2017) – 'The Chartbook of Economic Inequality' at")
-//     .attr("x", xorigin + 0)
-//     .attr("y", yorigin + 10)
-//     .attr("id", 'erstesTextstuckZweiteZeile').attr('class', 'creditsText');
+creditsCanvas
+    .append("text")
+    .text("A. B. Atkinson, J. Hasell, S. Morelli, M. Roser and C. Appel (2022) – 'The Chartbook of Economic Inequality' at")
+    .attr("x", xorigin + 0)
+    .attr("y", yorigin + 10)
+    .attr("id", 'erstesTextstuckZweiteZeile').attr('class', 'creditsText');
 
-// var erstesTextstuckZweiteZeileLange = document.getElementById('erstesTextstuckZweiteZeile').getComputedTextLength();
+var erstesTextstuckZweiteZeileLange = document.getElementById('erstesTextstuckZweiteZeile').getComputedTextLength();
 
-// creditsCanvas.append("svg:a")
-//     .attr("xlink:href", "http://www.chartbookofeconomicinequality.com")
-//     .attr("target", "_blank")
-//     .append("svg:text")
-//     .attr("x", xorigin + erstesTextstuckZweiteZeileLange + 3)
-//     .attr("y", yorigin + 10)
-//     .attr('class', 'creditsLink')
-//     .text("www.ChartbookOfEconomicInequality.com");
+creditsCanvas.append("svg:a")
+    .attr("xlink:href", "http://www.chartbookofeconomicinequality.com")
+    .attr("target", "_blank")
+    .append("svg:text")
+    .attr("x", xorigin + erstesTextstuckZweiteZeileLange + 3)
+    .attr("y", yorigin + 10)
+    .attr('class', 'creditsLink')
+    .text("www.ChartbookOfEconomicInequality.com");
 
 
 /*2. Zeile left*/
@@ -718,9 +720,7 @@ creditsCanvas.append("text")
     .attr("x", xorigin + erstesTextstuckMeasureLinkLange + 3)
     .attr("y", yorigin + 26)
     .attr('class', 'creditsText').attr("id", 'zweitesTextstuckMeasureLink')
-    .text("for an explanation of the measures of economic inequality.");
-var zweitesTextstuckMeasureLinkLange = document.getElementById('zweitesTextstuckMeasureLink').getComputedTextLength();
-
+    .text("for an explanation of the measures of economic inequality");
 
 
 /*2. Zeile – right*/
@@ -748,15 +748,15 @@ creditsCanvas
     .text("View the")
     .attr("x", xorigin + 0)
     .attr("y", yorigin + 40)
-    .attr("id", 'erstesTextstuckZweiteZeile').attr('class', 'creditsText');
+    .attr("id", 'erstesTextstuckDritteZeile').attr('class', 'creditsText');
 
-var erstesTextstuckZweiteZeileLange = document.getElementById('erstesTextstuckZweiteZeile').getComputedTextLength();
+var erstesTextstuckDritteZeileLange = document.getElementById('erstesTextstuckDritteZeile').getComputedTextLength();
 
 creditsCanvas.append("svg:a")
-    .attr("xlink:href", "https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/edit#gid=1578718062")
+    .attr("xlink:href", "https://github.com/owid/chartbook")
     .attr("target", "_blank")
     .append("svg:text")
-    .attr("x", xorigin + erstesTextstuckZweiteZeileLange + 3)
+    .attr("x", xorigin + erstesTextstuckDritteZeileLange + 3)
     .attr("y", yorigin + 40)
     .attr('class', 'creditsLink')
-    .text("database");
+    .text("repository");
