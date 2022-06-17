@@ -630,7 +630,7 @@ c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", topincomecolor)
-    .text("(equal-split adults) (excluding capital gains) ★")
+    .text("(equal-split adults, excluding capital gains) ★")
     .attr("x", 55)
     .attr("y", 215);
 

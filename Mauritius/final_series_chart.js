@@ -439,13 +439,13 @@ c3.csv("../raw_df.csv", function (data) {
         .append("text")
         .attr("class", "linelabel")
         .style("fill", topincomecolor)
-        .text("Share of top 1% - Pre-tax fiscal income (tax units)") // XXX
+        .text("Share of top 1% - Pre-tax fiscal income (tax units,") // XXX
         .attr("x", 755)
         .attr("y", 330);
     c3.select('#chart2').append('text')
         .attr("class", "linelabel")
         .style("fill", topincomecolor)
-        .text("(excluding capital gains) ★")
+        .text("excluding capital gains) ★")
         .attr("x", 755)
         .attr("y", 340);
 })
@@ -548,10 +548,10 @@ creditsCanvas
 var erstesTextstuckDritteZeileLange = document.getElementById('erstesTextstuckDritteZeile').getComputedTextLength();
 
 creditsCanvas.append("svg:a")
-    .attr("xlink:href", "https://github.com/owid/chartbook")
+    .attr("xlink:href", "https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/edit#gid=1578718062")
     .attr("target", "_blank")
     .append("svg:text")
     .attr("x", xorigin + erstesTextstuckDritteZeileLange + 3)
     .attr("y", yorigin + 40)
     .attr('class', 'creditsLink')
-    .text("repository");
+    .text("database");
