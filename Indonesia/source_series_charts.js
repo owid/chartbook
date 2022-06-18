@@ -262,7 +262,7 @@ $scope.data2 = [
  {'x': 2002, 'y': 10.5, 'series': 0},
  {'x': 2003, 'y': 9.8, 'series': 0},
  {'x': 2004, 'y': 8.5, 'series': 0}], yAxis: 1},
- {key: 'WID - Pre-tax fiscal income (tax units) (excluding capital gains)', type: 'scatter', values: [
+ {key: 'WID - Pre-tax fiscal income (tax units, excluding capital gains)', type: 'scatter', values: [
 {'x': 1921, 'y': 11.8, 'series': 1},
  {'x': 1922, 'y': 14.3, 'series': 1},
  {'x': 1923, 'y': 14.8, 'series': 1},
@@ -339,7 +339,7 @@ $scope.data4 = [
  {'x': 2018, 'y': 9.7, 'series': 0},
  {'x': 2019, 'y': 9.3, 'series': 0},
  {'x': 2020, 'y': 10.0, 'series': 0}], yAxis: 1},
- {key: 'BPS - Household per capita expenditure', type: 'scatter', values: [
+ {key: 'BPS (1970-2017) - Household per capita expenditure', type: 'scatter', values: [
 {'x': 1998, 'y': 24.2, 'series': 1},
  {'x': 1999, 'y': 23.4, 'series': 1},
  {'x': 2000, 'y': 19.1, 'series': 1},
@@ -361,12 +361,12 @@ $scope.data4 = [
  {'x': 2016, 'y': 10.8, 'series': 1},
  {'x': 2017, 'y': 10.4, 'series': 1},
  {'x': 2020, 'y': null, 'series': 1}], yAxis: 1},
- {key: 'BPS - Household per capita expenditure', type: 'scatter', values: [
+ {key: 'BPS (2018-19) - Household per capita expenditure', type: 'scatter', values: [
 {'x': 1998, 'y': null, 'series': 2},
  {'x': 2018, 'y': 9.7, 'series': 2},
  {'x': 2019, 'y': 9.3, 'series': 2},
  {'x': 2020, 'y': null, 'series': 2}], yAxis: 1},
- {key: 'BPS - Household per capita expenditure', type: 'scatter', values: [
+ {key: 'BPS (2020-21) - Household per capita expenditure', type: 'scatter', values: [
 {'x': 1998, 'y': null, 'series': 3},
  {'x': 2020, 'y': 10.0, 'series': 3}], yAxis: 1}]
 });
