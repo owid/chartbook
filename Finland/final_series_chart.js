@@ -619,14 +619,14 @@ c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", topincomecolor)
-    .text("Share of top 1% - Post-tax national income (equal-split") // XXX 
+    .text("Share of top 1% - Post-tax national income") // XXX 
     .attr("x", 760) // XXX 
     .attr("y", 325); // XXX 
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", topincomecolor)
-    .text("adults) ★") // XXX 
+    .text("(equal-split adults) ★") // XXX 
     .attr("x", 760) // XXX 
     .attr("y", 335); // XXX 
 
