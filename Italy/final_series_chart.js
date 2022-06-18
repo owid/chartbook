@@ -211,81 +211,81 @@ xAchse.append("svg:line")
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1900 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1900 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1900");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1910 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1910 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1910");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1920 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1920 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1920");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1930 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1930 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1930");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1940 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1940 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1940");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1950 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1950 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1950");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1960 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1960 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1960");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1970 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1970 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1970");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1980 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1980 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1980");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (1990 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (1990 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1990");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (2000 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (2000 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("2000");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * (2010 - 1900)))
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * (2010 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("2010");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((750 - 38) / (2021 - 1900)) * ((2021 - 1900))) - 2)
+    .attr("x", 38 + (((750 - 38) / (2020 - 1900)) * ((2020 - 1900))) - 2)
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
-    .text("2021");
+    .text("2020");
 
 
 
@@ -634,7 +634,7 @@ c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", topincomecolor)
-    .text("(individuals) (excluding capital gains) ★")
+    .text("(individuals, excluding capital gains) ★")
     .attr("x", 290)
     .attr("y", 330);
 
@@ -736,10 +736,10 @@ creditsCanvas
 var erstesTextstuckDritteZeileLange = document.getElementById('erstesTextstuckDritteZeile').getComputedTextLength();
 
 creditsCanvas.append("svg:a")
-    .attr("xlink:href", "https://github.com/owid/chartbook")
+    .attr("xlink:href", "https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/edit#gid=1578718062")
     .attr("target", "_blank")
     .append("svg:text")
     .attr("x", xorigin + erstesTextstuckDritteZeileLange + 3)
     .attr("y", yorigin + 40)
     .attr('class', 'creditsLink')
-    .text("repository");
+    .text("database");
