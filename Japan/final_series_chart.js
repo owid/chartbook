@@ -611,7 +611,7 @@ c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", topincomecolor)
-    .text("(individuals) (excluding capital gains) ★")
+    .text("(individuals, excluding capital gains) ★")
     .attr("x", 105)
     .attr("y", 327);
 
@@ -730,10 +730,10 @@ creditsCanvas
 var erstesTextstuckDritteZeileLange = document.getElementById('erstesTextstuckDritteZeile').getComputedTextLength();
 
 creditsCanvas.append("svg:a")
-    .attr("xlink:href", "https://github.com/owid/chartbook")
+    .attr("xlink:href", "https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/edit#gid=1578718062")
     .attr("target", "_blank")
     .append("svg:text")
     .attr("x", xorigin + erstesTextstuckDritteZeileLange + 3)
     .attr("y", yorigin + 40)
     .attr('class', 'creditsLink')
-    .text("repository");
+    .text("database");
