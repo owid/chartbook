@@ -1,37 +1,33 @@
-
-
-
-var color_ref = {
-    'E': '#104E8B', // blue
-    'O': '#008000', // green
-    'P': '#e31a1c', // red
-    'W': '#FF9912', // gold
-    'T': '#6a3d9a', // purple
-}
+var earningscolor = '#104E8B'; // blue
+var overallinequalitycolor = '#008000'; // green
+var povertycolor = '#e31a1c'; // red
+var wealthcolor = '#FF9912'; // gold
+var topincomecolor = '#6a3d9a'; // purple
 
 // –––––––––––––––––––––––––––––––––––––––––––––– //
 //	Top Chart – Earnings Dispersion
 // –––––––––––––––––––––––––––––––––––––––––––––– //
 
+var top_series = [
+    {
+        key: "Top decile as % median - Gross individual earnings", // XXX
+        values: [],
+        color: earningscolor
+    }
+]
+
+var RH_tickMarks = [160, 170, 180, 190, 200] // XXX    100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300
+
 c3.csv("top_chart.csv", function (error, csv) {  // XXX
     if (error) return console.log("there was an error loading the earnings dispersion csv: " + error);
     console.log("there are " + csv.length + " elements in my earnings dispersion dataset");
 
-    var columndata = [Object.keys(csv[0])[1]];  // Returns the column header i.e. the measure
+    var column_names = top_series.map(item => { return item.key });  // Returns the column header i.e. the measure
 
-    var RH_series = [
-        {
-            key: columndata,	// XXX
-            values: [],
-            color: color_ref['E']  // replace with reference to raw data
-
-        }
-    ];
-
-    for (var i = 0; i < columndata.length; i++) {
-        RH_series[i].key = columndata[i];
-        RH_series[i].values = csv.map(function (d) {
-            return [+d["year"] - 1969.5, parseFloat(d[columndata[i]])];
+    for (var i = 0; i < column_names.length; i++) {
+        top_series[i].key = column_names[i];
+        top_series[i].values = csv.map(function (d) {
+            return [+d["year"] - 1969.5, parseFloat(d[column_names[i]])];
         }).filter(function (d) {
             return d[1] || (d[1] === 0);
         });
@@ -55,14 +51,12 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
 
         chart.xDomain([((1900 - 1969.5) * 31556900000), ((2020 - 1969.5) * 31556900000)]);
 
-        var RH_tickMarks = [160, 170, 180, 190, 200] // XXX    100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300
-
         chart.yAxis.tickValues(RH_tickMarks);
 
         chart.yDomain([160, 200]); //XXX
 
         c3.select('#chart1')
-            .datum(RH_series)
+            .datum(top_series)
             .transition().call(chart);
 
 
@@ -85,6 +79,44 @@ c3.csv("top_chart.csv", function (error, csv) {  // XXX
 //	Bottom Chart 
 // –––––––––––––––––––––––––––––––––––––––––––––– //
 
+var series = [
+    {
+        key: "Gini coefficient - Equivalised disposable household income",
+        values: [],
+        color: overallinequalitycolor
+    },
+    {
+        key: "Gini coefficient - Taxable income among tax units",
+        values: [],
+        color: overallinequalitycolor
+    },
+    {
+        key: "Share of top 1% - Pre-tax national income (equal-split adults)",
+        values: [],
+        color: topincomecolor
+    },
+    {
+        key: "Share of top 1% - Post-tax national income (equal-split adults)",
+        values: [],
+        color: topincomecolor
+    },
+    {
+        key: "Share of top 1% - Pre-tax fiscal income (tax units, individuals)",
+        values: [],
+        color: topincomecolor
+    },
+    {
+        key: "Share below 60% median - Equivalised disposable household income",
+        values: [],
+        color: povertycolor
+    },
+    {
+        key: "Share of top 1% - Individual net wealth",
+        values: [],
+        color: wealthcolor
+    },
+]
+
 var LH_tickMarks = [10, 20, 30, 40, 50, 60] // XXX     10,20,30,40,50,60,70,80,90,100
 
 
@@ -92,20 +124,8 @@ c3.csv("bottom_chart.csv", function (error, csv) { // XXX
     if (error) return console.log("there was an error loading the csv: " + error);
     console.log("there are " + csv.length + " elements in my csv set");
 
-
-    var column_names = Object.keys(csv[0]); // XXX
-
-    var series = [];
-    for (var i = 0; i < column_names.length; i++) {
-        var column_name = column_names[i];
-        series[i] = {
-            'key': column_name,
-            'values': [],
-            color: color_ref[column_name.split(' - ').pop().charAt(0)]
-        };
-    }
-
-    console.log(series)
+    var column_names = series.map(item => { return item.key }); // XXX
+    console.log(column_names)
 
     for (var i = 0; i < column_names.length; i++) {
         series[i].key = column_names[i];
@@ -116,8 +136,6 @@ c3.csv("bottom_chart.csv", function (error, csv) { // XXX
         });
     };
 
-
-    var colors = c3.scale.category20();
 
     keyColor = function (d, i) { return colors(d.key) };
 
@@ -160,6 +178,7 @@ c3.csv("bottom_chart.csv", function (error, csv) { // XXX
         return chart;
 
     });
+
 
 
     // end read csv
@@ -289,7 +308,7 @@ AddToChart1
     .style("fill", "black")  // Farbe geben
     .attr("text-anchor", "middle")
     .attr("font-size", "32")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 
 
 // –––––––––––––––––––––––––––––––––––––––––––––------– //
@@ -302,16 +321,16 @@ AddToChart1
     .text("Earnings Dispersion")
     .attr("x", 95)
     .attr("y", 59)
-    .style("fill", color_ref['E'])  // Farbe geben
+    .style("fill", earningscolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 
 AddToChart1.append("svg:circle")
     .attr("cx", 85)
     .attr("cy", 52)
     .attr("r", 3)
-    .style("fill", color_ref['E']);
+    .style("fill", earningscolor);
 
 //Overall Inequality
 AddToChart1
@@ -319,16 +338,16 @@ AddToChart1
     .text("Overall Income Inequality")
     .attr("x", 285)
     .attr("y", 59)
-    .style("fill", color_ref['O'])  // Farbe geben
+    .style("fill", overallinequalitycolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 
 AddToChart1.append("svg:circle")
     .attr("cx", 275)
     .attr("cy", 52)
     .attr("r", 3)
-    .style("fill", color_ref['O']);
+    .style("fill", overallinequalitycolor);
 
 
 //Poverty
@@ -337,15 +356,15 @@ AddToChart1
     .text("Poverty")
     .attr("x", 517)
     .attr("y", 59)
-    .style("fill", color_ref['P'])  // Farbe geben
+    .style("fill", povertycolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 AddToChart1.append("svg:circle")
     .attr("cx", 507)
     .attr("cy", 52)
     .attr("r", 3)
-    .style("fill", color_ref['P']);
+    .style("fill", povertycolor);
 
 
 //Top Incomes
@@ -354,15 +373,15 @@ AddToChart1
     .text("Top Income Shares")
     .attr("x", 618)
     .attr("y", 59)
-    .style("fill", color_ref['T'])  // Farbe geben
+    .style("fill", topincomecolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 AddToChart1.append("svg:circle")
     .attr("cx", 608)
     .attr("cy", 52)
     .attr("r", 3)
-    .style("fill", color_ref['T']);
+    .style("fill", topincomecolor);
 
 
 //Wealth
@@ -371,15 +390,15 @@ AddToChart1
     .text("Wealth Inequality")
     .attr("x", 795)
     .attr("y", 59)
-    .style("fill", color_ref['W'])  // Farbe geben
+    .style("fill", wealthcolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 AddToChart1.append("svg:circle")
     .attr("cx", 785)
     .attr("cy", 52)
     .attr("r", 3)
-    .style("fill", color_ref['W']);
+    .style("fill", wealthcolor);
 
 
 
@@ -537,12 +556,10 @@ c3.csv("../raw_df.csv", function (data) {
     c3.select('#chart1')
         .append("text")
         .attr("class", "linelabel")
-        .style("fill", color_ref['E'])
-        .text(data.find(object => {
-            return (object["country"] === "Finland" && object["dimension"] === "Earnings Dispersion" && object["description"] != "")
-        })["legend"]) // XXX
+        .style("fill", earningscolor)
+        .text("Top decile as % median - Gross individual earnings ★") // XXX
         .attr("x", 760) // XXX
-        .attr("y", 145); // XXX
+        .attr("y", 150); // XXX
 })
 
 
@@ -554,29 +571,29 @@ c3.csv("../raw_df.csv", function (data) {
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
-    .style("fill", color_ref['O'])
+    .style("fill", overallinequalitycolor)
     .text("Gini coefficient – Equivalised disposable household") // XXX
     .attr("x", 760) // XXX
     .attr("y", 205); // XXX
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
-    .style("fill", color_ref['O'])
-    .text("income") // XXX
+    .style("fill", overallinequalitycolor)
+    .text("income ★") // XXX
     .attr("x", 760) // XXX
     .attr("y", 215); // XXX
 
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
-    .style("fill", color_ref['O'])
+    .style("fill", overallinequalitycolor)
     .text("Gini coefficient - Taxable income among tax") // XXX 
     .attr("x", 760) // XXX 
     .attr("y", 115); // XXX 
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
-    .style("fill", color_ref['O'])
+    .style("fill", overallinequalitycolor)
     .text("units") // XXX 
     .attr("x", 760) // XXX 
     .attr("y", 125); // XXX 
@@ -586,31 +603,60 @@ c3.select('#chart2')
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
-    .style("fill", color_ref['T'])
+    .style("fill", topincomecolor)
     .text("Share of top 1% - Pre-tax national income (equal-split") // XXX 
     .attr("x", 760) // XXX 
     .attr("y", 305); // XXX 
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
-    .style("fill", color_ref['T'])
-    .text("adults)") // XXX 
+    .style("fill", topincomecolor)
+    .text("adults) ★") // XXX 
     .attr("x", 760) // XXX 
     .attr("y", 315); // XXX 
 
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", topincomecolor)
+    .text("Share of top 1% - Post-tax national income") // XXX 
+    .attr("x", 760) // XXX 
+    .attr("y", 325); // XXX 
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", topincomecolor)
+    .text("(equal-split adults) ★") // XXX 
+    .attr("x", 760) // XXX 
+    .attr("y", 335); // XXX 
+
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", topincomecolor)
+    .text("Share of top 1% - Pre-tax fiscal") // XXX 
+    .attr("x", 337) // XXX 
+    .attr("y", 333); // XXX 
+c3.select('#chart2')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", topincomecolor)
+    .text("income (tax-units, individuals) ★") // XXX 
+    .attr("x", 337) // XXX 
+    .attr("y", 343); // XXX 
 
 // Poverty Series
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
-    .style("fill", color_ref['P'])
+    .style("fill", povertycolor)
     .text("Share below 60% median - Equivalised disposable") // XXX 
     .attr("x", 760) // XXX 
     .attr("y", 283); // XXX 
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
-    .style("fill", color_ref['P'])
+    .style("fill", povertycolor)
     .text("household income") // XXX 
     .attr("x", 760) // XXX 
     .attr("y", 293); // XXX 
@@ -620,8 +666,95 @@ c3.select('#chart2')
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
-    .style("fill", color_ref['W'])
+    .style("fill", wealthcolor)
     .text("Share of top 1% - Individual net wealth") // XXX 
     .attr("x", 760) // XXX
     .attr("y", 238); // XXX
 
+
+
+
+/* ---------------------------------------------------- */
+// Credits
+/* ---------------------------------------------------- */
+
+
+var creditsCanvas = c3.select("#CreditsContainer")
+var xorigin = 8;
+var yorigin = 1;
+
+/*1. Zeile*/
+creditsCanvas
+    .append("text")
+    .text("A. B. Atkinson, J. Hasell, S. Morelli, M. Roser and C. Appel (2022) – 'The Chartbook of Economic Inequality' at")
+    .attr("x", xorigin + 0)
+    .attr("y", yorigin + 10)
+    .attr("id", 'erstesTextstuckZweiteZeile').attr('class', 'creditsText');
+
+var erstesTextstuckZweiteZeileLange = document.getElementById('erstesTextstuckZweiteZeile').getComputedTextLength();
+
+creditsCanvas.append("svg:a")
+    .attr("xlink:href", "http://www.chartbookofeconomicinequality.com")
+    .attr("target", "_blank")
+    .append("svg:text")
+    .attr("x", xorigin + erstesTextstuckZweiteZeileLange + 3)
+    .attr("y", yorigin + 10)
+    .attr('class', 'creditsLink')
+    .text("www.ChartbookOfEconomicInequality.com");
+
+
+/*2. Zeile left*/
+creditsCanvas.append("svg:a")
+    .attr("xlink:href", "http://www.chartbookofeconomicinequality.com/economic-inequality/measures-of-economic-inequality/")
+    .attr("target", "_blank")
+    .append("svg:text")
+    .text("Click here")
+    .attr("x", xorigin + 0)
+    .attr("y", yorigin + 26)
+    .attr("id", 'erstesTextstuckMeasureLink').attr('class', 'creditsLink');
+var erstesTextstuckMeasureLinkLange = document.getElementById('erstesTextstuckMeasureLink').getComputedTextLength();
+
+creditsCanvas.append("text")
+    .attr("x", xorigin + erstesTextstuckMeasureLinkLange + 3)
+    .attr("y", yorigin + 26)
+    .attr('class', 'creditsText').attr("id", 'zweitesTextstuckMeasureLink')
+    .text("for an explanation of the measures of economic inequality");
+
+
+/*2. Zeile – right*/
+creditsCanvas
+    .append("text")
+    .text("This visualisation is licensed under a")
+    .attr("x", xorigin + 610)
+    .attr("y", yorigin + 26)
+    .attr("id", 'erstesTextstuck').attr('class', 'creditsText');
+var erstesTextstuckLange = document.getElementById('erstesTextstuck').getComputedTextLength();
+
+creditsCanvas.append("svg:a")
+    .attr("xlink:href", "http://creativecommons.org/licenses/by-sa/4.0/deed.en_US")
+    .attr("target", "_blank")
+    .append("svg:text")
+    .attr("x", xorigin + 610 + erstesTextstuckLange + 3)
+    .attr("y", yorigin + 26)
+    .attr('class', 'creditsLink').attr("id", 'zweitesTextstuck')
+    .text("Creative Commons BY-SA license");
+var zweitesTextstuckLange = document.getElementById('zweitesTextstuck').getComputedTextLength();
+
+/*3. Zeile – left*/
+creditsCanvas
+    .append("text")
+    .text("View the")
+    .attr("x", xorigin + 0)
+    .attr("y", yorigin + 40)
+    .attr("id", 'erstesTextstuckDritteZeile').attr('class', 'creditsText');
+
+var erstesTextstuckDritteZeileLange = document.getElementById('erstesTextstuckDritteZeile').getComputedTextLength();
+
+creditsCanvas.append("svg:a")
+    .attr("xlink:href", "https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/edit#gid=1578718062")
+    .attr("target", "_blank")
+    .append("svg:text")
+    .attr("x", xorigin + erstesTextstuckDritteZeileLange + 3)
+    .attr("y", yorigin + 40)
+    .attr('class', 'creditsLink')
+    .text("database");

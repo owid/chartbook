@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.2/nv.d3.min.css" />
     <link rel="stylesheet" href="mv.c3.css" type="text/css">
+    <link rel="shortcut icon" href="#">
 
 </head>
 
@@ -25,7 +26,7 @@
 
         .mv-axis text {
             font-size: 12px;
-            font-style: italic;
+            /* font-style: italic; */
         }
 
 
@@ -38,7 +39,7 @@
         .yaxislabel {
             font-size: 12px;
             font-family: "Verdana", "Helvetica", Arial, "Lucida Grande";
-            font-style: italic;
+            /* font-style: italic; */
 
         }
 
@@ -76,6 +77,7 @@
         #chart1 {
             height: 72px;
             width: 1000px;
+            font: normal 12px Helvetica;
         }
 
         #chart2 {
@@ -133,23 +135,21 @@
             Argentina
         </h1>
         <!-- insert data -->
-<h2 style='color:#008000;'>Overall Income Inequality</h2>
-<h3>Gini coefficient - Equivalised household income</h3>
-<p>Gini coefficient for equivalised household income from SEDLAC (2020), based on data for 31 cities from the EPH household survey. This was replaced in 2003 by the 'Continuous EPH' (EPHC), which is conducted over the whole year, rather than two rounds in May and October (averages where multiple observations per year); the source indicates a break in the series in 2015 with methodological changes; linked backwards at 2003 to data for 28 cities from 1998 to 2003, linked back at 1998 to data for 15 cities from 1992 to 1998, linked back at 1992 to data for Greater Buenos Aires from 1974 to 1992, linked back again at 1974 to data from CONADE-CEPAL/Gas del Estado studies, as presented in Altimir (1986).</p><h4>Visualization of source data</h4>
+<h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Equivalised household income </h2><p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient for equivalised household income from SEDLAC (2020), based on data from the EPH household survey and, from 2003 onwards, the 'Continuous EPH' (EPHC). We take the average where multiple observations are given per year. The source indicates methodological changes and differences in the range of cities included in the survey. We link backwards over each of these breaks: at 2003, 1998, and 1992 (to data for Greater Buenos Aires alone). We then link backwards again to data from CONADE-CEPAL/Gas del Estado studies, as presented in Altimir (1986).</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data0'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
-<p>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20 assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax national income (equal-split adults) ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20 assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data1'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax fiscal income (individuals) (excluding captial gains)</h3>
-<p>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax fiscal income (individuals, excluding captial gains) ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data2'></nvd3>
-<h2 style='color:#e31a1c;'>Poverty</h2>
-<h3>Share below 50% median - Household per capita income</h3>
-<p>Percentage of individuals below 50 per cent of median household per capita income from SEDLAC (2020) EPHC data (averages where multiple observations per year), for 31 cities since 2006 and 28 cities previously. We extend the series by linking backwards at 2003 to a previous vintage of SEDLAC (2016) which contains earlier observations. Within the 2016 release, we link backwards at 1998 to data for 15 cities, and again at 1992 to data for Greater Buenos Aires.</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data3'></nvd3>
-    </div>
+<h2><span style='color:#e31a1c'>Poverty: </span>Share below 50% median - Household per capita income </h2><p><b>What is the source data that the Chartbook relies on? </b>Percentage of individuals below 50 per cent of median household per capita income from SEDLAC (2020) EPHC data from 2003. We take the average where multiple observations are given per year. We extend the series by linking backwards at 2003 to a previous vintage of SEDLAC (2016) in which earlier observations from the previous EPH survey are available. Within the 2016 release, the source indicates differences in the range of cities included in the survey. We link backwards over each of these breaks: at 1998, and 1992 (to data for Greater Buenos Aires alone).</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data3'>></div>
+<h2>References</h2>
+<li><a href = 'https://www.jstor.org/stable/3466844'>Altimir, O. (1986). Estimaciones de la Distribución del Ingreso en la Argentina, 1953-1980. "Desarrollo Económico, 25(100), 521". https://doi.org/10.2307/3466844</a></li>
+<li><a href = 'https://books.google.com/books?hl=en&lr=&id=eGaVAwAAQBAJ&oi=fnd&pg=PA253&dq=Alvaredo,+F,+2010,+%E2%80%9CThe+rich+in+Argentina+over+the+twentieth+century+1932-2004%E2%80%9D+in+A+B+Atkinson+and+T+Pikett&ots=wfMrsULQyg&sig=cKqjoYD2Yy5S7HWJOqD5-5yOSLU#v=onepage&q&f=false'>Alvaredo, F. (2010). The rich in Argentina over the twentieth century 1932-2004. In "Top incomes: A global perspective", 253–284. Oxford University Press.</a></li>
+<li><a href = 'http://wordpress.wid.world/document/countries-with-regional-income-imputations-on-wid-world-world-inequality-lab-technical-note-2021-15/'>Chancel, L., & Piketty, T. (2021). Countries with Regional Income Imputations on WID.world. "WID.world". Retrieved from http://wordpress.wid.world/document/countries-with-regional-income-imputations-on-wid-world-world-inequality-lab-technical-note-2021-15/</a></li>
+<li><a href = 'https://www.econstor.eu/handle/10419/127594'>Cruces, G., & Gasparini, L. (2008). A Distribution in Motion: The Case of Argentina. "Universidad Nacional De La Plata, Centro De Estudios Distributivos, Laborales y Sociales (CEDLAS)".</a></li>
+<li><a href = 'http://wordpress.wid.world/document/2021-dina-regional-update-for-latin-america-world-inequality-lab-technical-note-2021-7/'>De Rosa, M., Flores, I., & Morgan, M. (2021). 2021 DINA Regional Update for Latin America. "WID.world". Retrieved from http://wordpress.wid.world/document/2021-dina-regional-update-for-latin-america-world-inequality-lab-technical-note-2021-7/</a></li>
+<li><a href = 'https://muse.jhu.edu/article/430783'>Gasparini, L., Cruces, G., & Tornarolli, L. (2011). Recent trends in income inequality in Latin America. "Economía, 11(2)", 147–190. https://doi.org/10.1353/eco.2011.0002</a></li>
 </body>
 
 </html>

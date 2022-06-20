@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.2/nv.d3.min.css" />
     <link rel="stylesheet" href="mv.c3.css" type="text/css">
+    <link rel="shortcut icon" href="#">
 
 </head>
 
@@ -25,7 +26,7 @@
 
         .mv-axis text {
             font-size: 12px;
-            font-style: italic;
+            /* font-style: italic; */
         }
 
 
@@ -38,7 +39,7 @@
         .yaxislabel {
             font-size: 12px;
             font-family: "Verdana", "Helvetica", Arial, "Lucida Grande";
-            font-style: italic;
+            /* font-style: italic; */
 
         }
 
@@ -76,6 +77,7 @@
         #chart1 {
             height: 200px;
             width: 1000px;
+            font: normal 12px Helvetica;
         }
 
         #chart2 {
@@ -133,41 +135,23 @@
             Canada
         </h1>
         <!-- insert data -->
-<h2 style='color:#008000;'>Overall Income Inequality</h2>
-<h3>Gini coefficient - Equivalised after-tax household income</h3>
-<p>Gini coefficient of equivalised (from 2010 square root scale) after-tax household income. A single source series is used, taken from Statistics Canada.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Equivalised after-tax household income ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient of equivalised (2010 square root scale) after-tax household income. A single source series is used, taken from Statistics Canada.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data0'></nvd3>
-<h2 style='color:#008000;'>Overall Income Inequality</h2>
-<h3>Gini coefficient - Equivalised gross family money income</h3>
-<p>Gini coefficient for equivalised gross family income between 1965 and 1983. A single source series is used, taken from Wolfson (1986).</p><h4>Visualization of source data</h4>
+<h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Equivalised gross family money income </h2><p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient for equivalised gross family income between 1965 and 1983. A single source series is used, taken from Wolfson (1986).</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data1'></nvd3>
-<h2 style='color:#008000;'>Overall Income Inequality</h2>
-<h3>Gini coefficient - Gross family income for non-farm families</h3>
-<p>Gini coefficient for gross family income, restricted to non-farm families, in 1959 and 1971. A single source series is used, taken from Love (1979).</p><h4>Visualization of source data</h4>
+<h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Gross family income for non-farm families </h2><p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient for gross family income, restricted to non-farm families, in 1959 and 1971. A single source series is used, taken from Love (1979).</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data2'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
-<p>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax national income (equal-split adults) ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data3'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Post-tax national income (individuals)</h3>
-<p>Post-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Post-tax national income (individuals) ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Post-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data4'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax fiscal income (individuals)</h3>
-<p>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax fiscal income (individuals) ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20. The sources notes that "1920–1971: excludes capital gains. 1972–2000: includes capital gains".</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data5'></nvd3>
-<h2 style='color:#e31a1c;'>Poverty</h2>
-<h3>Share below 50% median - Equivalised after-tax household income</h3>
-<p>Percentage of individuals in households with equivalised after-tax annual income below 50 per cent of the median. A single source series is used, taken from Statistics Canada.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#e31a1c'>Poverty: </span>Share below 50% median - Equivalised after-tax household income ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Percentage of individuals in households with equivalised after-tax annual income below 50 per cent of the median. A single source series is used, taken from Statistics Canada.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data6'></nvd3>
-<h2 style='color:#104E8B;'>Earnings Dispersion</h2>
-<h3>Top decile as % median - Gross individual earnings</h3>
-<p>Earnings at top decile as percentage of median earnings from the OECD: linked with no multiplier across 1994 and 1997 to series calculated from OECD LMS, as reported in Atkinson (2008), based on the 'Survey of Consumer Finances'; data relates to individuals from 1981 and to households in 1967 and 1973; linked back at 1967 to series calculated from 'Earnings and Hours of Work in Manufacturing', also reported in Atkinson (2008); linked back across 1950 and 1951 to series calculated from census data, as presented in Atkinson (2008).</p><h4>Visualization of source data</h4>
+<h2><span style='color:#104E8B'>Earnings Dispersion: </span>Top decile as % median - Gross individual earnings ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Gross individual earnings at top decile as percentage of median from OECD; linked back in succession to three earlier series reported in Atkinson (2008).</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data7'></nvd3>
-<h2 style='color:#FF9912;'>Wealth Inequality</h2>
-<h3>Share of top 1% - Net wealth</h3>
-<p>Total net wealth share held by wealthiest 1% from Di Matteo & Davis (2021). Di Matteo and Davis' figures are based on estate multiplier estimates for families in Ontario for 1902, estate multiplier estimates for adults in Canada between 1945-1968, and Statistics Canada survey estimates for families in Canada between 1970-1999.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#FF9912'>Wealth Inequality: </span>Share of top 1% - Net wealth ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Share of net wealth held by the top 1% from Di Matteo & Davis (2021). Di Matteo and Davis' figures are based on estate multiplier estimates for families in Ontario for 1902, estate multiplier estimates for adults in Canada between 1945-1968, and Statistics Canada survey estimates for families in Canada between 1970-1999.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data8'></nvd3>
     </div>
 </body>

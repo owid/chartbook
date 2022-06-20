@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.2/nv.d3.min.css" />
     <link rel="stylesheet" href="mv.c3.css" type="text/css">
+    <link rel="shortcut icon" href="#">
 
 </head>
 
@@ -25,7 +26,7 @@
 
         .mv-axis text {
             font-size: 12px;
-            font-style: italic;
+            /* font-style: italic; */
         }
 
 
@@ -38,7 +39,7 @@
         .yaxislabel {
             font-size: 12px;
             font-family: "Verdana", "Helvetica", Arial, "Lucida Grande";
-            font-style: italic;
+            /* font-style: italic; */
 
         }
 
@@ -76,6 +77,7 @@
         #chart1 {
             height: 200px;
             width: 1000px;
+            font: normal 12px Helvetica;
         }
 
         #chart2 {
@@ -133,39 +135,106 @@
             Australia
         </h1>
         <!-- insert data -->
-<h2 style='color:#008000;'>Overall Income Inequality</h2>
-<h3>Gini coefficient - Gross individual income</h3>
-<p>Gini coefficient for gross individual income. A single source series is used, taken from Hancock (1971).</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data0'></nvd3>
-<h2 style='color:#008000;'>Overall Income Inequality</h2>
-<h3>Gini coefficient - Gross household income</h3>
-<p>Gini coefficient for gross household income. A single source series is used, taken from Ingels (1981).</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data1'></nvd3>
-<h2 style='color:#008000;'>Overall Income Inequality</h2>
-<h3>Gini coefficient - Equivalised disposable household income</h3>
-<p>Gini coefficient of equivalised disposable weekly household income from the Australian Bureau of Statistics: linked back at 1994 to the LIS series for Gini coefficient of equivalised disposable household income. The ABS figures indicate a break in the series in 2007 due to a change in methodology that was also partially applied in the 2003–04 and 2005–06 series. It notes that "Estimates presented for 2007–08 onwards are not directly comparable with estimates for previous cycles due to the improvements made to measuring income introduced in the 2007–08 cycle. Estimates for 2003–04 and 2005–06 have been recompiled to reflect the new measures of income, however not all components introduced in 2007–08 are available for earlier cycles." The comparability of the surveys conducted over the decade to 2010 is discussed in more detail by Wilkins (2014), who concludes that due to the changes in survey methodology, "it is not possible to produce deﬁnitive estimates of income inequality trends between 2001 and 2010."</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data2'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax fiscal income (individuals)</h3>
-<p>Pre-tax fiscal income share held by the top 1%. A single source series is used, taken from WID.world. Data relates to individuals over age 15.</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data3'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
-<p>Pre-tax national income share held by the top 1%. A single source series is used, taken from WID.world. This data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data4'></nvd3>
-<h2 style='color:#e31a1c;'>Poverty</h2>
-<h3>Share below 60% median - Disposable income (equivalised household)</h3>
-<p>Share of population with equivalised disposable household cash income below 60% of the median. A single source series is used, taken from LIS (2021).</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data5'></nvd3>
-<h2 style='color:#104E8B;'>Earnings Dispersion</h2>
-<h3>Top decile as % median - Gross weekly individual earnings</h3>
-<p>Gross individual earnings at top decile as percentage of median from series constructed based on multiple reports from the Australian Bureau Statistics, Series 6306.0: this data refers to weekly total cash earnings; linked with no multiplier across 2004 and 2006 to series calculated from Australia Employee Earnings and Hours (EEH), as reported in Atkinson (2008); data relates to weekly earnings of all workers, based on the May survey 'Employee Earnings and Hours': linked back at 1998 to series from OECD LMS, which is also presented in Atkinson (2008); data relates to full-time workers (all jobs prior to 1988), based on the August household survey 'Weekly Earnings of Employees'.</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data6'></nvd3>
-<h2 style='color:#FF9912;'>Wealth Inequality</h2>
-<h3>Share of top 1% - Household net wealth</h3>
-<p>Share of top 1% in total household net wealth from Katic and Leigh (2015): the 1915 observation is based on national wealth survey (tabulations); an inheritance tax series is used from 1953 to 1978 (when the inheritance tax was abolished); and observations since 1987 are based on national wealth surveys (micro data).</p><h4>Visualization of source data</h4>
-<nvd3 options='options' data='data7'></nvd3>
+        <h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Gross individual income
+        </h2>
+        <p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient for gross individual income. A
+            single source series is used, taken from Hancock (1971).</p>
+        <h4>How does the Chartbook series compare with the source data?</h4>
+        <nvd3 options='options' data='data0'></nvd3>
+        <h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Gross household income
+        </h2>
+        <p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient for gross household income. A
+            single source series is used, taken from Ingels (1981).</p>
+        <h4>How does the Chartbook series compare with the source data?</h4>
+        <nvd3 options='options' data='data1'></nvd3>
+        <h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Equivalised disposable
+            household income ★</h2>
+        <p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient of equivalised disposable
+            weekly household income from the Australian Bureau of Statistics: linked back at 1994 to the LIS series for
+            Gini coefficient of equivalised disposable household income. The ABS figures indicate a break in the series
+            in 2007 due to a change in methodology that was also partially applied in the 2003–04 and 2005–06 series. It
+            notes that "Estimates presented for 2007–08 onwards are not directly comparable with estimates for previous
+            cycles due to the improvements made to measuring income introduced in the 2007–08 cycle. Estimates for
+            2003–04 and 2005–06 have been recompiled to reflect the new measures of income, however not all components
+            introduced in 2007–08 are available for earlier cycles." The comparability of the surveys conducted over the
+            decade to 2010 is discussed in more detail by Wilkins (2014), who concludes that due to the changes in
+            survey methodology, "it is not possible to produce deﬁnitive estimates of income inequality trends between
+            2001 and 2010."</p>
+        <h4>How does the Chartbook series compare with the source data?</h4>
+        <nvd3 options='options' data='data2'></nvd3>
+        <h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax fiscal income (individuals)
+            ★</h2>
+        <p><b>What is the source data that the Chartbook relies on? </b>Pre-tax fiscal income share held by the top 1%.
+            A single source series is used, taken from WID.world. Data relates to individuals over age 15.</p>
+        <h4>How does the Chartbook series compare with the source data?</h4>
+        <nvd3 options='options' data='data3'></nvd3>
+        <h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax national income (equal-split
+            adults) ★</h2>
+        <p><b>What is the source data that the Chartbook relies on? </b>Pre-tax national income share held by the top
+            1%. A single source series is used, taken from WID.world. This data relates to individuals over age 20,
+            assuming resources are split equally within couples.</p>
+        <h4>How does the Chartbook series compare with the source data?</h4>
+        <nvd3 options='options' data='data4'></nvd3>
+        <h2><span style='color:#e31a1c'>Poverty: </span>Share below 60% median - Equivalised disposable household income
+            ★</h2>
+        <p><b>What is the source data that the Chartbook relies on? </b>Share of population with equivalised disposable
+            household income below 60% of the median. A single source series is used, taken from LIS.</p>
+        <h4>How does the Chartbook series compare with the source data?</h4>
+        <nvd3 options='options' data='data5'></nvd3>
+        <h2><span style='color:#104E8B'>Earnings Dispersion: </span>Top decile as % median - Gross weekly individual
+            earnings ★</h2>
+        <p><b>What is the source data that the Chartbook relies on? </b>Gross individual earnings at top decile as
+            percentage of median from series constructed based on multiple reports from the Australian Bureau
+            Statistics, Series 6306.0: this data refers to weekly total cash earnings; linked with no multiplier across
+            2004 and 2006 to series calculated from Australia Employee Earnings and Hours (EEH), as reported in Atkinson
+            (2008); data relates to weekly earnings of all workers, based on the May survey 'Employee Earnings and
+            Hours': linked back at 1998 to series from OECD LMS, which is also presented in Atkinson (2008); data
+            relates to full-time workers (all jobs prior to 1988), based on the August household survey 'Weekly Earnings
+            of Employees'.</p>
+        <h4>How does the Chartbook series compare with the source data?</h4>
+        <nvd3 options='options' data='data6'></nvd3>
+        <h2><span style='color:#FF9912'>Wealth Inequality: </span>Share of top 1% - Household net wealth ★</h2>
+        <p><b>What is the source data that the Chartbook relies on? </b>Share of total household net wealth held by the
+            top 1%, from Katic and Leigh (2015): the 1915 observation is based on national wealth survey (tabulations);
+            an inheritance tax series is used from 1953 to 1978 (when the inheritance tax was abolished); and
+            observations since 1987 are based on national wealth surveys (micro data).</p>
+        <h4>How does the Chartbook series compare with the source data?</h4>
+        <nvd3 options='options' data='data7'>>
     </div>
+    <h2>References</h2>
+    <li><a href='https://books.google.com/books/about/Top_Incomes.html?id=zLQUDAAAQBAJ'>Atkinson, A. B. (2008). "The
+            Changing Distribution of earnings in OECD countries". Oxford University Press.</a></li>
+    <li><a
+            href='https://onlinelibrary.wiley.com/doi/full/10.1111/j.1475-4932.2007.00412.x?casa_token=ppDgrAPAhFIAAAAA%3AR5Wmba9DMv0INE4b4WSFfum5bp2lF9Yu0ohdnGwjzeEDzrh_owtiX16R6WU16jeelDFXQu1euuMbQnI'>Atkinson,
+            A. B., & Leigh, A. (2007). The distribution of top incomes in Australia. "Economic Record, 83(262)",
+            247-261.</a></li>
+    <li><a href='https://link.springer.com/article/10.1007/s10888-014-9281-z'>Burkhauser, R. V., Hahn, M. H., & Wilkins,
+            R. (2015). Measuring top incomes using tax record data: A cautionary tale from Australia. "The Journal of
+            Economic Inequality, 13(2)", 181-205.</a></li>
+    <li>Hancock, K. (1971). The economics of social welfare in the 1970s. "Social Welfare in the 1970s", Australian
+        Council of Social Service, Sydney.</a></li>
+    <li>Ingles, D. (1981). Statistics on the Distribution of Income and Wealth in Australia. "Research Paper 14",
+        Department of Social Security, Canberra.</a></li>
+    <li><a
+            href='https://onlinelibrary.wiley.com/doi/full/10.1111/roiw.12177?casa_token=3M4TeVu_58IAAAAA%3AIvfx5mFPbIcwGjGribSoDyK7v9o2w9GXKLObZRstcStBiTmZj2eHQJD8fg81NgCKoPaXOhNjl9g5zKA'>Katic,
+            P., & Leigh, A. (2015). Top wealth shares in Australia 1915-2012. "Review of Income and Wealth, 62(2)",
+            209-222. doi:10.1111/roiw.12177</a></li>
+    <li><a
+            href='http://wordpress.wid.world/document/simplified-dina-for-australia-canada-and-new-zealand-world-inequality-lab-technical-note-2020-10/'>Matthew,
+            F. (2020). Simplified DINA for Australia, Canada and New Zealand. "WID.world". Retrieved from
+            http://wordpress.wid.world/document/simplified-dina-for-australia-canada-and-new-zealand-world-inequality-lab-technical-note-2020-10/</a>
+    </li>
+    <li><a href='https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1475-4932.1993.tb02117.x'>Saunders, P. (1993). Longer
+            run changes in the distribution of income in Australia. "Economic Record, 69(4)", 353-366.
+            doi:10.1111/j.1475-4932.1993.tb02117.x</a></li>
+    <li><a
+            href='https://onlinelibrary.wiley.com/doi/full/10.1111/1475-4932.12090?casa_token=lXdI0OmcGz8AAAAA%3AlZuGzd-EzHFdKM1WEtAaHj0u4mKMNK6o1Ctbb4qklF-MIpKfGcfxPSxZJAa5OwnFRUt9DwHbMk2PFvQ'>Wilkins,
+            R. (2014). Evaluating the evidence on income inequality in Australia in the 2000s. "Economic Record,
+            90(288)", 63-89. doi:10.1111/1475-4932.12090</a></li>
+    <li><a
+            href='https://onlinelibrary.wiley.com/doi/full/10.1111/1467-8462.12098?casa_token=whGsPZx1ARIAAAAA%3AV4n_gtE2cLiW7zyjhzVKBUuKxf2Ch_1Ou4-e9j-oohAj4cZv6MtLVeUjXob98kFgbp7z649PRcJLNss'>Wilkins,
+            R. (2015). Measuring income inequality in Australia. "Australian Economic Review, 48(1)", 93-102.
+            doi:10.1111/1467-8462.12098</a></li>
 </body>
 
 </html>

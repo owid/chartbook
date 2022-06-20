@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.2/nv.d3.min.css" />
     <link rel="stylesheet" href="mv.c3.css" type="text/css">
+    <link rel="shortcut icon" href="#">
 
 </head>
 
@@ -25,7 +26,7 @@
 
         .mv-axis text {
             font-size: 12px;
-            font-style: italic;
+            /* font-style: italic; */
         }
 
 
@@ -38,7 +39,7 @@
         .yaxislabel {
             font-size: 12px;
             font-family: "Verdana", "Helvetica", Arial, "Lucida Grande";
-            font-style: italic;
+            /* font-style: italic; */
 
         }
 
@@ -76,6 +77,7 @@
         #chart1 {
             height: 200px;
             width: 1000px;
+            font: normal 12px Helvetica;
         }
 
         #chart2 {
@@ -133,37 +135,21 @@
             Japan
         </h1>
         <!-- insert data -->
-<h2 style='color:#008000;'>Overall Income Inequality</h2>
-<h3>Gini coefficient - Equivalised household income</h3>
-<p>Gini coefficient for equivalised disposable household income taken from Lise (2014) who uses data from the Family Income and Expenditure Survey (FIES); linked at 1981 to series from Tachibanaki (2005) which uses data from the Income Redistribution Survey. Tachibanaki's estimates are more than 10 percentage points higher than Lise's for any given year.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Equivalised disposable household income ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient for equivalised disposable household income taken from Lise (2014) who uses data from the Family Income and Expenditure Survey (FIES); linked at 1981 to series from Tachibanaki (2005) which uses data from the Income Redistribution Survey.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data0'></nvd3>
-<h2 style='color:#008000;'>Overall Income Inequality</h2>
-<h3>Gini coefficient - Gross househould income</h3>
-<p>Gini coefficient for household income (pre-tax and transfers and not equivalised) for the pre-second World War period. A single source series is used, taken from Minami (1998) (source also cited by Hayami (1997) and Moriguchi and Saez (2010)). </p><h4>Visualization of source data</h4>
+<h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Gross househould income </h2><p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient for household income (pre-tax and transfers and not equivalised) for the pre-second World War period. A single source series is used, taken from Minami (1998) (source also cited by Hayami (1997) and Moriguchi and Saez (2010)). </p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data1'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
-<p>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax national income (equal-split adults) ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data2'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax fiscal income (individuals) (excluding capital gains)</h3>
-<p>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax fiscal income (individuals, excluding capital gains) ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data3'></nvd3>
-<h2 style='color:#e31a1c;'>Poverty</h2>
-<h3>Share below 60% median - Equivalised disposable household income</h3>
-<p>Percentage of individuals in households with equivalised (modified OECD scale) disposable income below 60 per cent of the median. A single source series is used, taken from the OECD.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#e31a1c'>Poverty: </span>Share below 60% median - Equivalised disposable household income ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Percentage of individuals in households with equivalised (modified OECD scale) disposable income below 60 per cent of the median. A single source series is used, taken from the OECD.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data4'></nvd3>
-<h2 style='color:#104E8B;'>Earnings Dispersion</h2>
-<h3>Top decile as % median - Earnings</h3>
-<p>Earnings at top decile as percentage of median earnings, from the OECD; linked at 1975 to series computed by Facundo Alvaredo based on work by Moriguchi and Saez (2010), covering all employees in the private sector who worked for the same employer throughout a calendar year, excluding temporary workers with job durations below one year, regular employees hired mid-year, government employees and retirees.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#104E8B'>Earnings Dispersion: </span>Top decile as % median - Gross individual earnings ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Gross individual earnings at top decile as percentage of median from OECD; linked at 1975 to a series computed by Facundo Alvaredo based on work by Moriguchi and Saez (2010), covering all employees in the private sector who worked for the same employer throughout a calendar year, excluding temporary workers with job durations below one year, regular employees hired mid-year, government employees and retirees.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data5'></nvd3>
-<h2 style='color:#FF9912;'>Wealth Inequality</h2>
-<h3>Gini coefficient - Net wealth</h3>
-<p>Gini coefficient for net worth for all population (home-owners and tenants). A single source series is used, taken from Tachibanaki (2005).</p><h4>Visualization of source data</h4>
+<h2><span style='color:#FF9912'>Wealth Inequality: </span>Gini coefficient - Net wealth </h2><p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient of net wealth. A single source series is used, taken from Tachibanaki (2005).</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data6'></nvd3>
-<h2 style='color:#FF9912;'>Wealth Inequality</h2>
-<h3>Share of top 1% - Net wealth</h3>
-<p>Total individual net wealth share held by wealthiest 1%. A single source series is used, taken from Kitao & Yamada (2019).</p><h4>Visualization of source data</h4>
+<h2><span style='color:#FF9912'>Wealth Inequality: </span>Share of top 1% - Net household financial wealth </h2><p><b>What is the source data that the Chartbook relies on? </b>Share of net financial wealth held by the top 1% of households. A single source series is used: the estimates from Kitao and Yamada (2019), based on NSFIE survey data. They compute household net wealth as the sum of financial assets less non-real estate loans.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data7'></nvd3>
     </div>
 </body>

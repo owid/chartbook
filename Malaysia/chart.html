@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.2/nv.d3.min.css" />
     <link rel="stylesheet" href="mv.c3.css" type="text/css">
+    <link rel="shortcut icon" href="#">
 
 </head>
 
@@ -25,7 +26,7 @@
 
         .mv-axis text {
             font-size: 12px;
-            font-style: italic;
+            /* font-style: italic; */
         }
 
 
@@ -38,7 +39,7 @@
         .yaxislabel {
             font-size: 12px;
             font-family: "Verdana", "Helvetica", Arial, "Lucida Grande";
-            font-style: italic;
+            /* font-style: italic; */
 
         }
 
@@ -76,6 +77,7 @@
         #chart1 {
             height: 72px;
             width: 1000px;
+            font: normal 12px Helvetica;
         }
 
         #chart2 {
@@ -133,23 +135,25 @@
             Malaysia
         </h1>
         <!-- insert data -->
-<h2 style='color:#008000;'>Overall Income Inequality</h2>
-<h3>Gini coefficient - Househould income</h3>
-<p>Gini coefficient for household income from Department of Statistics Malaysia, Household Income & Basic Amenities Survey Report (2019); linked back at 1970 to the 1967 observation from Rao (1988) as presented in Krongkaew and Ragayah (2006); linked back at 1970 to the 1957 observation from Ikemoto (1985).</p><h4>Visualization of source data</h4>
+<h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Househould income </h2><p><b>What is the source data that the Chartbook relies on? </b>Gini coefficient for household income from Department of Statistics Malaysia, Household Income & Basic Amenities Survey Report (2019); linked back at 1970 to the 1967 observation from Rao (1988) as presented in Krongkaew and Ragayah (2006); linked back at 1970 to the 1957 observation from Ikemoto (1985).</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data0'></nvd3>
-<h2 style='color:#6a3d9a;'>Top Income Shares</h2>
-<h3>Share of top 1% - Pre-tax national income (equal-split adults)</h3>
-<p>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax national income (equal-split adults) ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax national income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data1'></nvd3>
-<h2 style='color:#e31a1c;'>Poverty</h2>
-<h3>Share of bottom 40% - Household gross income</h3>
-<p>Total household income share of bottom 40%. A single source series is used, taken from Department of Statistics Malaysia, Household Income and Basic Amenities Survey Report (2014 and 2019). See also Ragayah (2008). </p><h4>Visualization of source data</h4>
+<h2><span style='color:#6a3d9a'>Top Income Shares: </span>Share of top 1% - Pre-tax fiscal income (equal-split adults) ★</h2><p><b>What is the source data that the Chartbook relies on? </b>Pre-tax fiscal income share held by top percentile. A single source series is used, taken from WID.world. Data relates to individuals over age 20, assuming resources are split equally within couples.</p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data2'></nvd3>
-<h2 style='color:#e31a1c;'>Poverty</h2>
-<h3>Share below absolute poverty line (PLI 2004) - Household gross income</h3>
-<p>Percentage of households below absolute poverty line (PLI 2004). A single source series is used, taken from Department of Statistics Malaysia, Household Income and Basic Amenities Survey Report 2019.</p><h4>Visualization of source data</h4>
+<h2><span style='color:#e31a1c'>Poverty: </span>Share of bottom 40% - Gross household income </h2><p><b>What is the source data that the Chartbook relies on? </b>Total gross household income share of bottom 40%. A single source series is used, taken from Department of Statistics Malaysia, Household Income and Basic Amenities Survey Report (2014 and 2019). See also Ragayah (2008). </p><h4>How does the Chartbook series compare with the source data?</h4>
 <nvd3 options='options' data='data3'></nvd3>
-    </div>
+<h2><span style='color:#e31a1c'>Poverty: </span>Share below absolute poverty line (PLI 2004) - Household income </h2><p><b>What is the source data that the Chartbook relies on? </b>Percentage of households with incomes below the absolute poverty line, which is defined as "the minimum income needed by a household to meet the basic needs of food and non-food for each of its members". A single source series is used, taken from Department of Statistics Malaysia, Household Income and Basic Amenities Survey Report (2019).</p><h4>How does the Chartbook series compare with the source data?</h4>
+<nvd3 options='options' data='data4'>></div>
+<h2>References</h2>
+<li><a href = 'https://documents1.worldbank.org/curated/en/262031468776799037/pdf/multi0page.pdf'>Anand, S. (1983). Inequality and Poverty in Malaysia: Measurement and Decomposition. World Bank.</a></li>
+<li><a href = 'https://wid.world/document/wid_methodology_notes_2013_5_malaysia/'>Atkinson, A. B. (2013). Top incomes in Malaysia 1947 to the present. "WID.world". Retrieved from https://wid.world/document/wid_methodology_notes_2013_5_malaysia/.</a></li>
+<li><a href = 'https://www.dosm.gov.my/v1/index.php?r=column/cthemeByCat&cat=120&bul_id=aHhtTHVWNVYzTFBua2dSUlBRL1Rjdz09&menu_id=amVoWU54UTl0a21NWmdhMjFMMWcyZz09'>Department of Statistics Malaysia (2014). Household Income and Basic Amenities Survey Report 2014. Retrieved 21 September 2021, from the eStatistik (Data Request) facility of the Department of Statistics Malaysia website.</a></li>
+<li><a href = 'https://www.dosm.gov.my/v1/index.php?r=column/cthemeByCat&cat=120&bul_id=TU00TmRhQ1N5TUxHVWN0T2VjbXJYZz09&menu_id=amVoWU54UTl0a21NWmdhMjFMMWcyZz09'>Department of Statistics Malaysia (2019). Household Income and Basic Amenities Survey Report 2019. Retrieved 21 September 2021, from the eStatistik (Data Request) facility of the Department of Statistics Malaysia website.</a></li>
+<li><a href = 'https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1746-1049.1985.tb00065.x'>Ikemoto, Y. (1985). Income distribution in Malaysia: 1957-80. "The Developing Economies, 23(4)", 347–367. https://doi.org/10.1111/j.1746-1049.1985.tb00065.x </a></li>
+<li><a href = 'https://www.networkideas.org/feathm/oct2006/PDF/Medhi_Krongkaew_Ragayah_Haji.pdf'>Krongkaew, M. & Ragayah H. M. Z. (2006). Income distribution and sustainable economic development in East Asia: A comparative analysis. "IDEAs Working Paper 2".</a></li>
+<li><a href = 'https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1748-3131.2008.00096.x'>Ragayah, H. M. Z. (2008). Income Inequality in Malaysia. "Asian Economic Policy Review, 3(1), 114–132. https://doi.org/10.1111/j.1748-3131.2008.00096.x.</a></li>
+<li><a href = 'https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-8411.1988.tb00144.x'>Rao, V. V. B. (1988). Income distribution in East Asian developing countries. "Asian-Pacific Economic Literature, 2(1)", 26–45. https://doi.org/10.1111/j.1467-8411.1988.tb00144.x </a></li>
 </body>
 
 </html>

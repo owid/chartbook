@@ -8,32 +8,28 @@ var topincomecolor = '#6a3d9a'; // purple
 //	Bottom Chart 
 // –––––––––––––––––––––––––––––––––––––––––––––– //
 
-// Edit names and colours of the final series
+// XXX
+// Define dimension colors, following the order of the columns in bottom_chart.csv
 var series = [
     {
-        key: "Gini coefficient - Equivalised household income", // XXX
         values: [],
         color: overallinequalitycolor
 
     },
 
     {
-        key: "Share of top 1% - Pre-tax national income (equal-split adults)", // XXX
         values: [],
         color: topincomecolor
     },
 
     {
-        key: "Share of top 1% - Pre-tax fiscal income (individuals) (excluding captial gains)", // XXX
         values: [],
         color: topincomecolor
     },
-
     {
-        key: "Share below 50% median - Household per capita income", // XXX
         values: [],
         color: povertycolor
-    }
+    },
 ];
 
 // Choose domain of y axis
@@ -46,7 +42,9 @@ c3.csv("bottom_chart.csv", function (error, csv) {
     console.log("there are " + csv.length + " elements in my csv set");
 
     // Creates array of column names 
-    var column_names = series.map(item => { return item.key });; // XXX
+    var column_names = [Object.keys(csv[0])][0]; // XXX
+    column_names.shift()
+
     console.log(column_names)
 
     // Modifies years to fit chart
@@ -84,7 +82,7 @@ c3.csv("bottom_chart.csv", function (error, csv) {
         chart.xAxis
             .tickFormat(function (d) { return c3.time.format('%Y')(new Date(d)) });
 
-        chart.xDomain([((1900 - 1969.5) * 31556900000), ((2020 - 1969.5) * 31556900000)]);
+        chart.xDomain([((1900 - 1969.5) * 31556900000), ((2021 - 1969.5) * 31556900000)]);
 
 
         chart.yAxis.tickValues(LH_tickMarks);
@@ -135,81 +133,81 @@ xAchse.append("svg:line")
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((755 - 38) / (2020 - 1900)) * (1900 - 1900)))
+    .attr("x", 38 + (((760 - 38) / (2021 - 1900)) * (1900 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1900");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((755 - 38) / (2020 - 1900)) * (1910 - 1900)))
+    .attr("x", 38 + (((760 - 38) / (2021 - 1900)) * (1910 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1910");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((755 - 38) / (2020 - 1900)) * (1920 - 1900)))
+    .attr("x", 38 + (((760 - 38) / (2021 - 1900)) * (1920 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1920");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((755 - 38) / (2020 - 1900)) * (1930 - 1900)))
+    .attr("x", 38 + (((760 - 38) / (2021 - 1900)) * (1930 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1930");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((755 - 38) / (2020 - 1900)) * (1940 - 1900)))
+    .attr("x", 38 + (((760 - 38) / (2021 - 1900)) * (1940 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1940");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((755 - 38) / (2020 - 1900)) * (1950 - 1900)))
+    .attr("x", 38 + (((760 - 38) / (2021 - 1900)) * (1950 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1950");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((755 - 38) / (2020 - 1900)) * (1960 - 1900)))
+    .attr("x", 38 + (((760 - 38) / (2021 - 1900)) * (1960 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1960");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((755 - 38) / (2020 - 1900)) * (1970 - 1900)))
+    .attr("x", 38 + (((760 - 38) / (2021 - 1900)) * (1970 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1970");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((755 - 38) / (2020 - 1900)) * (1980 - 1900)))
+    .attr("x", 38 + (((760 - 38) / (2021 - 1900)) * (1980 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1980");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((755 - 38) / (2020 - 1900)) * (1990 - 1900)))
+    .attr("x", 38 + (((760 - 38) / (2021 - 1900)) * (1990 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("1990");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((755 - 38) / (2020 - 1900)) * (2000 - 1900)))
+    .attr("x", 38 + (((760 - 38) / (2021 - 1900)) * (2000 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("2000");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((755 - 38) / (2020 - 1900)) * (2010 - 1900)))
+    .attr("x", 38 + (((760 - 38) / (2021 - 1900)) * (2010 - 1900)))
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
     .text("2010");
 
 xAchse.append("text")
     .attr("y", 4)
-    .attr("x", 38 + (((755 - 38) / (2020 - 1900)) * ((2020 - 1900))) - 2)
+    .attr("x", 38 + (((760 - 38) / (2021 - 1900)) * ((2021 - 1900))) - 2)
     .attr("class", "xAxisYear").attr("dy", ".71em").style("text-anchor", "middle")
-    .text("2020");
+    .text("2021");
 
 
 
@@ -232,7 +230,7 @@ AddToChart1
     .style("fill", "black")  // Farbe geben
     .attr("text-anchor", "middle")
     .attr("font-size", "32")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 
 var AddToChart2 = c3.select('#chart2');
 
@@ -250,7 +248,7 @@ AddToChart1
     .style("fill", overallinequalitycolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 AddToChart1.append("svg:circle")
     .attr("cx", 245)
     .attr("cy", 52)
@@ -267,7 +265,7 @@ AddToChart1
     .style("fill", povertycolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 AddToChart1.append("svg:circle")
     .attr("cx", 487)
     .attr("cy", 52)
@@ -284,7 +282,7 @@ AddToChart1
     .style("fill", topincomecolor)  // Farbe geben
     .attr("text-anchor", "beginning")
     .attr("font-size", "18")
-    .attr("font-family", "Century Gothic")
+    .attr("font-family", "Helvetica")
 AddToChart1.append("svg:circle")
     .attr("cx", 608)
     .attr("cy", 52)
@@ -420,7 +418,7 @@ c3.csv("../raw_df.csv", function (data) {
         .attr("class", "linelabel")
         .style("fill", overallinequalitycolor)
         .text("Gini coefficient - Equivalised household income") // XXX
-        .attr("x", 755)
+        .attr("x", 760)
         .attr("y", 144);
 })
 
@@ -430,15 +428,15 @@ c3.csv("../raw_df.csv", function (data) {
         .append("text")
         .attr("class", "linelabel")
         .style("fill", topincomecolor)
-        .text("Top Income Shares - Pre-tax national income") // XXX
-        .attr("x", 755)
-        .attr("y", 270);
+        .text("Share of top 1% - Pre-tax national income") // XXX
+        .attr("x", 760)
+        .attr("y", 241);
     c3.select('#chart2').append('text')
         .attr("class", "linelabel")
         .style("fill", topincomecolor)
         .text("(equal-split adults) ★")
-        .attr("x", 755)
-        .attr("y", 280);
+        .attr("x", 760)
+        .attr("y", 251);
 })
 
 // Top Income Shares
@@ -447,15 +445,15 @@ c3.csv("../raw_df.csv", function (data) {
         .append("text")
         .attr("class", "linelabel")
         .style("fill", topincomecolor)
-        .text("Top Income Shares - Pre-tax national income") // XXX
-        .attr("x", 525)
-        .attr("y", 263);
+        .text("Share of top 1% - Pre-tax fiscal income") // XXX
+        .attr("x", 250)
+        .attr("y", 195);
     c3.select('#chart2').append('text')
         .attr("class", "linelabel")
         .style("fill", topincomecolor)
-        .text("(equal-split adults) ★")
-        .attr("x", 525)
-        .attr("y", 273);
+        .text("(individuals, excluding capital gains) ★")
+        .attr("x", 250)
+        .attr("y", 205);
 })
 
 
@@ -466,14 +464,106 @@ c3.csv("../raw_df.csv", function (data) {
         .attr("class", "linelabel")
         .style("fill", povertycolor)
         .text("Share below 50% median - Household per capita") // XXX
-        .attr("x", 755)
-        .attr("y", 241);
+        .attr("x", 567)
+        .attr("y", 207);
     c3.select('#chart2').append('text')
         .attr("class", "linelabel")
         .style("fill", povertycolor)
         .text("income")
-        .attr("x", 755)
-        .attr("y", 251);
+        .attr("x", 567)
+        .attr("y", 217);
 })
 
+// // Wealth
+// c3.select('#chart2')
+//     .append("text")
+//     .attr("class", "linelabel")
+//     .style("fill", wealthcolor)
+//     .text("Share of top 1% - Net wealth (equal-split adults) ★") // XXX
+//     .attr("x", 760)
+//     .attr("y", 215);
 
+/* ---------------------------------------------------- */
+// Credits
+/* ---------------------------------------------------- */
+
+
+var creditsCanvas = c3.select("#CreditsContainer")
+var xorigin = 8;
+var yorigin = 1;
+
+/*1. Zeile*/
+creditsCanvas
+    .append("text")
+    .text("A. B. Atkinson, J. Hasell, S. Morelli, M. Roser and C. Appel (2022) – 'The Chartbook of Economic Inequality' at")
+    .attr("x", xorigin + 0)
+    .attr("y", yorigin + 10)
+    .attr("id", 'erstesTextstuckZweiteZeile').attr('class', 'creditsText');
+
+var erstesTextstuckZweiteZeileLange = document.getElementById('erstesTextstuckZweiteZeile').getComputedTextLength();
+
+creditsCanvas.append("svg:a")
+    .attr("xlink:href", "http://www.chartbookofeconomicinequality.com")
+    .attr("target", "_blank")
+    .append("svg:text")
+    .attr("x", xorigin + erstesTextstuckZweiteZeileLange + 3)
+    .attr("y", yorigin + 10)
+    .attr('class', 'creditsLink')
+    .text("www.ChartbookOfEconomicInequality.com");
+
+
+/*2. Zeile left*/
+creditsCanvas.append("svg:a")
+    .attr("xlink:href", "http://www.chartbookofeconomicinequality.com/economic-inequality/measures-of-economic-inequality/")
+    .attr("target", "_blank")
+    .append("svg:text")
+    .text("Click here")
+    .attr("x", xorigin + 0)
+    .attr("y", yorigin + 26)
+    .attr("id", 'erstesTextstuckMeasureLink').attr('class', 'creditsLink');
+var erstesTextstuckMeasureLinkLange = document.getElementById('erstesTextstuckMeasureLink').getComputedTextLength();
+
+creditsCanvas.append("text")
+    .attr("x", xorigin + erstesTextstuckMeasureLinkLange + 3)
+    .attr("y", yorigin + 26)
+    .attr('class', 'creditsText').attr("id", 'zweitesTextstuckMeasureLink')
+    .text("for an explanation of the measures of economic inequality");
+
+
+/*2. Zeile – right*/
+creditsCanvas
+    .append("text")
+    .text("This visualisation is licensed under a")
+    .attr("x", xorigin + 610)
+    .attr("y", yorigin + 26)
+    .attr("id", 'erstesTextstuck').attr('class', 'creditsText');
+var erstesTextstuckLange = document.getElementById('erstesTextstuck').getComputedTextLength();
+
+creditsCanvas.append("svg:a")
+    .attr("xlink:href", "http://creativecommons.org/licenses/by-sa/4.0/deed.en_US")
+    .attr("target", "_blank")
+    .append("svg:text")
+    .attr("x", xorigin + 610 + erstesTextstuckLange + 3)
+    .attr("y", yorigin + 26)
+    .attr('class', 'creditsLink').attr("id", 'zweitesTextstuck')
+    .text("Creative Commons BY-SA license");
+var zweitesTextstuckLange = document.getElementById('zweitesTextstuck').getComputedTextLength();
+
+/*3. Zeile – left*/
+creditsCanvas
+    .append("text")
+    .text("View the")
+    .attr("x", xorigin + 0)
+    .attr("y", yorigin + 40)
+    .attr("id", 'erstesTextstuckDritteZeile').attr('class', 'creditsText');
+
+var erstesTextstuckDritteZeileLange = document.getElementById('erstesTextstuckDritteZeile').getComputedTextLength();
+
+creditsCanvas.append("svg:a")
+    .attr("xlink:href", "https://docs.google.com/spreadsheets/d/1jLNfP3iuteUJrH0zS9qWONskyKh9pFcl1hKSlgEc-I8/edit#gid=1578718062")
+    .attr("target", "_blank")
+    .append("svg:text")
+    .attr("x", xorigin + erstesTextstuckDritteZeileLange + 3)
+    .attr("y", yorigin + 40)
+    .attr('class', 'creditsLink')
+    .text("database");
