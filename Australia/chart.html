@@ -131,9 +131,6 @@
     <script src="https://rawgit.com/krispo/angular-nvd3/v1.0.6/dist/angular-nvd3.js"></script>
     <script src="source_series_charts.js"></script>
     <div ng-controller="MainCtrl" id="source_charts">
-        <h1>
-            Australia
-        </h1>
         <!-- insert data -->
         <h2><span style='color:#008000'>Overall Income Inequality: </span>Gini coefficient - Gross individual income
         </h2>
@@ -177,8 +174,9 @@
         <nvd3 options='options' data='data4'></nvd3>
         <h2><span style='color:#e31a1c'>Poverty: </span>Share below 60% median - Equivalised disposable household income
             ★</h2>
-        <p><b>What is the source data that the Chartbook relies on? </b>Share of population with equivalised disposable
-            household income below 60% of the median. A single source series is used, taken from LIS.</p>
+        <p><b>What is the source data that the Chartbook relies on? </b>Share of population with equivalised (square
+            root scale) disposable household income below 60% of the median. A single source series is used, taken from
+            LIS.</p>
         <h4>How does the Chartbook series compare with the source data?</h4>
         <nvd3 options='options' data='data5'></nvd3>
         <h2><span style='color:#104E8B'>Earnings Dispersion: </span>Top decile as % median - Gross weekly individual
@@ -199,7 +197,7 @@
             an inheritance tax series is used from 1953 to 1978 (when the inheritance tax was abolished); and
             observations since 1987 are based on national wealth surveys (micro data).</p>
         <h4>How does the Chartbook series compare with the source data?</h4>
-        <nvd3 options='options' data='data7'>>
+        <nvd3 options='options' data='data7'></nvd3>
     </div>
     <h2>References</h2>
     <li><a href='https://books.google.com/books/about/Top_Incomes.html?id=zLQUDAAAQBAJ'>Atkinson, A. B. (2008). "The
@@ -221,7 +219,7 @@
             209-222. doi:10.1111/roiw.12177</a></li>
     <li><a
             href='http://wordpress.wid.world/document/simplified-dina-for-australia-canada-and-new-zealand-world-inequality-lab-technical-note-2020-10/'>Matthew,
-            F. (2020). Simplified DINA for Australia, Canada and New Zealand. "WID.world". Retrieved from
+            F. (2020). "Simplified DINA for Australia, Canada and New Zealand". WID.world. Retrieved from
             http://wordpress.wid.world/document/simplified-dina-for-australia-canada-and-new-zealand-world-inequality-lab-technical-note-2020-10/</a>
     </li>
     <li><a href='https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1475-4932.1993.tb02117.x'>Saunders, P. (1993). Longer
