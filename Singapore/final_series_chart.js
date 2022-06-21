@@ -524,9 +524,17 @@ c3.select('#chart1')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", earningscolor)
-    .text("Top decile as % median - Household per capita earnings")
+    .text("Top decile as % median - Household")
     .attr("x", 760)
-    .attr("y", 115);
+    .attr("y", 110);
+
+c3.select('#chart1')
+    .append("text")
+    .attr("class", "linelabel")
+    .style("fill", earningscolor)
+    .text("per capita earnings")
+    .attr("x", 760)
+    .attr("y", 120);
 
 c3.select('#chart1')
     .append("text")
@@ -596,16 +604,16 @@ c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", overallinequalitycolor)
-    .text("Gini coefficient - Individual income")
+    .text("Gini coefficient - Household per capita")
     .attr("x", 255)
-    .attr("y", 80);
+    .attr("y", 90);
 c3.select('#chart2')
     .append("text")
     .attr("class", "linelabel")
     .style("fill", overallinequalitycolor)
-    .text("(employed population)")
+    .text("monthly earnings (employed population)")
     .attr("x", 255)
-    .attr("y", 90);
+    .attr("y", 100);
 
 // Top Income Series
 c3.select('#chart2')
